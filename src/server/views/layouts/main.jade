@@ -1,0 +1,16 @@
+doctype
+html(lang="en" xmlns="http://www.w3.org/1999/xhtml")
+    head
+        meta(charset="utf-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge,chrome=1")
+        meta(name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no")
+        meta(name="msapplication-tap-highlight",content="no")
+        base(href="#{documentBaseUrl}")
+        block title
+        meta(http-equiv="Content-type" content="text/html;charset=UTF-8")
+        link(href="#{styleGuideUrl}" rel="stylesheet")
+
+    body(id='at-body')
+        block content
+        script(src="#{vendorUrl}")
+        script(src="#{bundleUrl}")
