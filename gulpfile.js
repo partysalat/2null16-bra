@@ -56,8 +56,8 @@ gulp.task('build', function (done) {
     ['_unit:server:fail','_unit:browser:once'],
     '_integration',
     '_functional:server',
-    '_scripts:copy_mocks',
-    '_functional:browser:headless',
+ //   '_scripts:copy_mocks',
+ //   '_functional:browser:headless',
     done
   );
 });

@@ -4,7 +4,6 @@
 var
   server,
   hapi = require('hapi'),
-  appVersion = require('./../../package').version,
   logger = console,
   routes = require('hapi-auto-routes');
 

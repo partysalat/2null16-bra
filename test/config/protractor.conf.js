@@ -12,7 +12,6 @@ function initReporter() {
 
 
 function prepareTestEnv() {
-  var suite = minimist(process.argv.slice(2)).suite;
   initReporter();
   browser.driver.manage().window().setSize(1400, 900);
 }
