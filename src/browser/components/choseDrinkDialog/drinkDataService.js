@@ -9,11 +9,12 @@ module.exports = function($q,Drink,Users,Cocktails){
       return new Users().$get();
     },
     saveDrinks:function(data){
-      data.drink = data.drink.id;
-      data.users = _.map(data.users,"id");
-      return new Drink(data).$save();
+      return new Drink({
+        drink:data.drink.id,
+        users:_.map(data.users,"id")
+      }).$save();
     }
-  }
+  };
 };
 
 

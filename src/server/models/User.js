@@ -6,6 +6,12 @@ var
   TABLE_NAME = 'users';
 
 var User = sequelize.get().define(TABLE_NAME, {
+  id: {
+    type: DataType.INTEGER,
+    primaryKey: true,
+    autoIncrement: true
+  },
+
   name: DataType.STRING,
   image:DataType.STRING
 });

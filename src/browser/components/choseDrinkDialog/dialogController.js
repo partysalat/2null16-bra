@@ -25,7 +25,7 @@ module.exports = function ($scope, $mdDialog,data,users) {
     return _.includes($scope.activeUsers,user);
   };
   $scope.toggleUser = function(user){
-    $scope.isActive(user)?_.remove($scope.activeUsers,user):$scope.activeUsers.push(user);
+    return $scope.isActive(user)?_.remove($scope.activeUsers,user):$scope.activeUsers.push(user);
   };
   
 };

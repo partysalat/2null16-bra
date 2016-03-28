@@ -1,4 +1,5 @@
 'use strict';
+var Joi = require("joi");
 var routes = [{
   method: 'GET',
   path: '/internal/status',
@@ -16,23 +17,29 @@ var routes = [{
       }
     }
   },
-{
-  method: 'GET',
-  path: '/internal/version',
-  config: {
-    handler: require('../handlers/versionHandler.js')
-  }
-},{
+  {
+    method: 'GET',
+    path: '/internal/version',
+    config: {
+      handler: require('../handlers/versionHandler.js')
+    }
+  }, {
     method: 'GET',
     path: '/internal/sync/drinks',
     config: {
       handler: require('../handlers/versionHandler.js').syncDrinks
     }
-  },{
+  }, {
     method: 'GET',
-    path: '/internal/sync',
+    path: '/internal/sync/user',
     config: {
       handler: require('../handlers/versionHandler.js').sync
+    }
+  }, {
+    method: 'GET',
+    path: '/internal/sync/news',
+    config: {
+      handler: require('../handlers/versionHandler.js').syncNews
     }
   },
   {
@@ -41,7 +48,7 @@ var routes = [{
     config: {
       handler: require('../handlers/drinkHandler.js').getCocktails
     }
-  },{
+  }, {
     method: 'GET',
     path: '/api/users',
     config: {
@@ -49,11 +56,32 @@ var routes = [{
     }
   },
   {
+    method: 'GET',
+    path: '/api/news',
+    config: {
+      handler: require('../handlers/drinkHandler').getNews
+    }
+  },
+  {
+    method: 'GET',
+    path: '/api/news/user',
+    config: {
+      handler: require('../handlers/drinkHandler').getNewsPerUser
+    }
+  },
+  {
     method: 'POST',
     path: '/api/drinks',
     config: {
-      handler: require('../handlers/drinkHandler.js').save
+      handler: require('../handlers/drinkHandler.js').save,
+      validate:{
+        payload:{
+          users:Joi.array(),
+          drink:Joi.number().integer()
+        }
+      }
     }
+
   }
 
 ];

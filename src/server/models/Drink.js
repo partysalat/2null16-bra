@@ -14,7 +14,11 @@ var
 
 var Drink = sequelize.get().define(TABLE_NAME, {
   name: DataType.STRING,
-  ingredients:DataType.STRING,
+  id: {
+    type: DataType.INTEGER,
+    primaryKey: true,
+    autoIncrement: true
+  },
   type: {
     type: DataType.ENUM,
     values: DRINK_TYPES,

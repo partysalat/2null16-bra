@@ -7,7 +7,7 @@ module.exports = function($stateProvider, $urlRouterProvider) {
       controller: "AccountingController",
 
       templateUrl: "accounting.html"
-    })
+    });
 
 };
 module.exports.$inject = ["$stateProvider", "$urlRouterProvider"];

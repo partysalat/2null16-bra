@@ -23,13 +23,13 @@ module.exports = function ($mdDialog, $q,drinkDataService,$mdToast) {
         //
 
         console.log(data);
-      })
+      });
 
   }
 
   return {
     openCocktails: openCocktails
-  }
+  };
 };
 
 module.exports.$inject = ["$mdDialog", "$q","drinkDataService","$mdToast"];
