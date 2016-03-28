@@ -52,7 +52,7 @@ gulp.task('build', function (done) {
   sequence(
     '_env:set_test',
     ['_lint:fail','_clean:assets'],
-    '_scripts',
+    ['_scripts',"css"],
     ['_unit:server:fail','_unit:browser:once'],
     '_integration',
     '_functional:server',
@@ -67,7 +67,7 @@ gulp.task('test', ['build']);
 gulp.task('default', function(done){
   sequence(
     ['_env:set_development','_clean:assets'],
-    '_scripts:watch',
+    ['_scripts:watch',"css","_watch:css"],
     '_watch',
     '_server',
     ['_lint', '_unit:server','_unit:browser:watch'],

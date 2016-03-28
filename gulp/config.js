@@ -6,6 +6,7 @@ module.exports = {
     source: './src',
     serverSource: './src/server',
     browserSource: './src/browser',
+    cssSource: './src/browser/styl/app.styl',
     test: {
       base: './test',
       config:__dirname + "/../test/config",

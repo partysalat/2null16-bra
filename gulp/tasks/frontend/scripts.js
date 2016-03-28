@@ -15,6 +15,7 @@ var gulp = require("gulp"),
   sourcemaps = require("gulp-sourcemaps"),
   uglify = require("gulp-uglify"),
   browserLibraries = require("./../../../package.json").browserLibraries,
+  externalLibraries = require("./../../../package.json").externalLibraries,
   templateCache = require('gulp-angular-templatecache');
 
 
@@ -34,6 +35,11 @@ gulp.task("_scripts:vendor", function () {
     var rev = require("gulp-hash");
     var browserLibraryStreamSources = browserLibraries || [];
     var browserLibraryStream = gulp.src(browserLibraryStreamSources).pipe(concat('browserLibs.js'));
+
+    (externalLibraries||[]).forEach(function(moduleName){
+        vendorBundler.require(moduleName)
+    });
+
     var browserifyStream = vendorBundler.bundle()
       .on('error', gutil.log.bind(gutil, 'Browserify Error'))
       .pipe(source(localConfig.bundle.vendor))
@@ -65,6 +71,10 @@ gulp.task("_scripts:app-watch", function () {
   appBundler.on('update', bundleApp);
   appBundler.on('log', gutil.log);
   addMinifiedOptions(appBundler);
+
+    (externalLibraries||[]).forEach(function(moduleName){
+        appBundler.external(moduleName);
+    });
   gulp.watch([
     config.paths.browserSource + '/templates/**/[!_]*.jade',
     config.paths.browserSource + '/**/[!_]*.jade'], bundleApp);
@@ -75,6 +85,9 @@ gulp.task("_scripts:app", function () {
   customOpts.debug = !config.minified;
   appBundler = browserify(customOpts);
   addMinifiedOptions(appBundler);
+    (externalLibraries||[]).forEach(function(moduleName){
+        appBundler.external(moduleName);
+    });
   appBundler.on('log', gutil.log);
   return bundleApp();
 });

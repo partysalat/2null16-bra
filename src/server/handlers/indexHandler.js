@@ -6,6 +6,7 @@ module.exports = function (request, reply) {
   var bundleConfig = require("./../config/rev-manifest");
   reply.view("index", {
     documentBaseUrl: "/",
+    cssUrl: sprintf("%s/%s",config.bundle.url, "app.css"),
     bundleUrl: sprintf("%s/%s",config.bundle.url, bundleConfig[config.bundle.app] || config.bundle.app),
     vendorUrl: sprintf("%s/%s",config.bundle.url, bundleConfig[config.bundle.vendor] || config.bundle.vendor)
   });

@@ -2,23 +2,11 @@ module.exports = {
   bundle:{
     app:"2null16-bra-bundle.js",
     vendor:"2null16-bra-vendor-bundle.js",
-    url:{
-      $filter:"env",
-      development:"/internal/assets",
-      test:"/internal/assets"
-    }
+    url:"/internal/assets"
   },
   styleGuide: {
-    version: {
-      "$filter": 'env',
-      "$default": '0.82',
-      "production": '0.82'
-    },
-    host: {
-      "$filter": 'env',
-      "development": 'devitl02.rz.is',
-      "test": 'static.immobilienscout24.at'
-    }
+    version:  '0.82',
+    host:  'static.immobilienscout24.at'
   },
   
 
