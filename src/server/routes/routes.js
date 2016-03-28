@@ -44,9 +44,14 @@ var routes = [{
   },
   {
     method: 'GET',
-    path: '/api/drinks/cocktails',
+    path: '/api/drinks/{type}',
     config: {
-      handler: require('../handlers/drinkHandler.js').getCocktails
+      handler: require('../handlers/drinkHandler.js').getDrink,
+      validate:{
+        params:{
+          type:Joi.any().valid("cocktail","beer","coffee","shot")
+        }
+      }
     }
   }, {
     method: 'GET',
@@ -57,9 +62,14 @@ var routes = [{
   },
   {
     method: 'GET',
-    path: '/api/news',
+    path: '/api/news/{page}',
     config: {
-      handler: require('../handlers/drinkHandler').getNews
+      handler: require('../handlers/drinkHandler').getNews,
+      validate:{
+        params:{
+          page:Joi.number().integer()
+        }
+      }
     }
   },
   {

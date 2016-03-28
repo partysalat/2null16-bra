@@ -1,9 +1,18 @@
 'use strict';
 var _ = require("lodash");
-module.exports = function($q,Drink,Users,Cocktails){
+module.exports = function($q,Drink,Users,Cocktails,$resource){
   return {
     getCocktails: function(){
         return new Cocktails().$get();
+    },
+    getShots:function(){
+      return new ($resource("api/drinks/shot"))().$get();
+    },
+    getBeer: function(){
+      return new ($resource("api/drinks/beer"))().$get();
+    },
+    getCoffee:function(){
+      return new ($resource("api/drinks/coffee"))().$get();
     },
     getUsers: function(){
       return new Users().$get();
@@ -18,4 +27,4 @@ module.exports = function($q,Drink,Users,Cocktails){
 };
 
 
-module.exports.$inject = ["$q","Drink","Users","Cocktails"];
+module.exports.$inject = ["$q","Drink","Users","Cocktails","$resource"];

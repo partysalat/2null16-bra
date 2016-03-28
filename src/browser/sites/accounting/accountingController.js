@@ -1,13 +1,9 @@
 'use strict';
 module.exports = function ($scope, drinkDialogService) {
-  $scope.showTabDialog =function(ev){
-    drinkDialogService.openCocktails(ev)
-      .then(function (answer) {
-        $scope.status = 'You said the information was "' + answer + '".';
-      }, function () {
-        $scope.status = 'You cancelled the dialog.';
-      });
-  };
+  $scope.openCocktails = drinkDialogService.openCocktails;
+  $scope.openBeer = drinkDialogService.openBeer;
+  $scope.openShot = drinkDialogService.openShot;
+  $scope.openCoffee = drinkDialogService.openCoffee;
 };
 
 module.exports.$inject = ["$scope", "drinkDialogService"];

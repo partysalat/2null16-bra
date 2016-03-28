@@ -1,0 +1,422 @@
+[
+  {
+    "id": 1,
+    "createdAt": "2016-03-28T19:52:09.378Z",
+    "updatedAt": "2016-03-28T19:52:09.378Z",
+    "userId": 5,
+    "drinkId": 2,
+    "user": {
+      "id": 5,
+      "name": "Resi",
+      "image": null,
+      "createdAt": "2016-03-28T18:34:28.265Z",
+      "updatedAt": "2016-03-28T18:34:28.265Z"
+    },
+    "drink": {
+      "name": "Bahama Mama",
+      "id": 2,
+      "type": "COCKTAIL",
+      "createdAt": "2016-03-28T19:50:49.564Z",
+      "updatedAt": "2016-03-28T19:50:49.564Z"
+    }
+  },
+  {
+    "id": 2,
+    "createdAt": "2016-03-28T19:52:09.378Z",
+    "updatedAt": "2016-03-28T19:52:09.378Z",
+    "userId": 8,
+    "drinkId": 2,
+    "user": {
+      "id": 8,
+      "name": "Daniel Wittekind",
+      "image": null,
+      "createdAt": "2016-03-28T18:34:28.265Z",
+      "updatedAt": "2016-03-28T18:34:28.265Z"
+    },
+    "drink": {
+      "name": "Bahama Mama",
+      "id": 2,
+      "type": "COCKTAIL",
+      "createdAt": "2016-03-28T19:50:49.564Z",
+      "updatedAt": "2016-03-28T19:50:49.564Z"
+    }
+  },
+  {
+    "id": 3,
+    "createdAt": "2016-03-28T19:52:09.378Z",
+    "updatedAt": "2016-03-28T19:52:09.378Z",
+    "userId": 2,
+    "drinkId": 2,
+    "user": {
+      "id": 2,
+      "name": "Paul",
+      "image": null,
+      "createdAt": "2016-03-28T18:34:28.265Z",
+      "updatedAt": "2016-03-28T18:34:28.265Z"
+    },
+    "drink": {
+      "name": "Bahama Mama",
+      "id": 2,
+      "type": "COCKTAIL",
+      "createdAt": "2016-03-28T19:50:49.564Z",
+      "updatedAt": "2016-03-28T19:50:49.564Z"
+    }
+  },
+  {
+    "id": 4,
+    "createdAt": "2016-03-28T19:52:24.931Z",
+    "updatedAt": "2016-03-28T19:52:24.931Z",
+    "userId": 8,
+    "drinkId": 14,
+    "user": {
+      "id": 8,
+      "name": "Daniel Wittekind",
+      "image": null,
+      "createdAt": "2016-03-28T18:34:28.265Z",
+      "updatedAt": "2016-03-28T18:34:28.265Z"
+    },
+    "drink": {
+      "name": "Filterkaffee",
+      "id": 14,
+      "type": "COFFEE",
+      "createdAt": "2016-03-28T19:50:49.564Z",
+      "updatedAt": "2016-03-28T19:50:49.564Z"
+    }
+  },
+  {
+    "id": 5,
+    "createdAt": "2016-03-28T19:53:37.129Z",
+    "updatedAt": "2016-03-28T19:53:37.129Z",
+    "userId": 4,
+    "drinkId": 1,
+    "user": {
+      "id": 4,
+      "name": "Flo",
+      "image": null,
+      "createdAt": "2016-03-28T18:34:28.265Z",
+      "updatedAt": "2016-03-28T18:34:28.265Z"
+    },
+    "drink": {
+      "name": "Long Island Iced Tea",
+      "id": 1,
+      "type": "COCKTAIL",
+      "createdAt": "2016-03-28T19:50:49.564Z",
+      "updatedAt": "2016-03-28T19:50:49.564Z"
+    }
+  },
+  {
+    "id": 6,
+    "createdAt": "2016-03-28T19:53:37.129Z",
+    "updatedAt": "2016-03-28T19:53:37.129Z",
+    "userId": 7,
+    "drinkId": 1,
+    "user": {
+      "id": 7,
+      "name": "Felix",
+      "image": null,
+      "createdAt": "2016-03-28T18:34:28.265Z",
+      "updatedAt": "2016-03-28T18:34:28.265Z"
+    },
+    "drink": {
+      "name": "Long Island Iced Tea",
+      "id": 1,
+      "type": "COCKTAIL",
+      "createdAt": "2016-03-28T19:50:49.564Z",
+      "updatedAt": "2016-03-28T19:50:49.564Z"
+    }
+  },
+  {
+    "id": 7,
+    "createdAt": "2016-03-28T20:28:02.839Z",
+    "updatedAt": "2016-03-28T20:28:02.839Z",
+    "userId": 8,
+    "drinkId": 4,
+    "user": {
+      "id": 8,
+      "name": "Daniel Wittekind",
+      "image": null,
+      "createdAt": "2016-03-28T18:34:28.265Z",
+      "updatedAt": "2016-03-28T18:34:28.265Z"
+    },
+    "drink": {
+      "name": "Sex on the Beach",
+      "id": 4,
+      "type": "COCKTAIL",
+      "createdAt": "2016-03-28T19:50:49.564Z",
+      "updatedAt": "2016-03-28T19:50:49.564Z"
+    }
+  },
+  {
+    "id": 8,
+    "createdAt": "2016-03-28T20:28:02.839Z",
+    "updatedAt": "2016-03-28T20:28:02.839Z",
+    "userId": 7,
+    "drinkId": 4,
+    "user": {
+      "id": 7,
+      "name": "Felix",
+      "image": null,
+      "createdAt": "2016-03-28T18:34:28.265Z",
+      "updatedAt": "2016-03-28T18:34:28.265Z"
+    },
+    "drink": {
+      "name": "Sex on the Beach",
+      "id": 4,
+      "type": "COCKTAIL",
+      "createdAt": "2016-03-28T19:50:49.564Z",
+      "updatedAt": "2016-03-28T19:50:49.564Z"
+    }
+  },
+  {
+    "id": 9,
+    "createdAt": "2016-03-28T20:28:02.839Z",
+    "updatedAt": "2016-03-28T20:28:02.839Z",
+    "userId": 4,
+    "drinkId": 4,
+    "user": {
+      "id": 4,
+      "name": "Flo",
+      "image": null,
+      "createdAt": "2016-03-28T18:34:28.265Z",
+      "updatedAt": "2016-03-28T18:34:28.265Z"
+    },
+    "drink": {
+      "name": "Sex on the Beach",
+      "id": 4,
+      "type": "COCKTAIL",
+      "createdAt": "2016-03-28T19:50:49.564Z",
+      "updatedAt": "2016-03-28T19:50:49.564Z"
+    }
+  },
+  {
+    "id": 10,
+    "createdAt": "2016-03-28T20:28:02.839Z",
+    "updatedAt": "2016-03-28T20:28:02.839Z",
+    "userId": 5,
+    "drinkId": 4,
+    "user": {
+      "id": 5,
+      "name": "Resi",
+      "image": null,
+      "createdAt": "2016-03-28T18:34:28.265Z",
+      "updatedAt": "2016-03-28T18:34:28.265Z"
+    },
+    "drink": {
+      "name": "Sex on the Beach",
+      "id": 4,
+      "type": "COCKTAIL",
+      "createdAt": "2016-03-28T19:50:49.564Z",
+      "updatedAt": "2016-03-28T19:50:49.564Z"
+    }
+  },
+  {
+    "id": 11,
+    "createdAt": "2016-03-28T20:28:02.839Z",
+    "updatedAt": "2016-03-28T20:28:02.839Z",
+    "userId": 6,
+    "drinkId": 4,
+    "user": {
+      "id": 6,
+      "name": "Stefan",
+      "image": null,
+      "createdAt": "2016-03-28T18:34:28.265Z",
+      "updatedAt": "2016-03-28T18:34:28.265Z"
+    },
+    "drink": {
+      "name": "Sex on the Beach",
+      "id": 4,
+      "type": "COCKTAIL",
+      "createdAt": "2016-03-28T19:50:49.564Z",
+      "updatedAt": "2016-03-28T19:50:49.564Z"
+    }
+  },
+  {
+    "id": 12,
+    "createdAt": "2016-03-28T20:28:02.839Z",
+    "updatedAt": "2016-03-28T20:28:02.839Z",
+    "userId": 3,
+    "drinkId": 4,
+    "user": {
+      "id": 3,
+      "name": "Benni",
+      "image": null,
+      "createdAt": "2016-03-28T18:34:28.265Z",
+      "updatedAt": "2016-03-28T18:34:28.265Z"
+    },
+    "drink": {
+      "name": "Sex on the Beach",
+      "id": 4,
+      "type": "COCKTAIL",
+      "createdAt": "2016-03-28T19:50:49.564Z",
+      "updatedAt": "2016-03-28T19:50:49.564Z"
+    }
+  },
+  {
+    "id": 13,
+    "createdAt": "2016-03-28T20:28:02.839Z",
+    "updatedAt": "2016-03-28T20:28:02.839Z",
+    "userId": 2,
+    "drinkId": 4,
+    "user": {
+      "id": 2,
+      "name": "Paul",
+      "image": null,
+      "createdAt": "2016-03-28T18:34:28.265Z",
+      "updatedAt": "2016-03-28T18:34:28.265Z"
+    },
+    "drink": {
+      "name": "Sex on the Beach",
+      "id": 4,
+      "type": "COCKTAIL",
+      "createdAt": "2016-03-28T19:50:49.564Z",
+      "updatedAt": "2016-03-28T19:50:49.564Z"
+    }
+  },
+  {
+    "id": 14,
+    "createdAt": "2016-03-28T20:28:02.839Z",
+    "updatedAt": "2016-03-28T20:28:02.839Z",
+    "userId": 1,
+    "drinkId": 4,
+    "user": {
+      "id": 1,
+      "name": "Ben",
+      "image": null,
+      "createdAt": "2016-03-28T18:34:28.265Z",
+      "updatedAt": "2016-03-28T18:34:28.265Z"
+    },
+    "drink": {
+      "name": "Sex on the Beach",
+      "id": 4,
+      "type": "COCKTAIL",
+      "createdAt": "2016-03-28T19:50:49.564Z",
+      "updatedAt": "2016-03-28T19:50:49.564Z"
+    }
+  },
+  {
+    "id": 15,
+    "createdAt": "2016-03-28T20:28:02.839Z",
+    "updatedAt": "2016-03-28T20:28:02.839Z",
+    "userId": 11,
+    "drinkId": 4,
+    "user": {
+      "id": 11,
+      "name": "Benni",
+      "image": null,
+      "createdAt": "2016-03-28T18:34:28.265Z",
+      "updatedAt": "2016-03-28T18:34:28.265Z"
+    },
+    "drink": {
+      "name": "Sex on the Beach",
+      "id": 4,
+      "type": "COCKTAIL",
+      "createdAt": "2016-03-28T19:50:49.564Z",
+      "updatedAt": "2016-03-28T19:50:49.564Z"
+    }
+  },
+  {
+    "id": 16,
+    "createdAt": "2016-03-28T20:28:02.839Z",
+    "updatedAt": "2016-03-28T20:28:02.839Z",
+    "userId": 12,
+    "drinkId": 4,
+    "user": {
+      "id": 12,
+      "name": "Flo",
+      "image": null,
+      "createdAt": "2016-03-28T18:34:28.265Z",
+      "updatedAt": "2016-03-28T18:34:28.265Z"
+    },
+    "drink": {
+      "name": "Sex on the Beach",
+      "id": 4,
+      "type": "COCKTAIL",
+      "createdAt": "2016-03-28T19:50:49.564Z",
+      "updatedAt": "2016-03-28T19:50:49.564Z"
+    }
+  },
+  {
+    "id": 17,
+    "createdAt": "2016-03-28T20:28:02.839Z",
+    "updatedAt": "2016-03-28T20:28:02.839Z",
+    "userId": 9,
+    "drinkId": 4,
+    "user": {
+      "id": 9,
+      "name": "Ben",
+      "image": null,
+      "createdAt": "2016-03-28T18:34:28.265Z",
+      "updatedAt": "2016-03-28T18:34:28.265Z"
+    },
+    "drink": {
+      "name": "Sex on the Beach",
+      "id": 4,
+      "type": "COCKTAIL",
+      "createdAt": "2016-03-28T19:50:49.564Z",
+      "updatedAt": "2016-03-28T19:50:49.564Z"
+    }
+  },
+  {
+    "id": 18,
+    "createdAt": "2016-03-28T20:28:02.839Z",
+    "updatedAt": "2016-03-28T20:28:02.839Z",
+    "userId": 10,
+    "drinkId": 4,
+    "user": {
+      "id": 10,
+      "name": "Paul",
+      "image": null,
+      "createdAt": "2016-03-28T18:34:28.265Z",
+      "updatedAt": "2016-03-28T18:34:28.265Z"
+    },
+    "drink": {
+      "name": "Sex on the Beach",
+      "id": 4,
+      "type": "COCKTAIL",
+      "createdAt": "2016-03-28T19:50:49.564Z",
+      "updatedAt": "2016-03-28T19:50:49.564Z"
+    }
+  },
+  {
+    "id": 19,
+    "createdAt": "2016-03-28T20:28:02.839Z",
+    "updatedAt": "2016-03-28T20:28:02.839Z",
+    "userId": 13,
+    "drinkId": 4,
+    "user": {
+      "id": 13,
+      "name": "Resi",
+      "image": null,
+      "createdAt": "2016-03-28T18:34:28.265Z",
+      "updatedAt": "2016-03-28T18:34:28.265Z"
+    },
+    "drink": {
+      "name": "Sex on the Beach",
+      "id": 4,
+      "type": "COCKTAIL",
+      "createdAt": "2016-03-28T19:50:49.564Z",
+      "updatedAt": "2016-03-28T19:50:49.564Z"
+    }
+  },
+  {
+    "id": 20,
+    "createdAt": "2016-03-28T20:28:02.839Z",
+    "updatedAt": "2016-03-28T20:28:02.839Z",
+    "userId": 14,
+    "drinkId": 4,
+    "user": {
+      "id": 14,
+      "name": "Stefan",
+      "image": null,
+      "createdAt": "2016-03-28T18:34:28.265Z",
+      "updatedAt": "2016-03-28T18:34:28.265Z"
+    },
+    "drink": {
+      "name": "Sex on the Beach",
+      "id": 4,
+      "type": "COCKTAIL",
+      "createdAt": "2016-03-28T19:50:49.564Z",
+      "updatedAt": "2016-03-28T19:50:49.564Z"
+    }
+  }
+]

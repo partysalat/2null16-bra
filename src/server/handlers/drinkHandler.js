@@ -1,48 +1,54 @@
 'use strict';
 var User = require("./../models/User"),
-  Drink  = require("./../models/Drink"),
-  News  = require("./../models/News"),
+  Drink = require("./../models/Drink"),
+  News = require("./../models/News"),
   sequelize = require("./../db/sequelize");
+var PAGE_SIZE = 20;
 var _ = require("lodash");
 module.exports.save = function (request, reply) {
   var initialData = request.payload;
-  var transformedData = _.map(initialData.users,function(userId){
+  var transformedData = _.map(initialData.users, function (userId) {
     return {
-      drinkId:initialData.drink,
-      userId:userId
+      drinkId: initialData.drink,
+      userId: userId
     };
   });
-  News.bulkCreate(transformedData).then(function(){
+  News.bulkCreate(transformedData).then(function () {
     reply().code(204);
-  }).catch(function(err){
+  }).catch(function (err) {
     console.error(err);
     reply(err);
   });
 };
 
 
-module.exports.getCocktails = function(request,reply){
+module.exports.getDrink = function (request, reply) {
   Drink.findAll({
-    where:{
-      type:Drink.DRINK_TYPES.COCKTAIL
+    where: {
+      type: Drink.DRINK_TYPES[request.params.type.toUpperCase()]
     }
-  }).then(function(drinks){
-    reply({drinks:drinks});
+  }).then(function (drinks) {
+    reply({drinks: drinks});
   });
 };
 
 
-module.exports.getNews = function(request,reply){
+module.exports.getNews = function (request, reply) {
+  var page = request.params.page;
+
   News.findAll({
-    include: [User]
+    limit: PAGE_SIZE,
+    offset: page * PAGE_SIZE,
+    include: [User, Drink]
   }).then(reply).catch(reply);
 };
-module.exports.getNewsPerUser = function(request,reply){
+
+module.exports.getNewsPerUser = function (request, reply) {
   News.findAll({
-    attributes: [[sequelize.get().fn('count', sequelize.get().col('drinkId')),"drinkCount"]],
+    attributes: [[sequelize.get().fn('count', sequelize.get().col('drinkId')), "drinkCount"]],
     group: ["userId"],
     include: [User]
-  }).then(reply).catch(function(err){
+  }).then(reply).catch(function (err) {
     console.error(err);
     reply(err);
   });
