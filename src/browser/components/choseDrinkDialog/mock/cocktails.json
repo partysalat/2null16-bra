@@ -1,1 +1,32 @@
-{}
+{
+  "drinks":[
+    {
+      "name":"Long Island Iced Tea",
+      "ingredients":[]
+    },
+    {
+      "name":"Bahama Mama"
+    },
+    {
+      "name":"Erdbeer Daiquiri"
+    },
+    {
+      "name":"Sex on the Beach"
+    },
+    {
+      "name":"Tequila Sunrise"
+    },
+    {
+      "name":"Havanna Club"
+    },
+    {
+      "name":"Mojito"
+    },
+    {
+      "name":"Caipirinha"
+    },
+    {
+      "name":"Gin Tonic"
+    }
+  ]
+}

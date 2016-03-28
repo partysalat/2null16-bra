@@ -1,12 +1,17 @@
-module.exports = function ($mdDialog) {
+module.exports = function ($mdDialog, drinkDataService) {
   function openCocktails(ev) {
-    return $mdDialog.show({
-      controller: require("./dialogController"),
-      templateUrl: 'cocktails.html',
-      parent: angular.element(document.body),
-      targetEvent: ev,
-      clickOutsideToClose: true
-    });
+    return drinkDataService.getCocktails()
+      .then(function (cocktails) {
+        return $mdDialog.show({
+          controller: require("./dialogController"),
+          templateUrl: 'cocktails.html',
+          parent: angular.element(document.body),
+          targetEvent: ev,
+          locals: {data: cocktails.drinks},
+          clickOutsideToClose: true
+        });
+      })
+
   }
 
   return {
@@ -14,4 +19,4 @@ module.exports = function ($mdDialog) {
   }
 };
 
-module.exports.$inject = ["$mdDialog"];
+module.exports.$inject = ["$mdDialog", "drinkDataService"];

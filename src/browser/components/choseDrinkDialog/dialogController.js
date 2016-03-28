@@ -1,5 +1,5 @@
-module.exports = function ($scope, $mdDialog) {
-
+module.exports = function ($scope, $mdDialog,data) {
+  $scope.data = data;
   $scope.hide = function () {
     $mdDialog.hide();
   };
@@ -11,4 +11,4 @@ module.exports = function ($scope, $mdDialog) {
   };
 };
 
-module.exports.$inject = ["$scope","$mdDialog"];
+module.exports.$inject = ["$scope","$mdDialog","data"];
