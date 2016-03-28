@@ -1,13 +1,17 @@
-module.exports = function($q){
+'use strict';
+module.exports = function($q,Drink,Users,Cocktails){
   return {
     getCocktails: function(){
-        return $q.when(require("./mock/cocktails.json"))
+        return new Cocktails().$get();
     },
     getUsers: function(){
-      return $q.when(require("./mock/user.json"))
+      return new Users().$get();
+    },
+    saveDrinks:function(data){
+      return new Drink(data).$save();
     }
   }
 };
 
 
-module.exports.$inject = ["$q"];
+module.exports.$inject = ["$q","Drink","Users","Cocktails"];

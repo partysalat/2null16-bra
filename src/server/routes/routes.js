@@ -22,7 +22,28 @@ var routes = [{
   config: {
     handler: require('../handlers/versionHandler.js')
   }
-}
+},
+  {
+    method: 'GET',
+    path: '/api/drinks/cocktails',
+    config: {
+      handler: require('../handlers/drinkHandler.js').getCocktails
+    }
+  },{
+    method: 'GET',
+    path: '/api/users',
+    config: {
+      handler: require('../handlers/drinkHandler.js').getUsers
+    }
+  },
+  {
+    method: 'POST',
+    path: '/api/drinks',
+    config: {
+      handler: require('../handlers/drinkHandler.js').save
+    }
+  }
+
 ];
 
 

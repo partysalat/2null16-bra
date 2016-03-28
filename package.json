@@ -15,6 +15,7 @@
   "author": "lenser.ben@gmail.com",
   "externalLibraries": [
     "angular",
+    "lodash",
     "angular-resource",
     "angular-animate",
     "angular-aria",
