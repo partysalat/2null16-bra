@@ -24,4 +24,8 @@ gulp.task('_watch:css', function () {
       ['stylus']
     );
 });
-gulp.task("css", ["stylus"]);
+gulp.task("copy-fonts",function(){
+  return gulp.src(["./src/browser/styl/fontawesome/**/*"])
+    .pipe(gulp.dest(gulpConfig.paths.assets))
+});
+gulp.task("css", ["stylus","copy-fonts"]);

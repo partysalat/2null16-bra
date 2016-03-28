@@ -1,0 +1,29 @@
+div
+    md-grid-list(
+        md-cols="2"
+        md-cols-sm="2"
+        md-cols-md="2"
+        md-cols-gt-md="6"
+        md-row-height-gt-md="1:1"
+        md-row-height="16:9"
+        md-gutter="8px" md-gutter-gt-sm="4px")
+        md-grid-tile(md-rowspan="1" md-colspan="1" md-colspan-sm="1")
+            md-button.md-raised.md-primary(flex="auto",style="height:100%")
+                md-icon.fa(md-font-icon="fa-glass",style="font-size:5vw")
+            md-grid-tile-footer
+                h3 Cocktails
+        md-grid-tile(md-rowspan="1" md-colspan="1" md-colspan-sm="1")
+            md-button.md-raised.md-accent(flex="auto",style="height:100%")
+                md-icon.fa(md-font-icon="fa-bolt", style="font-size:5vw")
+            md-grid-tile-footer
+                h3 Shot
+        md-grid-tile(md-rowspan="1" md-colspan="1" md-colspan-sm="1")
+            md-button.md-raised.md-warn(flex="auto",style="height:100%")
+                md-icon.fa(md-font-icon="fa-beer",style="font-size:5vw")
+            md-grid-tile-footer
+                h3 Bier
+        md-grid-tile(md-rowspan="1" md-colspan="1" md-colspan-sm="1")
+            md-button.md-raised.md-primary(flex="auto",style="height:100%")
+                md-icon.fa(md-font-icon="fa-coffee",style="font-size:5vw")
+            md-grid-tile-footer
+                h3 Kaffee
