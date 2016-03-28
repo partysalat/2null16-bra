@@ -1,0 +1,23 @@
+md-dialog(aria-label='Drink Auswahl')
+    form
+        md-toolbar
+            .md-toolbar-tools
+                h2 Auswahl
+                span(flex)
+                md-button.md-icon-button(ng-click='cancel()')
+                    md-icon.fa(md-font-icon='fa-close', aria-label='Close dialog')
+        md-dialog-content(style='max-width:800px;max-height:810px; ')
+            md-grid-list(
+            md-cols="2"
+            md-cols-sm="2"
+            md-cols-md="2"
+            md-cols-gt-md="6"
+            md-row-height-gt-md="1:1"
+            md-row-height="16:9"
+            md-gutter="8px" md-gutter-gt-sm="4px")
+                md-grid-tile(md-rowspan="1" md-colspan="1" md-colspan-sm="1")
+                    md-button.md-raised.md-primary(flex="auto",style="height:100%" )
+                        h3 Long Island
+        md-dialog-actions(layout='row')
+            md-button(ng-click="answer('not useful')")
+                | Ok

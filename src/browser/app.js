@@ -8,8 +8,9 @@ angular.module("app", [
   require("angular-material"),
   'ngMaterial',
   'ui.router',
-  require("./components/version")
+  require("./components/choseDrinkDialog")
 ])
 
+.controller("AccountingController",require("./sites/accounting/accountingController"))
 .config(require("./config/mdTheme"))
 .config(require("./config/routes"));
