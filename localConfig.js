@@ -4,12 +4,32 @@ module.exports = {
     vendor:"2null16-bra-vendor-bundle.js",
     url:"/internal/assets"
   },
-  styleGuide: {
-    version:  '0.82',
-    host:  'static.immobilienscout24.at'
-  },
-  
 
+  sql: {
+    database: {
+      $filter: 'env',
+      $default: 'bra'
+    },
+    auth: {
+      user: "user",
+      pass: "pass"
+    },
+    settings: {
+      host: {
+        $filter: "env",
+        $default: "localhost"
+      },
+      logging: false,
+      dialect:'sqlite',
+
+      storage: './database.sqlite',
+      pool: {
+        max: 5,
+        min: 0,
+        idle: 10000
+      }
+    }
+  },
   logger: {
     config: {
       file: {

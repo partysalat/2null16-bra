@@ -22,7 +22,19 @@ var routes = [{
   config: {
     handler: require('../handlers/versionHandler.js')
   }
-},
+},{
+    method: 'GET',
+    path: '/internal/sync/drinks',
+    config: {
+      handler: require('../handlers/versionHandler.js').syncDrinks
+    }
+  },{
+    method: 'GET',
+    path: '/internal/sync',
+    config: {
+      handler: require('../handlers/versionHandler.js').sync
+    }
+  },
   {
     method: 'GET',
     path: '/api/drinks/cocktails',
@@ -33,7 +45,7 @@ var routes = [{
     method: 'GET',
     path: '/api/users',
     config: {
-      handler: require('../handlers/drinkHandler.js').getUsers
+      handler: require('../handlers/userHandler.js').getUsers
     }
   },
   {

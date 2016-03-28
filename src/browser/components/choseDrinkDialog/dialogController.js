@@ -4,7 +4,7 @@ module.exports = function ($scope, $mdDialog,data,users) {
   $scope.data = data;
   $scope.users = users;
   $scope.page = "drink";
-  var activeUsers = [];
+  $scope.activeUsers = [];
   $scope.hide = function () {
     $mdDialog.hide();
   };
@@ -14,7 +14,7 @@ module.exports = function ($scope, $mdDialog,data,users) {
   $scope.answer = function () {
     $mdDialog.hide({
       drink:$scope.chosenDrink,
-      user:activeUsers
+      users:$scope.activeUsers
     });
   };
   $scope.goToUserPage = function(drink){
@@ -22,10 +22,10 @@ module.exports = function ($scope, $mdDialog,data,users) {
     $scope.page = "users";
   };
   $scope.isActive = function(user){
-    return _.includes(activeUsers,user);
+    return _.includes($scope.activeUsers,user);
   };
   $scope.toggleUser = function(user){
-    $scope.isActive(user)?_.remove(activeUsers,user):activeUsers.push(user);
+    $scope.isActive(user)?_.remove($scope.activeUsers,user):$scope.activeUsers.push(user);
   };
   
 };

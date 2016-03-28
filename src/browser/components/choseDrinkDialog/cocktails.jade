@@ -29,6 +29,6 @@ md-dialog(aria-label='Drink Auswahl')
                 md-grid-tile.md-margin(data-ng-click="toggleUser(user)" data-ng-class="{active:isActive(user)}",md-rowspan="1" md-colspan="1",data-ng-repeat="user in users")
                     h3 {{user.name}}
         md-dialog-actions(layout='row')
-            md-button(data-ng-if="page==='users'", ng-click="answer('not useful')")
+            md-button.md-primary.md-raised(data-ng-if="page==='users'", ng-disabled="!activeUsers.length", ng-click="answer('not useful')")
                 | Ok
 

@@ -2,31 +2,39 @@
   "drinks":[
     {
       "name":"Long Island Iced Tea",
-      "ingredients":[]
+      "type":"COCKTAIL"
     },
     {
-      "name":"Bahama Mama"
+      "name":"Bahama Mama",
+      "type":"COCKTAIL"
     },
     {
-      "name":"Erdbeer Daiquiri"
+      "name":"Erdbeer Daiquiri",
+      "type":"COCKTAIL"
     },
     {
-      "name":"Sex on the Beach"
+      "name":"Sex on the Beach",
+      "type":"COCKTAIL"
     },
     {
-      "name":"Tequila Sunrise"
+      "name":"Tequila Sunrise",
+      "type":"COCKTAIL"
     },
     {
-      "name":"Havanna Club"
+      "name":"Havanna Club",
+      "type":"COCKTAIL"
     },
     {
-      "name":"Mojito"
+      "name":"Mojito",
+      "type":"COCKTAIL"
     },
     {
-      "name":"Caipirinha"
+      "name":"Caipirinha",
+      "type":"COCKTAIL"
     },
     {
-      "name":"Gin Tonic"
+      "name":"Gin Tonic",
+      "type":"COCKTAIL"
     }
   ]
 }
