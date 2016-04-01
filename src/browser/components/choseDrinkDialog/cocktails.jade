@@ -2,7 +2,7 @@ md-dialog(aria-label='Drink Auswahl')
     form
         md-toolbar
             .md-toolbar-tools
-                h2 Auswahl
+                h2 Auswahl {{chosenDrink.name}}
                 span(flex)
                 md-button.md-icon-button(ng-click='cancel()')
                     md-icon.fa(md-font-icon='fa-close', aria-label='Close dialog')

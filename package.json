@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "description": "2null16-bra written in node.js",
   "scripts": {
-    "test": "./node_modules/jasmine-node/bin/jasmine-node --color --test-dir test"
+    "test": "./node_modules/jasmine-node/bin/jasmine-node --color --test-dir test",
+    "start":"node 2null16-bra.js"
   },
   "repository": {
     "type": "git",
