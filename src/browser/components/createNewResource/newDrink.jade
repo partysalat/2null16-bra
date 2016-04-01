@@ -14,10 +14,13 @@ md-dialog(aria-label='Neue Resource')
             md-row-height="16:9"
             md-gutter="8px" md-gutter-gt-sm="4px"
             )
-                md-grid-tile.md-margin(md-rowspan="1" md-colspan="1",data-ng-repeat="drink in data")
-                    md-button.md-raised.md-accent(flex)
-                        h3 {{drink.name}}
+                md-grid-tile.md-margin(data-ng-click="toggleDrink(drink)" data-ng-class="{active:isActive(drink)}",md-rowspan="1" md-colspan="1",data-ng-repeat="drink in data")
+                    h3 {{drink}}
+            md-input-container.md-block(flex)
+                label First name
+                input(ng-model="drinkName")
+
         md-dialog-actions(layout='row')
-            md-button.md-primary.md-raised(ng-disabled="!activeUsers.length", ng-click="answer()")
+            md-button.md-primary.md-raised(ng-disabled="!activeDrink || !drinkName", ng-click="answer()")
                 | Ok
 

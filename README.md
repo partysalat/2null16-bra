@@ -23,14 +23,53 @@ Setup & Start Server
 
 3. start server
 
-        gulp server
+        gulp start
 
 
-Testing
+Install on Rasperry Pi
 ----------------------------------------------------
+### SSH keys(local machine)
+```
+brew install ssh-copy-id
+ssh-copy-id pi@raspberrypi
+```
+### Install Node (pi)
 
-* jslint and all unit tests run be in the default task
+```
+  wget http://node-arm.herokuapp.com/node_latest_armhf.deb
+  sudo dpkg -i node_latest_armhf.deb
+```
+### For Noble (bluetooth on pi)
+```
+  sudo apt-get install bluetooth bluez libbluetooth-dev libudev-dev
+  sudo setcap cap_net_raw+eip $(eval readlink -f `which node`)
+```
 
+### pm2 (pi)
+```
+ sudo mkdir -p /opt/.pm2
+ sudo echo "export PM2_HOME=/opt/.pm2" >> /etc/profile
+ sudo chmod -R 777 /opt/.pm2
+ sudo npm install -g pm2 --unsafe-perm
+```
 
-* run e2e tests
+### post-receive (pi)
+```
+ sudo apt-get install git
+ mkdir -p ~/2null16-bra.git
+ cd ~/2null16-bra.git
+ git init --bare
+ mkdir -p ~/2null16-bra
+```
+Then copy content of file scripts/post-receive in
+2null16-bra.git/hooks/post-receive
+and (pi)
 
+```
+sudo chmod +x ~/2null16-bra.git/hooks/post-receive
+```
+
+On local machine:
+```
+git remote add pi pi@raspberrypi:2null16-bra.git
+```

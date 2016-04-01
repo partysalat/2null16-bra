@@ -1,10 +1,7 @@
 'use strict';
-var _ = require("lodash");
-module.exports = function ($scope, $mdDialog,data,users) {
+module.exports = function ($scope, $mdDialog,data) {
   $scope.data = data;
-  $scope.users = users;
-  $scope.page = "drink";
-  $scope.activeUsers = [];
+  $scope.activeDrink = null;
   $scope.hide = function () {
     $mdDialog.hide();
   };
@@ -13,21 +10,20 @@ module.exports = function ($scope, $mdDialog,data,users) {
   };
   $scope.answer = function () {
     $mdDialog.hide({
-      drink:$scope.chosenDrink,
-      users:$scope.activeUsers
+      drink:$scope.activeDrink,
+      name:$scope.drinkName
     });
   };
-  $scope.goToUserPage = function(drink){
+  $scope.choseDrink = function(drink){
     $scope.chosenDrink = drink;
-    $scope.page = "users";
   };
-  $scope.isActive = function(user){
-    return _.includes($scope.activeUsers,user);
+  $scope.isActive = function(drink){
+    return $scope.activeDrink === drink;
   };
-  $scope.toggleUser = function(user){
-    return $scope.isActive(user)?_.remove($scope.activeUsers,user):$scope.activeUsers.push(user);
+  $scope.toggleDrink = function(drink){
+    $scope.activeDrink = drink;
   };
   
 };
 
-module.exports.$inject = ["$scope","$mdDialog","data","users"];
+module.exports.$inject = ["$scope","$mdDialog","data"];
