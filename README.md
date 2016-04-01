@@ -73,3 +73,20 @@ On local machine:
 ```
 git remote add pi pi@raspberrypi:2null16-bra.git
 ```
+
+### Push to Repo (local)
+
+For the first time disable npm stop script in package.json by adding a #
+
+```
+...
+"stop": "#pm2 stop 2null16-bra"
+...
+```
+
+Then:
+```
+git remote add pi pi@raspberrypi:2null16-bra.git
+git push pi master
+```
+Enable npm stop script
