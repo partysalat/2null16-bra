@@ -23,12 +23,10 @@ module.exports = {
       dialect:'sqlite',
 
       storage: './database.sqlite',
-      pool:true
-      /*pool: {
-        maxConnections: 5,
-        minConnections: 5,
-        idle: 10000
-      }*/
+      pool: {
+        max: 10,
+        min: 5
+      }
     }
   },
   logger: {
