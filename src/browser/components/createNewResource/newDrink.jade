@@ -1,0 +1,23 @@
+md-dialog(aria-label='Neue Resource')
+    form
+        md-toolbar
+            .md-toolbar-tools
+                h2 Auswahl {{chosenDrink.name}}
+                span(flex)
+                md-button.md-icon-button(ng-click='cancel()')
+                    md-icon.fa(md-font-icon='fa-close', aria-label='Close dialog')
+        md-dialog-content(style='max-width:800px;max-height:810px; ')
+            md-grid-list(
+            flex="100"
+            style="width:800px"
+            md-cols="1" md-cols-sm="3" md-cols-md="4" md-cols-gt-md="5"
+            md-row-height="16:9"
+            md-gutter="8px" md-gutter-gt-sm="4px"
+            )
+                md-grid-tile.md-margin(md-rowspan="1" md-colspan="1",data-ng-repeat="drink in data")
+                    md-button.md-raised.md-accent(flex)
+                        h3 {{drink.name}}
+        md-dialog-actions(layout='row')
+            md-button.md-primary.md-raised(ng-disabled="!activeUsers.length", ng-click="answer()")
+                | Ok
+

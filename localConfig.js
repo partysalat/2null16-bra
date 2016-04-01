@@ -25,7 +25,7 @@ module.exports = {
       storage: './database.sqlite',
       pool: {
         max: 5,
-        min: 0,
+        min: 1,
         idle: 10000
       }
     }

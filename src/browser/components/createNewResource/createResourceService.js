@@ -1,10 +1,10 @@
 'use strict';
-module.exports = function ($q) {
+module.exports = function () {
   return {
-    openNewUser:function(){
+    createDrink:function(){
       
     },
-    openNewDrink:function(){
+    createUser:function(){
       
     }
   };
