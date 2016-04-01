@@ -4,9 +4,9 @@
   "description": "2null16-bra written in node.js",
   "scripts": {
     "test": "./node_modules/jasmine-node/bin/jasmine-node --color --test-dir test",
-    "start":"node 2null16-bra.js",
-    "build":"gulp build",
-    "stop":"pkill --signal SIGINT 2null16-bra"
+    "start": "pm2 start 2null16-bra.js",
+    "build": "gulp build",
+    "stop": "echo not implemented yet"
   },
   "repository": {
     "type": "git",

@@ -31,3 +31,16 @@ require('./src/server').create({
     }
   });
 });
+
+process.on('SIGINT', function() {
+  // My process has received a SIGINT signal
+  // Meaning PM2 is now trying to stop the process
+
+  // So I can clean some stuff before the final stop
+  require("./src/server/db/sequelize").get().close();
+
+  setTimeout(function() {
+    // 300ms later the process kill it self to allow a restart
+    process.exit(0);
+  }, 300);
+});
