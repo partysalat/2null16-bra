@@ -24,14 +24,14 @@
                 md-icon.fa(md-font-icon="fa-coffee",style="font-size:5vw")
                 h3 <br/>Kaffee
         md-grid-tile(md-rowspan="1" md-colspan="1" md-colspan-sm="1")
-            md-button.md-raised.md-warn(flex="auto",style="height:100%",data-ng-click="clearCache()")
+            md-button.md-raised.md-warn(flex="auto",style="height:100%",data-ng-click="openNewUser($event)")
                 md-icon.fa(md-font-icon="fa-user-plus",style="font-size:5vw")
                 h3 <br/>Neuer Nutzer
         md-grid-tile(md-rowspan="1" md-colspan="1" md-colspan-sm="1")
-            md-button.md-raised(flex="auto",style="height:100%",data-ng-click="clearCache()")
+            md-button.md-raised(flex="auto",style="height:100%",data-ng-click="openNewDrink($event)")
                 md-icon.fa(md-font-icon="fa-cart-plus",style="font-size:5vw")
                 h3 <br/>Neuer Drink
         md-grid-tile(md-rowspan="1" md-colspan="1" md-colspan-sm="1")
             md-button.md-raised.md-primary(flex="auto",style="height:100%",data-ng-click="clearCache()")
                 md-icon.fa(md-font-icon="fa-refresh",style="font-size:5vw")
-                h3 <br/>Lösche Cache
+                h3 <br/>Sync Drinks & Drinkers

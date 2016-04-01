@@ -4,7 +4,7 @@ module.exports = function ($mdDialog, $q,drinkDataService,$mdToast) {
   function openModelAndSave(ev,data){
       return $mdDialog.show({
         controller: require("./dialogController"),
-        templateUrl: 'cocktails.html',
+        templateUrl: 'drink.html',
         parent: angular.element(document.body),
         targetEvent: ev,
         locals: {data: data[0].drinks,users:data[1].users},

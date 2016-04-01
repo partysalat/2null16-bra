@@ -8,7 +8,8 @@ angular.module("app", [
   require("angular-material"),
   'ngMaterial',
   'ui.router',
-  require("./components/choseDrinkDialog")
+  require("./components/choseDrinkDialog"),
+  require("./components/createNewResource")
 ])
 
 .controller("AccountingController",require("./sites/accounting/accountingController"))
