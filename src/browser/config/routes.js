@@ -8,6 +8,5 @@ module.exports = function($stateProvider, $urlRouterProvider) {
 
       templateUrl: "accounting.html"
     });
-
 };
 module.exports.$inject = ["$stateProvider", "$urlRouterProvider"];
