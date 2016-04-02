@@ -1,11 +1,11 @@
 'use strict';
 module.exports = function () {
   return {
-    createDrink:function(){
-      
+    createDrink:function(data){
+      console.log(data)
     },
-    createUser:function(){
-      
+    createUser:function(data){
+      console.log(data)
     }
   };
 };

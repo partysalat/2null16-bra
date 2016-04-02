@@ -1,9 +1,9 @@
 'use strict';
 module.exports = function ($mdDialog, $q,createResourceService,$mdToast) {
   var DRINK_TYPES = ["COCKTAIL","SHOT","BEER","COFFEE"];
-  function openModelAndSave(ev){
+  function openModalAndSaveDrink(ev){
     return $mdDialog.show({
-        controller: require("./dialogController"),
+        controller: require("./dialogNewDrinkController"),
         templateUrl: 'newDrink.html',
         parent: angular.element(document.body),
         targetEvent: ev,
@@ -21,13 +21,34 @@ module.exports = function ($mdDialog, $q,createResourceService,$mdToast) {
       });
 
   }
+  function openModalAndSaveUser(ev){
+    return $mdDialog.show({
+        controller: require("./dialogNewDrinkController"),
+        templateUrl: 'newUser.html',
+        parent: angular.element(document.body),
+        targetEvent: ev,
+        locals: {data: {}},
+        clickOutsideToClose: true
+      })
+      .then(createResourceService.createUser)
+      .then(function(){
+        $mdToast.show(
+          $mdToast.simple()
+            .textContent('Erfolgreich gespeichert')
+            .position("top left")
+            .hideDelay(1000)
+        );
+      });
+
+  }
+
   return {
     openNewUser:function($event){
-      console.log("new user",$event);
+      openModalAndSaveUser($event);
     },
     openNewDrink:function($event){
 
-      openModelAndSave($event);
+      openModalAndSaveDrink($event);
     }
   };
 };

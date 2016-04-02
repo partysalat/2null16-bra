@@ -1,0 +1,18 @@
+md-dialog(aria-label='Neue Resource')
+    form
+        md-toolbar
+            .md-toolbar-tools
+                h2 Auswahl {{chosenDrink.name}}
+                span(flex)
+                md-button.md-icon-button(ng-click='cancel()')
+                    md-icon.fa(md-font-icon='fa-close', aria-label='Close dialog')
+        md-dialog-content(style='max-width:800px;max-height:810px; ')
+            div(layout="row")
+                md-input-container.md-block.md-margin
+                    label Name des Nutzers
+                    input(ng-model="name",style="color:white")
+
+        md-dialog-actions(layout='row')
+            md-button.md-primary.md-raised(ng-disabled="!name ", ng-click="answer()")
+                | Ok
+

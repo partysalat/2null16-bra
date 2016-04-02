@@ -10,8 +10,8 @@ module.exports = function ($scope, $mdDialog,data) {
   };
   $scope.answer = function () {
     $mdDialog.hide({
-      drink:$scope.activeDrink,
-      name:$scope.drinkName
+      drinkType:$scope.activeDrink,
+      name:$scope.name
     });
   };
   $scope.choseDrink = function(drink){

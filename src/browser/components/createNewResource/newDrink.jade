@@ -16,11 +16,11 @@ md-dialog(aria-label='Neue Resource')
             )
                 md-grid-tile.md-margin(data-ng-click="toggleDrink(drink)" data-ng-class="{active:isActive(drink)}",md-rowspan="1" md-colspan="1",data-ng-repeat="drink in data")
                     h3 {{drink}}
-            md-input-container.md-block(flex)
-                label First name
-                input(ng-model="drinkName")
+            md-input-container.md-block.md-margin
+                label Name des Drinks
+                input(ng-model="name",style="color:white")
 
         md-dialog-actions(layout='row')
-            md-button.md-primary.md-raised(ng-disabled="!activeDrink || !drinkName", ng-click="answer()")
+            md-button.md-primary.md-raised(ng-disabled="!activeDrink || !name", ng-click="answer()")
                 | Ok
 
