@@ -43,6 +43,18 @@ module.exports.getNews = function (request, reply) {
   }).then(reply).catch(reply);
 };
 
+module.exports.saveDrink = function(request,reply){
+  var name = request.payload.name;
+  var type = request.params.type.toUpperCase();
+  Drink.create({
+    name:name,
+    type:type
+  }).then(reply).catch(function(err){
+    console.log(err);
+    reply(err);
+  });
+};
+
 module.exports.getNewsPerUser = function (request, reply) {
   News.findAll({
     attributes: [[sequelize.get().fn('count', sequelize.get().col('drinkId')), "drinkCount"]],

@@ -1,14 +1,22 @@
 'use strict';
-module.exports = function () {
+module.exports = function (User,Cocktail,Shot,Beer,Coffee) {
+  var drinkTypeMapping = {
+    COCKTAIL:Cocktail,
+    SHOT:Shot,
+    BEER: Beer,
+    COFFEE: Coffee
+  };
   return {
     createDrink:function(data){
-      console.log(data)
+      var DrinkClass = drinkTypeMapping[data.drinkType];
+      return new DrinkClass({name:data.name}).$save();
+      
     },
     createUser:function(data){
-      console.log(data)
+      return new User({name:data.name}).$save();
     }
   };
 };
 
 
-module.exports.$inject = ["$q"];
+module.exports.$inject = ["User", "Cocktail", "Shot", "Beer", "Coffee"];

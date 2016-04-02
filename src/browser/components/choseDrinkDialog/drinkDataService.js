@@ -1,13 +1,13 @@
 'use strict';
 var _ = require("lodash");
-module.exports = function ($q, Drink, Users, Cocktails, Shot, Beer, Coffee, $cacheFactory) {
+module.exports = function ($q, DrinkProcess, User, Cocktail, Shot, Beer, Coffee, $cacheFactory) {
   var httpCache = $cacheFactory.get('$http');
   return {
     clearCache: function () {
       httpCache.removeAll();
     },
     getCocktails: function () {
-      return new Cocktails().$get();
+      return new Cocktail().$get();
     },
     getShots: function () {
       return new Shot().$get();
@@ -19,10 +19,10 @@ module.exports = function ($q, Drink, Users, Cocktails, Shot, Beer, Coffee, $cac
       return new Coffee().$get();
     },
     getUsers: function () {
-      return new Users().$get();
+      return new User().$get();
     },
     saveDrinks: function (data) {
-      return new Drink({
+      return new DrinkProcess({
         drink: data.drink.id,
         users: _.map(data.users, "id")
       }).$save();
@@ -31,4 +31,4 @@ module.exports = function ($q, Drink, Users, Cocktails, Shot, Beer, Coffee, $cac
 };
 
 
-module.exports.$inject = ["$q", "Drink", "Users", "Cocktails", "Shot", "Beer", "Coffee", "$cacheFactory"];
+module.exports.$inject = ["$q", "DrinkProcess", "User", "Cocktail", "Shot", "Beer", "Coffee", "$cacheFactory"];

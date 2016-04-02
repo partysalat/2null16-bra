@@ -1,7 +1,8 @@
 'use strict';
 angular.module("create-resource", [
     "templates",
-    require("./../drinks")
+    require("./../drinks"),
+    require("./../users")
   ])
 
   .service("createResourceService", require("./createResourceService"))

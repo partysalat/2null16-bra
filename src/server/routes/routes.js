@@ -53,11 +53,32 @@ var routes = [{
         }
       }
     }
+  },{
+    method: 'POST',
+    path: '/api/drinks/{type}',
+    config: {
+      handler: require('../handlers/drinkHandler.js').saveDrink,
+      validate:{
+        params:{
+          type:Joi.any().valid("cocktail","beer","coffee","shot")
+        },
+        payload:{
+          name:Joi.string()
+        }
+      }
+    }
   }, {
     method: 'GET',
-    path: '/api/users',
+    path: '/api/user',
     config: {
       handler: require('../handlers/userHandler.js').getUsers
+    }
+  },
+  {
+    method: 'POST',
+    path: '/api/user',
+    config: {
+      handler: require('../handlers/userHandler.js').saveUser
     }
   },
   {
