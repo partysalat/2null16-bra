@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "gitlab@git.rz.is:i18n/2null16-bra.git"
+    "url": "git@github.com:partysalat/2null16-bra.git"
   },
   "keywords": [
     "node.js"
