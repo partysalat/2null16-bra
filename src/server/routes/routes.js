@@ -85,7 +85,7 @@ var routes = [{
     method: 'GET',
     path: '/api/news/{page}',
     config: {
-      handler: require('../handlers/drinkHandler').getNews,
+      handler: require('../handlers/newsHandler').getNews,
       validate:{
         params:{
           page:Joi.number().integer()
@@ -97,14 +97,14 @@ var routes = [{
     method: 'GET',
     path: '/api/news/user',
     config: {
-      handler: require('../handlers/drinkHandler').getNewsPerUser
+      handler: require('../handlers/newsHandler').getNewsPerUser
     }
   },
   {
     method: 'POST',
     path: '/api/drinks',
     config: {
-      handler: require('../handlers/drinkHandler.js').save,
+      handler: require('../handlers/newsHandler').save,
       validate:{
         payload:{
           users:Joi.array(),

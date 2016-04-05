@@ -1,0 +1,26 @@
+
+.layout-content(data-layout="column")
+    md-toolbar
+        .md-toolbar-tools
+            h2
+                span 2null16 - BRA
+            span(flex='')
+            md-button.md-fab.md-primary(aria-label='Use Android')
+                img.md-avatar(src="/internal/assets/flo.jpg",style="height:64px; margin-left:-25%;")
+            md-button.md-fab.md-primary(aria-label='Use Android')
+                img.md-avatar(src="/internal/assets/paul.jpg",style="height:64px; margin-left:-25%;")
+            md-button.md-fab.md-primary(aria-label='Use Android')
+                img.md-avatar(src="/internal/assets/finger.jpg",style="height:64px; margin-left:-25%;")
+            md-button.md-fab.md-primary(aria-label='Use Android',ng-disabled="true")
+                img.md-avatar(src="/internal/assets/ben.jpg",style="height:64px; margin-left:-25%;")
+
+    md-content(data-layout-margin)
+        md-list
+            md-list-item.md-3-line(ng-repeat="item in news track by item.id")
+                //img.md-avatar(data-ng-src="{{item.face}}?{{$index}}" alt="{{item.who}}")
+                .md-avatar(style="text-align:center")
+                    md-icon.fa(md-font-icon="{{item.drink.type|icon}}",style="font-size:48px")
+                .md-list-item-text(layout="column")
+                    h3 <b>{{ item.user.name }}</b> hat ein <b>{{ item.drink.name }}</b> bestellt.
+                    p {{ item.createdAt|date:'medium' }}
+                md-divider

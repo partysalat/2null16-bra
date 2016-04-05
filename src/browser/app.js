@@ -9,9 +9,12 @@ angular.module("app", [
   'ngMaterial',
   'ui.router',
   require("./components/choseDrinkDialog"),
-  require("./components/createNewResource")
+  require("./components/createNewResource"),
+  require("./components/users"),
+  require("./components/filters")
 ])
 
 .controller("AccountingController",require("./sites/accounting/accountingController"))
+.controller("NewsController",require("./sites/news/newsController"))
 .config(require("./config/mdTheme"))
 .config(require("./config/routes"));

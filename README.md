@@ -1,4 +1,4 @@
-2null16-bra
+# 2null16-bra
 
 ====================================================
 
@@ -28,7 +28,7 @@ Setup & Start Server
 
 Install on Rasperry Pi
 ----------------------------------------------------
-### SSH keys(local machine)
+### SSH keys(local machine, in my case: mac)
 ```
 brew install ssh-copy-id
 ssh-copy-id pi@raspberrypi
@@ -90,3 +90,9 @@ git remote add pi pi@raspberrypi:2null16-bra.git
 git push pi master
 ```
 Enable npm stop script
+
+### Enable Startup on Restart
+```
+pm2 startup
+pm2 save
+```

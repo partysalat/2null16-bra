@@ -28,4 +28,8 @@ gulp.task("copy-fonts",function(){
   return gulp.src(["./src/browser/styl/fontawesome/**/*"])
     .pipe(gulp.dest(gulpConfig.paths.assets))
 });
-gulp.task("css", ["stylus","copy-fonts"]);
+gulp.task("copy-images",function(){
+  return gulp.src(["./src/browser/styl/images/**/*"])
+    .pipe(gulp.dest(gulpConfig.paths.assets))
+});
+gulp.task("css", ["stylus","copy-fonts","copy-images"]);
