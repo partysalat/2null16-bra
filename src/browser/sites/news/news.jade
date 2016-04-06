@@ -5,14 +5,30 @@
             h2
                 span 2null16 - BRA
             span(flex='')
-            md-button.md-fab.md-primary(aria-label='Use Android')
-                img.md-avatar(src="/internal/assets/flo.jpg",style="height:64px; margin-left:-25%;")
-            md-button.md-fab.md-primary(aria-label='Use Android')
-                img.md-avatar(src="/internal/assets/paul.jpg",style="height:64px; margin-left:-25%;")
-            md-button.md-fab.md-primary(aria-label='Use Android')
-                img.md-avatar(src="/internal/assets/finger.jpg",style="height:64px; margin-left:-25%;")
-            md-button.md-fab.md-primary(aria-label='Use Android',ng-disabled="true")
-                img.md-avatar(src="/internal/assets/ben.jpg",style="height:64px; margin-left:-25%;")
+            .n16-avatar(style="position:relative")
+                md-button.md-fab.md-primary(aria-label='Use Android')
+                    img.md-avatar(src="/internal/assets/flo.jpg",style="height:64px; margin-left:-25%;")
+                .online-indicator
+                    md-icon.fa(md-font-icon="fa-bolt",style="font-size:9px")
+
+            .n16-avatar(style="position:relative",data-ng-class="{offline:isActive}")
+                md-button.md-fab.md-primary(aria-label='Use Android')
+                    img.md-avatar(src="/internal/assets/paul.jpg",style="height:64px; margin-left:-25%;")
+                .online-indicator
+                    md-icon.fa(md-font-icon="fa-bolt",style="font-size:9px")
+
+            .n16-avatar(style="position:relative")
+                md-button.md-fab.md-primary(aria-label='Use Android')
+                    img.md-avatar(src="/internal/assets/finger.jpg",style="height:64px; margin-left:-25%;")
+                .online-indicator
+                    md-icon.fa(md-font-icon="fa-bolt",style="font-size:9px")
+
+            .n16-avatar(style="position:relative")
+                md-button.md-fab.md-primary(aria-label='Use Android',ng-disabled="true")
+                    img.md-avatar(src="/internal/assets/ben.jpg",style="height:64px; margin-left:-25%;")
+                .online-indicator
+                    md-icon.fa(md-font-icon="fa-bolt",style="font-size:9px")
+
 
     md-content(data-layout-margin)
         md-list

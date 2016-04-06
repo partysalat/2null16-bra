@@ -96,3 +96,25 @@ Enable npm stop script
 pm2 startup
 pm2 save
 ```
+
+### Installing camera
+```
+apt-get install libgphoto2-2-dev
+apt-get install libclang-dev
+```
+
+
+### Quirks
+Disable Raspberry pi wireless power management mode:
+Edit file /etc/newtork/interfaces and add:
+
+```
+wireless-power off
+```
+
+directly after wpa-conf /ezc/wpa_supplicant/wpa_supplicant.conf
+Restart network for taking changes
+```
+sudo /etc/init.d/networking restart
+iwconfig
+```
