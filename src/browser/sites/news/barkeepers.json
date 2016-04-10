@@ -1,0 +1,20 @@
+{
+  barkeepers: [
+    {
+      image: "/internal/assets/flo.jpg",
+      name: "Flo",
+    },
+    {
+      image: "/internal/assets/finger.jpg",
+      name: "Benni",
+    },
+    {
+      image: "/internal/assets/paul.jpg",
+      name: "Paul",
+    },
+    {
+      image: "/internal/assets/ben.jpg",
+      name: "Ben",
+    }
+  ]
+}
