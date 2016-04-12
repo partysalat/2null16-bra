@@ -1,12 +1,11 @@
 'use strict';
 var barkeepers = require("./barkeepers.json").barkeepers;
-var io = require("socket.io-client");
-module.exports = function ($scope, news) {
+module.exports = function ($scope, news,socket) {
   $scope.news = news.news;
   $scope.barkeepers = barkeepers;
   $scope.isActive = {};
   $scope.isActive[barkeepers[0].name] = true;
-  var socket = io('/');
+
   socket.on("keeper", function (data) {
     $scope.isActive[data.keeper] = data.status === "online";
     $scope.$apply();
@@ -20,4 +19,4 @@ module.exports = function ($scope, news) {
 
 };
 
-module.exports.$inject = ["$scope", "news"];
+module.exports.$inject = ["$scope", "news","socket"];

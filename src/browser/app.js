@@ -11,7 +11,8 @@ angular.module("app", [
   require("./components/choseDrinkDialog"),
   require("./components/createNewResource"),
   require("./components/users"),
-  require("./components/filters")
+  require("./components/filters"),
+  require("./components/socketio")
 ])
 
 .controller("AccountingController",require("./sites/accounting/accountingController"))

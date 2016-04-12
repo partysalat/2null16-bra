@@ -15,17 +15,18 @@ module.exports.save = function (request, reply) {
       userId: userId
     };
   });
-  News.bulkCreate(transformedData).then(function () {
-    News.findAll({
+  return News.bulkCreate(transformedData).then(function () {
+    reply().code(204);
+    return News.findAll({
       limit: transformedData.length,
       offset: 0,
       include: [User, Drink],
       order: [['updatedAt', 'DESC']]
     }).then(function(data){
       socket.addNews(data);
-    });
+    }).catch(console.error);
 
-    reply().code(204);
+
   }).catch(function (err) {
     console.error(err);
     reply(err);
