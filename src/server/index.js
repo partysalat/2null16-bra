@@ -14,7 +14,7 @@ function create(connectionSettings, callback) {
   server = new hapi.Server();
   server.connection(connectionSettings);
 
-
+  require("./socket").init(server.listener);
   
   server.route({
     method: 'GET',

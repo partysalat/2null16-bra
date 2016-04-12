@@ -2,19 +2,19 @@
   barkeepers: [
     {
       image: "/internal/assets/flo.jpg",
-      name: "Flo",
+      name: "flo",
     },
     {
       image: "/internal/assets/finger.jpg",
-      name: "Benni",
+      name: "benni",
     },
     {
       image: "/internal/assets/paul.jpg",
-      name: "Paul",
+      name: "paul",
     },
     {
       image: "/internal/assets/ben.jpg",
-      name: "Ben",
+      name: "ben",
     }
   ]
 }

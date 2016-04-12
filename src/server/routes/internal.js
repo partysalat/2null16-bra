@@ -1,4 +1,5 @@
 'use strict';
+var joi = require("joi");
 var routes = [{
   method: 'GET',
   path: '/internal/status',
@@ -40,6 +41,20 @@ var routes = [{
     config: {
       handler: require('../handlers/versionHandler.js').syncNews
     }
-  }];
+  },{
+    method: 'GET',
+    path: '/internal/keeper/{keeper}/{status}',
+    config: {
+      handler: require('../handlers/barkeeperHandler.js').notify,
+      validate:{
+        params:{
+          keeper:joi.string(),
+          status:joi.any().valid("online","offline")
+        }
+      }
+      
+    }
+  }
+];
 
 module.exports = routes;

@@ -2,7 +2,9 @@
 var User = require("./../models/User"),
   Drink = require("./../models/Drink"),
   News = require("./../models/News"),
-  sequelize = require("./../db/sequelize");
+ socket = require("./../socket"),
+
+sequelize = require("./../db/sequelize");
 var PAGE_SIZE = 20;
 var _ = require("lodash");
 module.exports.save = function (request, reply) {
@@ -14,6 +16,15 @@ module.exports.save = function (request, reply) {
     };
   });
   News.bulkCreate(transformedData).then(function () {
+    News.findAll({
+      limit: transformedData.length,
+      offset: 0,
+      include: [User, Drink],
+      order: [['updatedAt', 'DESC']]
+    }).then(function(data){
+      socket.addNews(data);
+    });
+
     reply().code(204);
   }).catch(function (err) {
     console.error(err);

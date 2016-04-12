@@ -24,7 +24,8 @@
     "angular-aria",
     "angular-messages",
     "angular-material",
-    "angular-ui-router"
+    "angular-ui-router",
+    "socket.io-client"
   ],
   "browserLibraries": [
     "./src/browser/vendor/anyPlugin.js"
@@ -44,6 +45,7 @@
     "pkginfo": "^0.4.0",
     "request-promise": "^2.0.1",
     "sequelize": "^3.20.0",
+    "socket.io": "^1.4.5",
     "sprintf-js": "^1.0.3",
     "sqlite3": "^3.1.2",
     "vision": "^4.0.1"
