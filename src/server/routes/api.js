@@ -75,7 +75,7 @@ var routes = [
   },
   {
     method: 'PUT',
-    path: '/api/keeper/{keeper}/{status}',
+    path: '/api/keeper/{keeper}',
     config: {
       handler: require('../handlers/barkeeperHandler.js').notify,
       validate:{
