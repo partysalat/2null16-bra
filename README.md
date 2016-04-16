@@ -115,6 +115,15 @@ proxy_pass http://localhost:1337;
 ```
 sudo service nginx reload
 ```
+Under server add:
+```
+       location /internal/assets/ {
+               alias /home/pi/2null16-bra/target/assets/;
+       }
+       location /internal/images/ {
+               alias /home/pi/braimages/;
+       }
+```
 
 ### Quirks
 Disable Raspberry pi wireless power management mode:

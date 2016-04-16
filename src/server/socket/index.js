@@ -16,7 +16,7 @@ var keeperNameMapping = {
 };
 
 module.exports.keeperStatus = function(payload){
-  io.emit("keeper",_.assign(payload,{name:keeperNameMapping[payload.keeper]}));
+  io.emit("keeper",_.assign({},payload,{name:keeperNameMapping[payload.keeper]}));
 };
 module.exports.addNews = function(news){
   io.emit("news",news);

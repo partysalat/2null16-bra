@@ -9,12 +9,11 @@
                 md-button.md-fab.md-primary(aria-label='Use Android')
                     img.md-avatar(data-ng-src="{{keeper.image}}",style="height:64px; margin-left:-25%;")
                 .online-indicator
-                    //md-icon.fa(md-font-icon="fa-bolt",style="font-size:9px")
                     div(style="font-size:12px",data-ng-bind="distance[keeper.name]")
 
 
     md-content(data-layout-margin, style="max-width:600px")
-        md-card.animated.bounceIn(ng-repeat="item in news track by item.id")
+        md-card.animated.rollIn(ng-repeat="item in news track by item.id")
             md-card-header
                 md-card-avatar
                     img.md-user-avatar(data-ng-src="{{item.drink.type|typeimage}}",data-ng-if="item.type!=='IMAGE'")
