@@ -21,7 +21,7 @@ var routes = [{
     path: '/internal/images/{filename*}',
     handler: {
       directory: {
-        path: __dirname + "/../../../../../braimages",
+        path: process.env.HOME + "/braimages",
         redirectToSlash: true
       }
     }

@@ -87,11 +87,11 @@ var routes = [
 
     }
   },
-  {
+ {
     method: 'POST',
-    path: '/api/photo/{imagePath}/{keeper}',
+    path: '/api/photo',
     config: {
-      handler: require('../handlers/barkeeperHandler.js').photo,
+      handler: require('../handlers/barkeeperHandler.js').takephoto,
       validate:{
         params:{
           imagePath:Joi.string(),

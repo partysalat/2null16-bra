@@ -7,7 +7,8 @@ describe('statusHandler', function () {
     imageMock,
     newsMock,
     socketMock,
-    NewsMock;
+    NewsMock,
+    rpMock;
   beforeEach(function () {
     imageMock = {
       id: "123467",
@@ -26,11 +27,14 @@ describe('statusHandler', function () {
     NewsMock.NEWS_TYPES = {IMAGE: "IMAGE"};
     NewsMock.create.and.returnValue(promise.resolve(newsMock));
     socketMock = jasmine.createSpyObj("socket", ["addNews"]);
+    rpMock = jasmine.createSpy("request-promise");
+
 
     barkeeperHandler = rewire('../../../../src/server/handlers/barkeeperHandler');
     barkeeperHandler.__set__("Images", ImagesMock);
     barkeeperHandler.__set__("News", NewsMock);
     barkeeperHandler.__set__("socket", socketMock);
+    barkeeperHandler.__set__("rp", rpMock);
   });
 
   it('should be defined', function () {
@@ -40,12 +44,11 @@ describe('statusHandler', function () {
   it('should reply with ok, creates image and news and push it via websocket', function (done) {
     var replySpy = jasmine.createSpy('reply');
     var IMAGE_PATH = "FOOO";
-    var KEEPER = "Kepper";
-    barkeeperHandler.photo({params: {imagePath: IMAGE_PATH,keeper:KEEPER}}, replySpy)
+    rpMock.and.returnValue(promise.resolve({filename:IMAGE_PATH}));
+    barkeeperHandler.takephoto({params: {imagePath: IMAGE_PATH}}, replySpy)
       .then(function () {
         expect(ImagesMock.create).toHaveBeenCalledWith({
-          path: IMAGE_PATH,
-          keeper:KEEPER
+          path: IMAGE_PATH
         });
         expect(NewsMock.create).toHaveBeenCalledWith({
           imageId: imageMock.id,

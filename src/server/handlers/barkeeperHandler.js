@@ -1,5 +1,6 @@
 'use strict';
 var socket = require("./../socket");
+var rp = require("request-promise");
 var Images = require("./../models/Image"),
   _ = require("lodash"),
   promise = require("bluebird"),
@@ -19,18 +20,27 @@ function createDrinkNews(image) {
 function pushNews(image, news) {
   socket.addNews([_.assign(news.dataValues, {image: image.dataValues})]);
 }
-module.exports.photo = function (request, reply) {
+function photo(img) {
 
   return Images.create({
-    keeper:request.params.keeper,
-    path: request.params.imagePath,
+    path: img.filename
   }).then(function (image) {
       return promise.all([
         image,
         createDrinkNews(image)
       ]);
     })
-    .spread(pushNews)
+    .spread(pushNews);
+
+}
+module.exports.takephoto = function (request, reply) {
+
+  return rp({
+    method:"POST",
+    url:"http://localhost:1338/api/camera/shot",
+    json:true
+  })
+    .then(photo)
     .then(function () {
       reply("ok");
     })
@@ -41,3 +51,4 @@ module.exports.photo = function (request, reply) {
 
 
 };
+

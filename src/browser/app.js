@@ -12,7 +12,8 @@ angular.module("app", [
   require("./components/createNewResource"),
   require("./components/users"),
   require("./components/filters"),
-  require("./components/socketio")
+  require("./components/socketio"),
+  require("./components/camera")
 ])
 
 .controller("AccountingController",require("./sites/accounting/accountingController"))
