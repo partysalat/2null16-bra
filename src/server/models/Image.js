@@ -7,6 +7,7 @@ var
 
 var Images = sequelize.get().define(TABLE_NAME, {
   path: DataType.STRING,
+  keeper:DataType.STRING,
   id: {
     type: DataType.INTEGER,
     primaryKey: true,

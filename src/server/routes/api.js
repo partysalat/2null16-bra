@@ -89,12 +89,13 @@ var routes = [
   },
   {
     method: 'POST',
-    path: '/api/photo/{imagePath}',
+    path: '/api/photo/{imagePath}/{keeper}',
     config: {
       handler: require('../handlers/barkeeperHandler.js').photo,
       validate:{
         params:{
-          imagePath:Joi.string()
+          imagePath:Joi.string(),
+          keeper:Joi.string()
         }
       }
 

@@ -22,6 +22,7 @@ function pushNews(image, news) {
 module.exports.photo = function (request, reply) {
 
   return Images.create({
+    keeper:request.params.keeper,
     path: request.params.imagePath,
   }).then(function (image) {
       return promise.all([

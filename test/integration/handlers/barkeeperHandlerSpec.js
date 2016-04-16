@@ -27,9 +27,9 @@ describe('barkeeperHandler', function () {
   });
 
   it('should reply with ok, creates image and news', function (done) {
-    var IMAGE_PATH = "123";
+    var IMAGE_PATH = "123",KEEPER = "flo";
     server.inject({
-      url: "/api/photo/" + IMAGE_PATH,
+      url: "/api/photo/" + IMAGE_PATH+"/"+KEEPER,
       method: "POST"
     }, function (response) {
       expect(response.payload).toBe("ok");
@@ -39,6 +39,8 @@ describe('barkeeperHandler', function () {
       ]).spread(function (news, images) {
         expect(news.length).toBe(1);
         expect(images.length).toBe(1);
+        expect(images[0].path).toBe("123");
+        expect(images[0].keeper).toBe("flo");
         expect(news[0].imageId).toBe(images[0].id);
         done();
       });

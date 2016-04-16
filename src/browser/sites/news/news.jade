@@ -12,18 +12,17 @@
                     md-icon.fa(md-font-icon="fa-bolt",style="font-size:9px")
 
 
-    md-content(data-layout-margin)
-        md-list
-            md-list-item.md-3-line(ng-repeat="item in news track by item.id")
-                .md-avatar(style="text-align:center", data-ng-if="item.type==='DRINK'")
-                    md-icon.fa(md-font-icon="{{item.drink.type|icon}}",style="font-size:48px")
-                .md-list-item-text(layout="column",data-ng-if="item.type==='DRINK'")
-                    h3 <b>{{ item.user.name }}</b> hat ein <b>{{ item.drink.name }}</b> bestellt.
-                    p {{ item.createdAt|date:'medium' }}
-                .md-avatar(style="text-align:center", data-ng-if="item.type==='IMAGE'")
-                    md-icon.fa(md-font-icon="fa-picture-o",style="font-size:48px")
-                .md-list-item-text(layout="column",data-ng-if="item.type==='IMAGE'")
-                    h3
-                        img(data-ng-src="/internal/images/{{item.image.path}}",style="width:50vw")
-                    p {{ item.createdAt|date:'medium' }}
-                md-divider
+    md-content(data-layout-margin, style="max-width:600px")
+        md-card.animated.bounceIn(ng-repeat="item in news track by item.id")
+            md-card-header
+                md-card-avatar
+                    img.md-user-avatar(data-ng-src="{{item.drink.type|typeimage}}",data-ng-if="item.type!=='IMAGE'")
+                    img.md-user-avatar(data-ng-src="/internal/assets/flo.jpg",data-ng-if="item.type==='IMAGE'")
+                md-card-header-text
+                    span.md-title(data-ng-if="item.type==='IMAGE'",style="font-size:24px") <b>B.R.A Shot</b>
+                    span.md-title(data-ng-if="item.type!=='IMAGE'" style="font-size:24px")
+                        |  <b>{{ item.user.name }}</b> hat ein <b>{{ item.drink.name }}</b> bestellt.
+            img.md-card-image(data-ng-src="/internal/images/{{item.image.path}}", alt='Washed Out',data-ng-if="item.type==='IMAGE'")
+            md-card-title
+                md-card-title-text
+                    span.md-subhead {{ item.createdAt|date:'medium' }}

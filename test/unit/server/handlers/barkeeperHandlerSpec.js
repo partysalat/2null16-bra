@@ -40,10 +40,12 @@ describe('statusHandler', function () {
   it('should reply with ok, creates image and news and push it via websocket', function (done) {
     var replySpy = jasmine.createSpy('reply');
     var IMAGE_PATH = "FOOO";
-    barkeeperHandler.photo({params: {imagePath: IMAGE_PATH}}, replySpy)
+    var KEEPER = "Kepper";
+    barkeeperHandler.photo({params: {imagePath: IMAGE_PATH,keeper:KEEPER}}, replySpy)
       .then(function () {
         expect(ImagesMock.create).toHaveBeenCalledWith({
-          path: IMAGE_PATH
+          path: IMAGE_PATH,
+          keeper:KEEPER
         });
         expect(NewsMock.create).toHaveBeenCalledWith({
           imageId: imageMock.id,
