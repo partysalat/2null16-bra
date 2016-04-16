@@ -108,21 +108,30 @@ apt-get install libclang-dev
 sudo apt-get install nginx
 sudo nano /etc/nginx/sites-enabled/default
 ```
-Under location add
+Under server remove other locations and add
 ```
-proxy_pass http://localhost:1337;
+ location /internal/assets/ {
+        alias /home/pi/2null16-bra/target/assets/;
+        sendfile   on;
+        sendfile_max_chunk 1m;
+        tcp_nopush on;
+ }
+ location /internal/images/ {
+        alias /home/pi/braimages/;
+        sendfile   on;
+        sendfile_max_chunk 1m;
+        tcp_nopush on;
+ }
+ location / {
+        proxy_pass http://localhost:1337;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header Host $host;
+ }
 ```
 ```
 sudo service nginx reload
-```
-Under server add:
-```
-       location /internal/assets/ {
-               alias /home/pi/2null16-bra/target/assets/;
-       }
-       location /internal/images/ {
-               alias /home/pi/braimages/;
-       }
 ```
 
 ### Quirks
