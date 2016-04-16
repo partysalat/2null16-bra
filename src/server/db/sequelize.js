@@ -3,6 +3,7 @@ var Sequelize = require("sequelize"),
   config = require("./../../../localConfig"),
   sequelizeInstance;
 module.exports.get = function(){
+
   if(!sequelizeInstance){
     sequelizeInstance =  new Sequelize(
       config.sql.database,

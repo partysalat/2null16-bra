@@ -1,26 +1,20 @@
 module.exports = {
-  bundle:{
-    app:"2null16-bra-bundle.js",
-    vendor:"2null16-bra-vendor-bundle.js",
-    url:"/internal/assets"
+  bundle: {
+    app: "2null16-bra-bundle.js",
+    vendor: "2null16-bra-vendor-bundle.js",
+    url: "/internal/assets"
   },
 
   sql: {
-    database: {
-      $filter: 'env',
-      $default: 'bra'
-    },
+    database: 'bra',
     auth: {
       user: "user",
       pass: "pass"
     },
     settings: {
-      host: {
-        $filter: "env",
-        $default: "localhost"
-      },
+      host: "localhost",
       logging: false,
-      dialect:'sqlite',
+      dialect: 'sqlite',
 
       storage: './database.sqlite',
       pool: {
@@ -28,17 +22,6 @@ module.exports = {
         min: 5
       }
     }
-  },
-  logger: {
-    config: {
-      file: {
-        level: 'info',
-        filename: './target/2null16-bra.log'
-      },
-      console: {
-        silent: false
-      }
-    },
-    component: '2null16-bra'
   }
+
 };

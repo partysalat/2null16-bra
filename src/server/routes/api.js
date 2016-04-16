@@ -72,6 +72,33 @@ var routes = [
       }
     }
 
+  },
+  {
+    method: 'PUT',
+    path: '/api/keeper/{keeper}/{status}',
+    config: {
+      handler: require('../handlers/barkeeperHandler.js').notify,
+      validate:{
+        params:{
+          keeper:Joi.string(),
+          status:Joi.any().valid("online","offline")
+        }
+      }
+
+    }
+  },
+  {
+    method: 'POST',
+    path: '/api/photo/{imagePath}',
+    config: {
+      handler: require('../handlers/barkeeperHandler.js').photo,
+      validate:{
+        params:{
+          imagePath:Joi.string()
+        }
+      }
+
+    }
   }
 
 ];

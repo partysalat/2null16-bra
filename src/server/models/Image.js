@@ -3,18 +3,17 @@
 var
   sequelize = require("./../db/sequelize"),
   DataType = require("sequelize"),
-  TABLE_NAME = 'users';
+  TABLE_NAME = 'images';
 
-var User = sequelize.get().define(TABLE_NAME, {
+var Images = sequelize.get().define(TABLE_NAME, {
+  path: DataType.STRING,
   id: {
     type: DataType.INTEGER,
     primaryKey: true,
     autoIncrement: true
-  },
-
-  name: DataType.STRING,
-  image:DataType.STRING
+  }
+  
 });
-User.sync();
+Images.sync();
 
-module.exports = User;
+module.exports = Images;

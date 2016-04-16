@@ -1,5 +1,4 @@
 'use strict';
-var joi = require("joi");
 var routes = [{
   method: 'GET',
   path: '/internal/status',
@@ -13,6 +12,16 @@ var routes = [{
     handler: {
       directory: {
         path: __dirname + '/../../../target/assets',
+        redirectToSlash: true
+      }
+    }
+  },
+  {
+    method: 'GET',
+    path: '/internal/images/{filename*}',
+    handler: {
+      directory: {
+        path: __dirname + "/../../../../../braimages",
         redirectToSlash: true
       }
     }
@@ -40,19 +49,6 @@ var routes = [{
     path: '/internal/sync/news',
     config: {
       handler: require('../handlers/versionHandler.js').syncNews
-    }
-  },{
-    method: 'GET',
-    path: '/internal/keeper/{keeper}/{status}',
-    config: {
-      handler: require('../handlers/barkeeperHandler.js').notify,
-      validate:{
-        params:{
-          keeper:joi.string(),
-          status:joi.any().valid("online","offline")
-        }
-      }
-      
     }
   }
 ];

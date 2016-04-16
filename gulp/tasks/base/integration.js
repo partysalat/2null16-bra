@@ -14,6 +14,8 @@ var SRC = {
 
 
 gulp.task('_integration', function () {
+  require("../../../localConfig").sql.settings.storage = "./dbIntegration.sqlite";
+
   gutil.log(gutil.colors.green("INTEGRATION STARTED"));
   return gulp.src(SRC.integrationTest).pipe(jasmine({
     reporter: reporters.getReporters(),

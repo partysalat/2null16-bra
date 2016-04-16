@@ -103,6 +103,18 @@ apt-get install libgphoto2-2-dev
 apt-get install libclang-dev
 ```
 
+### Installing NGINX
+```
+sudo apt-get install nginx
+sudo nano /etc/nginx/sites-enabled/default
+```
+Under location add
+```
+proxy_pass http://localhost:1337;
+```
+```
+sudo service nginx reload
+```
 
 ### Quirks
 Disable Raspberry pi wireless power management mode:

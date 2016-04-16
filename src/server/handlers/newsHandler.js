@@ -1,6 +1,7 @@
 'use strict';
 var User = require("./../models/User"),
   Drink = require("./../models/Drink"),
+  Images = require("./../models/Image"),
   News = require("./../models/News"),
  socket = require("./../socket"),
 
@@ -12,7 +13,8 @@ module.exports.save = function (request, reply) {
   var transformedData = _.map(initialData.users, function (userId) {
     return {
       drinkId: initialData.drink,
-      userId: userId
+      userId: userId,
+      type:"DRINK"
     };
   });
   return News.bulkCreate(transformedData).then(function () {
@@ -42,11 +44,14 @@ module.exports.getNews = function (request, reply) {
   News.findAll({
     limit: PAGE_SIZE,
     offset: page * PAGE_SIZE,
-    include: [User, Drink],
+    include: [User, Drink,Images],
     order: [['updatedAt', 'DESC']]
   }).then(function(news){
     reply({news:news});
-  }).catch(reply);
+  }).catch(function(err){
+    console.error(err);
+    reply(err);
+  });
 };
 
 

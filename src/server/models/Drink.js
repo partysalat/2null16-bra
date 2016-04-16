@@ -27,7 +27,7 @@ var Drink = sequelize.get().define(TABLE_NAME, {
     }
   }
 });
-
+Drink.sync();
 
 module.exports = Drink;
 module.exports.DRINK_TYPES = DRINK_TYPES_MAP;
