@@ -1,7 +1,7 @@
 'use strict';
 var barkeepers = require("./barkeepers.json").barkeepers;
 var MAX_DISTANCE = 15;
-module.exports = function ($scope, news,socket) {
+module.exports = function ($scope, news,socket,News) {
   $scope.news = news.news;
   $scope.barkeepers = barkeepers;
   $scope.isActive = {};
@@ -20,7 +20,17 @@ module.exports = function ($scope, news,socket) {
     });
     $scope.$apply();
   });
-
+  $scope.addItems = function(){
+    $scope.isPending = true;
+    new News().$get({offset:$scope.news.length})
+      .then(function(olderNews){
+        olderNews.news.forEach(function(news){
+          $scope.news.push(news);
+        });
+        $scope.isPending = olderNews.news.length === 0;
+      });
+  };
+  $scope.isPending = false;
 };
 
-module.exports.$inject = ["$scope", "news","socket"];
+module.exports.$inject = ["$scope", "news","socket","News"];

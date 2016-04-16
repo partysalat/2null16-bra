@@ -1,5 +1,5 @@
 'use strict';
 module.exports = function($resource){
-  return $resource("api/news/:page",{page:0},{get:{cache:true}});
+  return $resource("api/news/:offset",{offset:0});
 };
 module.exports.$inject = ["$resource"];

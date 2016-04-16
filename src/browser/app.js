@@ -13,7 +13,8 @@ angular.module("app", [
   require("./components/users"),
   require("./components/filters"),
   require("./components/socketio"),
-  require("./components/camera")
+  require("./components/camera"),
+  require("./components/infinitescroll")
 ])
 
 .controller("AccountingController",require("./sites/accounting/accountingController"))

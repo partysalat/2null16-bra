@@ -43,7 +43,7 @@ module.exports.getNews = function (request, reply) {
 
   News.findAll({
     limit: PAGE_SIZE,
-    offset: page * PAGE_SIZE,
+    offset: page,
     include: [User, Drink,Images],
     order: [['updatedAt', 'DESC']]
   }).then(function(news){
