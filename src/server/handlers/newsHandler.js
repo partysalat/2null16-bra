@@ -6,7 +6,7 @@ var User = require("./../models/User"),
  socket = require("./../socket"),
 
 sequelize = require("./../db/sequelize");
-var PAGE_SIZE = 20;
+var PAGE_SIZE = 10;
 var _ = require("lodash");
 module.exports.save = function (request, reply) {
   var initialData = request.payload;
