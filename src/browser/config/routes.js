@@ -14,6 +14,9 @@ module.exports = function ($stateProvider, $urlRouterProvider) {
       resolve:{
         news:["News",function(News){
           return new News().$get();
+        }],
+        bestlist:["Bestlist",function(Bestlist){
+          return new Bestlist().$get();
         }]
       },
       templateUrl: "news.html"

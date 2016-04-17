@@ -5,11 +5,12 @@ module.exports = ["$window",function ($window) {
       var offset = parseInt(attrs.threshold) || 0;
       var e = element[0];
 
-      angular.element($window).bind('scroll', function () {
+      angular.element($window).bind('scroll',checkIfShouldLoad );
+      function checkIfShouldLoad() {
         if (scope.$eval(attrs.canLoad) && isElementVisible(e,$window,offset)) {
           scope.$apply(attrs.infiniteScroll);
         }
-      });
+      }
     }
   };
 }];

@@ -1,5 +1,4 @@
-
-.layout-content(data-layout="column")
+.layout-content
     md-toolbar
         .md-toolbar-tools
             h2
@@ -11,19 +10,24 @@
                 .online-indicator
                     div(style="font-size:12px",data-ng-bind="distance[keeper.name]")
 
+    div(layout="column",layout-gt-xs="row")
+        div(flex-gt-xs="60",style="height:100%")
+            md-content(style="overflow-y:hidden")
+                md-card.animated.rollIn(ng-repeat="item in news track by item.id")
+                    md-card-header
+                        md-card-avatar
+                            img.md-user-avatar(data-ng-src="{{item.drink.type|typeimage}}",data-ng-if="item.type!=='IMAGE'")
+                            img.md-user-avatar(data-ng-src="/internal/assets/flo.jpg",data-ng-if="item.type==='IMAGE'")
+                        md-card-header-text
+                            span.md-title(data-ng-if="item.type==='IMAGE'",style="font-size:24px") <b>B.R.A Shot</b>
+                            span.md-title(data-ng-if="item.type!=='IMAGE'" style="font-size:24px")
+                                |  <b>{{ item.user.name }}</b> hat ein <b>{{ item.drink.name }}</b> bestellt.
+                    img.md-card-image(data-ng-src="/internal/images/{{item.image.path}}", alt='Washed Out',data-ng-if="item.type==='IMAGE'")
+                    md-card-title
+                        md-card-title-text
+                            span.md-subhead {{ item.createdAt|date:'medium' }}
+                div(data-infinite-scroll="addItems()" data-threshold="100" data-can-load="!isPending")
 
-    md-content(data-layout-margin, style="max-width:600px;overflow-y:hidden")
-        md-card.animated.rollIn(ng-repeat="item in news track by item.id")
-            md-card-header
-                md-card-avatar
-                    img.md-user-avatar(data-ng-src="{{item.drink.type|typeimage}}",data-ng-if="item.type!=='IMAGE'")
-                    img.md-user-avatar(data-ng-src="/internal/assets/flo.jpg",data-ng-if="item.type==='IMAGE'")
-                md-card-header-text
-                    span.md-title(data-ng-if="item.type==='IMAGE'",style="font-size:24px") <b>B.R.A Shot</b>
-                    span.md-title(data-ng-if="item.type!=='IMAGE'" style="font-size:24px")
-                        |  <b>{{ item.user.name }}</b> hat ein <b>{{ item.drink.name }}</b> bestellt.
-            img.md-card-image(data-ng-src="/internal/images/{{item.image.path}}", alt='Washed Out',data-ng-if="item.type==='IMAGE'")
-            md-card-title
-                md-card-title-text
-                    span.md-subhead {{ item.createdAt|date:'medium' }}
-        div(data-infinite-scroll="addItems()" data-threshold="100" data-can-load="!isPending")
+        div(data-layout-margin,hide-xs, flex-gt-xs="40",style="height:100%")
+            md-content
+                bestlist(list="bestlist")
