@@ -100,6 +100,34 @@ var routes = [
       }
 
     }
+  },
+  {
+    method: 'GET',
+    path: '/api/user/bestlist',
+    config: {
+      handler: require('../handlers/userHandler').getBestlist,
+      validate:{
+        params:{
+          imagePath:Joi.string(),
+          keeper:Joi.string()
+        }
+      }
+
+    }
+  },
+  {
+    method: 'GET',
+    path: '/api/user/bestlist/csv',
+    config: {
+      handler: require('../handlers/userHandler').getBestlistAsCSV,
+      validate:{
+        params:{
+          imagePath:Joi.string(),
+          keeper:Joi.string()
+        }
+      }
+
+    }
   }
 
 ];
