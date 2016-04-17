@@ -1,9 +1,16 @@
+md-toolbar(layout='row')
+    .md-toolbar-tools
+        span Bestenliste
+
 md-list(flex='')
-    md-header.md-no-sticky Bestenliste
     md-list-item.md-3-line(ng-repeat='item in $ctrl.list track by item.user.id', style="transition: 1s all")
         .md-avatar(data-ng-bind="$index+1+'.'")
         .md-list-item-text(layout='column')
             h3 {{ item.user.name }}
             h4 {{ item.drinkCount }} Getränke
-            p {{ item.cocktailCount }} Cocktails, {{ item.beerCount }} Biere, {{ item.shotCounts }} Shots und {{item.coffeeCount}} Kaffee
-        //md-divider
+            p
+                span.bestlist-detail(data-ng-if="item.cocktailCount") {{ item.cocktailCount }} Cocktail{{item.cocktailCount >1? "s":""}}
+                span.bestlist-detail(data-ng-if="item.beerCount") {{ item.beerCount }} Bier{{item.beerCount >1? "e":""}}
+                span.bestlist-detail(data-ng-if="item.shotCount") {{ item.shotCount }} Shot{{item.shotCount >1? "s":""}}
+                span.bestlist-detail(data-ng-if="item.coffeCount") {{item.coffeeCount}} Kaffee
+        md-divider
