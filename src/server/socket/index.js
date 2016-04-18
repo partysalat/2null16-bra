@@ -21,3 +21,7 @@ module.exports.keeperStatus = function(payload){
 module.exports.addNews = function(news){
   io.emit("news",news);
 };
+module.exports.removeNews = function(news){
+  io.emit("news.delete",news);
+  return news;
+};

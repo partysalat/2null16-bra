@@ -1,6 +1,7 @@
 'use strict';
 var barkeepers = require("./barkeepers.json").barkeepers;
 var MAX_DISTANCE = 15;
+var _ = require("lodash");
 module.exports = function ($scope, news,socket,News,bestlist,Bestlist) {
   $scope.news = news.news;
   $scope.barkeepers = barkeepers;
@@ -22,6 +23,12 @@ module.exports = function ($scope, news,socket,News,bestlist,Bestlist) {
     new Bestlist().$get().then(function(bestlist){
       $scope.bestlist = bestlist.bestlist;
     });
+  });
+  socket.on("news.delete",function(id){
+    _.remove($scope.news,function(newsItem){
+      return newsItem.id === id;
+    });
+    $scope.$apply();
   });
   $scope.addItems = function(){
     $scope.isPending = true;

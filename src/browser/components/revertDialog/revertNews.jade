@@ -1,0 +1,21 @@
+md-dialog(aria-label='Rückgängig')
+    form
+        md-toolbar
+            .md-toolbar-tools
+                h2 Rückgängig
+                span(flex)
+                md-button.md-icon-button(ng-click='cancel()')
+                    md-icon.fa(md-font-icon='fa-close', aria-label='Close dialog')
+        md-dialog-content#remove-news-list(style='max-width:800px;max-height:810px;' layout-margin)
+            div(layout="row")
+                md-list(flex)
+                    md-list-item(data-ng-repeat="item in news track by item.id")
+                        .md-avatar(data-ng-bind="$index+1+'.'")
+                        p {{item.user.name}}: {{item.drink.name}}
+                        md-button.md-warn.md-raised(ng-click="removeNews(item)")
+                            md-icon.fa(md-font-icon="fa-trash",style="font-size:16px")
+                    div(data-infinite-scroll="addItems()" data-threshold="100" data-can-load="!isPending",data-container-element="md-dialog-content")
+        md-dialog-actions(layout='row')
+            md-button.md-primary.md-raised(ng-click="answer()")
+                | Schließen
+

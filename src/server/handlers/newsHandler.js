@@ -3,9 +3,9 @@ var User = require("./../models/User"),
   Drink = require("./../models/Drink"),
   Images = require("./../models/Image"),
   News = require("./../models/News"),
- socket = require("./../socket"),
+  socket = require("./../socket"),
 
-sequelize = require("./../db/sequelize");
+  sequelize = require("./../db/sequelize");
 var PAGE_SIZE = 10;
 var _ = require("lodash");
 module.exports.save = function (request, reply) {
@@ -14,7 +14,7 @@ module.exports.save = function (request, reply) {
     return {
       drinkId: initialData.drink,
       userId: userId,
-      type:"DRINK"
+      type: "DRINK"
     };
   });
   return News.bulkCreate(transformedData).then(function () {
@@ -24,7 +24,7 @@ module.exports.save = function (request, reply) {
       offset: 0,
       include: [User, Drink],
       order: [['updatedAt', 'DESC']]
-    }).then(function(data){
+    }).then(function (data) {
       socket.addNews(data);
     }).catch(console.error);
 
@@ -36,19 +36,17 @@ module.exports.save = function (request, reply) {
 };
 
 
-
-
 module.exports.getNews = function (request, reply) {
   var page = request.params.page;
 
   News.findAll({
     limit: PAGE_SIZE,
     offset: page,
-    include: [User, Drink,Images],
+    include: [User, Drink, Images],
     order: [['updatedAt', 'DESC']]
-  }).then(function(news){
-    reply({news:news});
-  }).catch(function(err){
+  }).then(function (news) {
+    reply({news: news});
+  }).catch(function (err) {
     console.error(err);
     reply(err);
   });
@@ -64,4 +62,20 @@ module.exports.getNewsPerUser = function (request, reply) {
     console.error(err);
     reply(err);
   });
+};
+module.exports.remove = function (request, reply) {
+  var newsId = request.params.newsId;
+  News.destroy({
+    where:{
+      id:newsId
+    }
+  })
+    .then(function(){
+      socket.removeNews(newsId);
+    })
+    .then(reply)
+    .catch(function (err) {
+      console.error(err);
+      reply(err);
+    });
 };

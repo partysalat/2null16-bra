@@ -1,13 +1,17 @@
 'use strict';
-module.exports = ["$window",function ($window) {
+module.exports = ["$window","$timeout",function ($window,$timeout) {
   return {
     link: function (scope, element, attrs) {
       var offset = parseInt(attrs.threshold) || 0;
       var e = element[0];
 
-      angular.element($window).bind('scroll',checkIfShouldLoad );
+      var containerElement;
+      $timeout(function(){
+        containerElement = attrs.containerElement?document.querySelector(attrs.containerElement):$window;
+        angular.element(containerElement).bind('scroll',checkIfShouldLoad );
+      });
       function checkIfShouldLoad() {
-        if (scope.$eval(attrs.canLoad) && isElementVisible(e,$window,offset)) {
+        if (scope.$eval(attrs.canLoad) && isElementVisible(e,containerElement,offset)) {
           scope.$apply(attrs.infiniteScroll);
         }
       }

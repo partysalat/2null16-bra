@@ -15,7 +15,8 @@ angular.module("app", [
   require("./components/socketio"),
   require("./components/camera"),
   require("./components/infinitescroll"),
-  require("./components/bestlist")
+  require("./components/bestlist"),
+  require("./components/revertDialog")
 ])
 
 .controller("AccountingController",require("./sites/accounting/accountingController"))

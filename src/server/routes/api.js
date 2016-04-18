@@ -53,6 +53,18 @@ var routes = [
     }
   },
   {
+    method: 'DELETE',
+    path: '/api/news/item/{newsId}',
+    config: {
+      handler: require('../handlers/newsHandler').remove,
+      validate:{
+        params:{
+          newsId:Joi.number().integer()
+        }
+      }
+    }
+  },
+  {
     method: 'GET',
     path: '/api/news/user',
     config: {

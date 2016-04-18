@@ -28,19 +28,24 @@
             md-button.md-raised.md-accent(flex="auto",style="height:100%",data-ng-click="takePhoto()")
                 md-icon.fa(md-font-icon="fa-camera",style="font-size:5vw")
                 h3 <br/>Take Photo
+        md-grid-tile(md-rowspan="2" md-colspan="2" md-colspan-sm="1")
+            md-button.md-raised(flex="auto",style="height:100%", target="_blank",data-ng-click="revertNews($event)")
+                md-icon.fa(md-font-icon="fa-history",style="font-size:5vw")
+                h3 <br/>CTRL + z
+
         md-grid-tile(md-rowspan="1" md-colspan="1" md-colspan-sm="1")
-            md-button.md-raised.md-warn(flex="auto",style="height:100%",data-ng-click="openNewUser($event)")
+            md-button.md-raised.md-warn.md-hue-3(flex="auto",style="height:100%",data-ng-click="openNewUser($event)")
                 md-icon.fa(md-font-icon="fa-user-plus",style="font-size:5vw")
                 h3 <br/>Neuer Trinker
         md-grid-tile(md-rowspan="1" md-colspan="1" md-colspan-sm="1")
-            md-button.md-raised(flex="auto",style="height:100%",data-ng-click="openNewDrink($event)")
+            md-button.md-raised.md-accent.md-hue-1(flex="auto",style="height:100%",data-ng-click="openNewDrink($event)")
                 md-icon.fa(md-font-icon="fa-cart-plus",style="font-size:5vw")
                 h3 <br/>Neuer Drink
         md-grid-tile(md-rowspan="1" md-colspan="1" md-colspan-sm="1")
-            md-button.md-raised.md-primary(flex="auto",style="height:100%",data-ng-click="clearCache()")
+            md-button.md-raised.md-primary.md-hue-1(flex="auto",style="height:100%",data-ng-click="clearCache()")
                 md-icon.fa(md-font-icon="fa-refresh",style="font-size:5vw")
                 h3 <br/>Sync Drinks & Drinkers
         md-grid-tile(md-rowspan="1" md-colspan="1" md-colspan-sm="1")
-            md-button.md-raised.md-warn(flex="auto",style="height:100%",href="/api/user/bestlist/csv", target="_blank")
-                md-icon.fa(md-font-icon="fa-history",style="font-size:5vw")
+            md-button.md-raised.md-warn.md-hue-1(flex="auto",style="height:100%",href="/api/user/bestlist/csv", target="_blank")
+                md-icon.fa(md-font-icon="fa-floppy-o",style="font-size:5vw")
                 h3 <br/>Download Accounting
