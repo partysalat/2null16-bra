@@ -6,7 +6,7 @@ md-list(flex='')
     md-list-item.md-3-line(ng-repeat='item in $ctrl.list track by item.user.id', style="transition: 1s all")
         .md-avatar(data-ng-bind="$index+1+'.'")
         .md-list-item-text(layout='column')
-            h3 {{ item.user.name }}
+            h2(style="margin:0") {{ item.user.name }}
             h4 {{ item.drinkCount }} Getränke
             p
                 span.bestlist-detail(data-ng-if="item.cocktailCount") {{ item.cocktailCount }} Cocktail{{item.cocktailCount >1? "s":""}}

@@ -7,7 +7,6 @@ module.exports = function ($scope, news,socket,News,bestlist,Bestlist) {
   $scope.barkeepers = barkeepers;
   $scope.isActive = {};
   $scope.distance = {};
-  //$scope.isActive[barkeepers[0].name] = true;
 
   socket.on("keeper", function (data) {
 

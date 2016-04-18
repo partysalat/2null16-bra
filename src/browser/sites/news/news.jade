@@ -23,9 +23,8 @@
                             span.md-title(data-ng-if="item.type!=='IMAGE'" style="font-size:24px")
                                 |  <b>{{ item.user.name }}</b> hat ein <b>{{ item.drink.name }}</b> bestellt.
                     img.md-card-image(data-ng-src="/internal/images/{{item.image.path}}", alt='Washed Out',data-ng-if="item.type==='IMAGE'")
-                    md-card-title
-                        md-card-title-text
-                            span.md-subhead {{ item.createdAt|date:'medium' }}
+                    md-card-content(style="padding-top:0")
+                        span.md-subhead {{ item.createdAt|date:'medium' }}
                 div(data-infinite-scroll="addItems()" data-threshold="100" data-can-load="!isPending")
 
         div(data-layout-margin,hide-xs, flex-gt-xs="40",style="height:100%")
