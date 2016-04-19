@@ -2,7 +2,7 @@
 
 var
   sequelize = require("./../db/sequelize"),
-  DataType = require("sequelize"),
+  //DataType = require("sequelize"),
   TABLE_NAME = 'userAchievements';
 var User = require("./User");
 var Achievement = require("./Achievement");

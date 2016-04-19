@@ -4,7 +4,6 @@ var
   sequelize = require("./../db/sequelize"),
   DataType = require("sequelize"),
   TABLE_NAME = 'achievements';
-var User = require("./User");
 var Achievement = sequelize.get().define(TABLE_NAME, {
   name: DataType.STRING,
   id: {

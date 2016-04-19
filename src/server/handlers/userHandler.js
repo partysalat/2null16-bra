@@ -17,10 +17,13 @@ module.exports.saveUser = function (request, reply) {
     reply(error);
   });
 };
+var getNewsStats = _.throttle(function(){
+  return News.getStats();
+},2000);
 
 module.exports.getBestlist = function (request, reply) {
 
-  News.getStats().then(function (list) {
+  getNewsStats().then(function (list) {
     reply({bestlist: list});
   }).catch(function (err) {
     console.error(err);

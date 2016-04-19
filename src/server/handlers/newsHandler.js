@@ -1,6 +1,7 @@
 'use strict';
 var User = require("./../models/User"),
   Drink = require("./../models/Drink"),
+  Achievement = require("./../models/Achievement"),
   Images = require("./../models/Image"),
   News = require("./../models/News"),
   socket = require("./../socket"),
@@ -8,6 +9,15 @@ var User = require("./../models/User"),
 
 var PAGE_SIZE = 10;
 var _ = require("lodash");
+function findNews(len,includes) {
+  return News.findAll({
+    limit: len,
+    offset: 0,
+    include: includes,
+    order: [['updatedAt', 'DESC']]
+
+  });
+}
 module.exports.save = function (request, reply) {
   var initialData = request.payload;
   var transformedData = _.map(initialData.users, function (userId) {
@@ -18,19 +28,20 @@ module.exports.save = function (request, reply) {
     };
   });
   return News.bulkCreate(transformedData).then(function () {
-    reply().code(204);
-    return achievementService.processAchievements(transformedData).then(function () {
-        return News.findAll({
-          limit: transformedData.length,
-          offset: 0,
-          include: [User, Drink],
-          order: [['updatedAt', 'DESC']]
-        })
 
+    return findNews(transformedData.length,[User,Drink])
+      .then(function (news) {
+        return achievementService.processAchievements(news)
+          .then(function (achievementNews) {
+            return achievementNews.length + news.length;
+          });
+      })
+      .then(function(newsLength){
+        return findNews(newsLength,[User,Achievement,Drink]);
       })
       .then(function (createdNews) {
         socket.addNews(createdNews);
-
+        reply().code(204);
       }).catch(console.error);
 
 
@@ -47,7 +58,7 @@ module.exports.getNews = function (request, reply) {
   News.findAll({
     limit: PAGE_SIZE,
     offset: page,
-    include: [User, Drink, Images],
+    include: [User, Drink, Images,Achievement],
     order: [['updatedAt', 'DESC']]
   }).then(function (news) {
     reply({news: news});

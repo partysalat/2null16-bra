@@ -53,7 +53,7 @@ module.exports.install = function (request, reply) {
     syncDrinks(),
     syncUser(),
     syncAchievements(),
-    Images.sync({force: true}),
+    Images.sync({force: true})
     //UserAchievement.sync({force: true})
   ]).then(function () {
       reply("OK");
@@ -84,11 +84,10 @@ var errorHandler = _.curry(function (reply, error) {
 module.exports.addAchievement = function (request, reply) {
   promise.all([User.findOne({where: {id: 1}}), Achievement.findOne({where: {id: 1}})])
     .spread(function (person, achievement) {
-      return person.addAchievement(5).then(function () {
+      return person.addAchievement(achievement).then(function () {
         return person.getAchievements().then(function (achievements) {
-          //console.log(JSON.stringify(achievements,null,2))
           reply(achievements);
-        })
-      })
+        });
+      });
     }).catch(errorHandler(reply));
 };

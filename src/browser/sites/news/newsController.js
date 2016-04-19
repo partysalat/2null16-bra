@@ -15,7 +15,7 @@ module.exports = function ($scope, news,socket,News,bestlist,Bestlist) {
     $scope.$apply();
   });
   socket.on("news", function (data) {
-    data.forEach(function(news){
+    data.reverse().forEach(function(news){
       $scope.news.unshift(news);
     });
     $scope.$apply();
