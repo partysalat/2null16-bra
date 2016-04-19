@@ -64,13 +64,7 @@ var routes = [
       }
     }
   },
-  {
-    method: 'GET',
-    path: '/api/news/user',
-    config: {
-      handler: require('../handlers/newsHandler').getNewsPerUser
-    }
-  },
+  
   {
     method: 'POST',
     path: '/api/drinks',

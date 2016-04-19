@@ -50,6 +50,20 @@ var routes = [{
     config: {
       handler: require('../handlers/versionHandler.js').syncNews
     }
+  },
+  {
+    method: 'GET',
+    path: '/internal/install',
+    config: {
+      handler: require('../handlers/versionHandler.js').install
+    }
+  },
+  {
+    method: 'GET',
+    path: '/internal/achievement',
+    config: {
+      handler: require('../handlers/versionHandler.js').addAchievement
+    }
   }
 ];
 

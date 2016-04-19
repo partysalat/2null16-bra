@@ -4,8 +4,8 @@ var User = require("./../models/User"),
   Images = require("./../models/Image"),
   News = require("./../models/News"),
   socket = require("./../socket"),
+  achievementService = require("./../achievements");
 
-  sequelize = require("./../db/sequelize");
 var PAGE_SIZE = 10;
 var _ = require("lodash");
 module.exports.save = function (request, reply) {
@@ -14,19 +14,24 @@ module.exports.save = function (request, reply) {
     return {
       drinkId: initialData.drink,
       userId: userId,
-      type: "DRINK"
+      type: News.NEWS_TYPES.DRINK
     };
   });
   return News.bulkCreate(transformedData).then(function () {
     reply().code(204);
-    return News.findAll({
-      limit: transformedData.length,
-      offset: 0,
-      include: [User, Drink],
-      order: [['updatedAt', 'DESC']]
-    }).then(function (data) {
-      socket.addNews(data);
-    }).catch(console.error);
+    return achievementService.processAchievements(transformedData).then(function () {
+        return News.findAll({
+          limit: transformedData.length,
+          offset: 0,
+          include: [User, Drink],
+          order: [['updatedAt', 'DESC']]
+        })
+
+      })
+      .then(function (createdNews) {
+        socket.addNews(createdNews);
+
+      }).catch(console.error);
 
 
   }).catch(function (err) {
@@ -53,24 +58,14 @@ module.exports.getNews = function (request, reply) {
 };
 
 
-module.exports.getNewsPerUser = function (request, reply) {
-  News.findAll({
-    attributes: [[sequelize.get().fn('count', sequelize.get().col('drinkId')), "drinkCount"]],
-    group: ["userId"],
-    include: [User]
-  }).then(reply).catch(function (err) {
-    console.error(err);
-    reply(err);
-  });
-};
 module.exports.remove = function (request, reply) {
   var newsId = request.params.newsId;
   News.destroy({
-    where:{
-      id:newsId
-    }
-  })
-    .then(function(){
+      where: {
+        id: newsId
+      }
+    })
+    .then(function () {
       socket.removeNews(newsId);
     })
     .then(reply)
