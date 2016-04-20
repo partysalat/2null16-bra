@@ -1,19 +1,8 @@
 'use strict';
 
-var _ =require("lodash");
-module.exports.convertRawToJson = function convertRawToJson(input, result) {
-  if (!result) {
-    result = [];
-  }
-  _.forIn(input, function (value, key) {
-    if (_.isArray(input)) {
-      result.push(convertRawToJson(value, {}));
-    }
-    if (_.isObject(value)) {
-      convertRawToJson(value, result);
-    } else {
-      _.set(result, key, value);
-    }
+var flatten =require("flatten.js");
+module.exports.convertRawToJson = function convertRawToJson(input) {
+  return input.map(function(item){
+    return flatten.expand(item);
   });
-  return result;
 };
