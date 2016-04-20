@@ -86,8 +86,7 @@ var routes = [
       handler: require('../handlers/barkeeperHandler.js').notify,
       validate:{
         params:{
-          keeper:Joi.string(),
-          status:Joi.any().valid("online","offline")
+          keeper:Joi.string()
         }
       }
 

@@ -4,11 +4,7 @@
             h2
                 span 2null16 - BRA
             span(flex='')
-            .n16-avatar(style="position:relative", data-ng-repeat="keeper in barkeepers track by keeper.name",data-ng-class="{offline:!isActive[keeper.name]}")
-                md-button.md-fab.md-primary(aria-label='Use Android')
-                    img.md-avatar(data-ng-src="{{keeper.image}}",style="height:64px; margin-left:-25%;")
-                .online-indicator
-                    div(style="font-size:12px",data-ng-bind="distance[keeper.name]")
+            keeper-list
 
     div(layout="column",layout-gt-xs="row")
         div(flex-gt-xs="60",style="height:100%")

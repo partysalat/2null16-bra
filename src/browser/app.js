@@ -17,7 +17,8 @@ angular.module("app", [
   require("./components/infinitescroll"),
   require("./components/bestlist"),
   require("./components/revertDialog"),
-  require("./components/cardList")
+  require("./components/cardList"),
+  require("./components/keeperList")
 ])
 
 .controller("AccountingController",require("./sites/accounting/accountingController"))

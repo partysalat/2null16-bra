@@ -1,19 +1,9 @@
 'use strict';
-var barkeepers = require("./barkeepers.json").barkeepers;
-var MAX_DISTANCE = 15;
+
 var _ = require("lodash");
 module.exports = function ($scope, news,socket,News,bestlist,Bestlist,Achievements) {
   $scope.news = news.news;
-  $scope.barkeepers = barkeepers;
-  $scope.isActive = {};
-  $scope.distance = {};
 
-  socket.on("keeper", function (data) {
-
-    $scope.isActive[data.name] = typeof data.distance === "number" && data.distance< MAX_DISTANCE;
-    $scope.distance[data.name] = Math.round(data.distance);
-    $scope.$apply();
-  });
   socket.on("news", function (data) {
     data.reverse().forEach(function(news){
       $scope.news.unshift(news);
