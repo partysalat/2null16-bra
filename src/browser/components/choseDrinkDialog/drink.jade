@@ -6,7 +6,7 @@ md-dialog(aria-label='Drink Auswahl')
                 span(flex)
                 md-button.md-icon-button(ng-click='cancel()')
                     md-icon.fa(md-font-icon='fa-close', aria-label='Close dialog')
-        md-dialog-content(style='max-width:800px;max-height:810px; ')
+        md-dialog-content(style='max-width:800px;max-height:810px;overflow-x:hidden')
             md-grid-list(
             data-ng-if="page==='drink'"
             flex="100"

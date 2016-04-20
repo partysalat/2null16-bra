@@ -4,6 +4,7 @@ var User = require("./../models/User"),
   Achievement = require("./../models/Achievement"),
   Images = require("./../models/Image"),
   News = require("./../models/News"),
+  utils = require("./../models/utils"),
   socket = require("./../socket"),
   achievementService = require("./../achievements");
 
@@ -14,9 +15,9 @@ function findNews(len,includes) {
     limit: len,
     offset: 0,
     include: includes,
-    order: [['updatedAt', 'DESC']]
-
-  });
+    order: [['updatedAt', 'DESC']],
+    raw:true
+  }).then(utils.convertRawToJson);
 }
 module.exports.save = function (request, reply) {
   var initialData = request.payload;
@@ -59,8 +60,9 @@ module.exports.getNews = function (request, reply) {
     limit: PAGE_SIZE,
     offset: page,
     include: [User, Drink, Images,Achievement],
-    order: [['updatedAt', 'DESC']]
-  }).then(function (news) {
+    order: [['updatedAt', 'DESC']],
+    raw:true
+  }).then(utils.convertRawToJson).then(function (news) {
     reply({news: news});
   }).catch(function (err) {
     console.error(err);

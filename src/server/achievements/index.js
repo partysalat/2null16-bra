@@ -8,14 +8,12 @@ var
   achievementDefs = require("./achievementDefinition");
 
 module.exports.processAchievements = function (news /*Array*/) {
-  console.time("achievement");
   return promise.all([News.getStats(), Achievement.findAll({raw:true}).then(utils.convertRawToJson), News.getAchievements()])
     .spread(function (stats, achievements, userAchievements) {
       return promise.map(news, processAchievement(stats, achievements, userAchievements));
     })
     .then(_.flatten)
     .then(function (news) {
-      console.timeEnd("achievement");
       return News.bulkCreate(news);
     });
 };

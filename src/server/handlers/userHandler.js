@@ -1,10 +1,11 @@
 'use strict';
 var User = require("./../models/User"),
   News = require("./../models/News"),
+  utils = require("./../models/utils"),
   _ = require("lodash");
 var CACHE_TIMEOUT = 2000;
 module.exports.getUsers = function (request, reply) {
-  User.findAll().then(function (users) {
+  User.findAll({raw:true}).then(utils.convertRawToJson).then(function (users) {
     reply({users: users});
   }).catch(reply);
 };
