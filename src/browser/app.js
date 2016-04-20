@@ -17,7 +17,7 @@ angular.module("app", [
   require("./components/infinitescroll"),
   require("./components/bestlist"),
   require("./components/revertDialog"),
-  require("./components/cardList"),
+  require("./components/news"),
   require("./components/keeperList")
 ])
 

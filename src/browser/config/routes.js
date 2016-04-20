@@ -11,11 +11,6 @@ module.exports = function ($stateProvider, $urlRouterProvider) {
     .state('news', {
       url: "/news",
       controller: "NewsController",
-      resolve:{
-        news:["News",function(News){
-          return new News().$get();
-        }]
-      },
       templateUrl: "news.html"
     });
 

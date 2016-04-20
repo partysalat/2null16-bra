@@ -9,8 +9,7 @@
     div(layout="column",layout-gt-xs="row")
         div(flex-gt-xs="60",style="height:100%")
             md-content(style="overflow-y:hidden")
-                card-list(list="news")
-                div(data-infinite-scroll="addItems()" data-threshold="100" data-can-load="!isPending")
+                news-list(list="news")
 
         div(data-layout-margin,hide-xs, flex-gt-xs="40",style="height:100%")
             md-content
