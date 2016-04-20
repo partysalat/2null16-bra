@@ -1,7 +1,7 @@
 'use strict';
 
 var _ = require("lodash");
-module.exports = function ($scope, news,socket,News,bestlist,Bestlist,Achievements) {
+module.exports = function ($scope, news,socket,News) {
   $scope.news = news.news;
 
   socket.on("news", function (data) {
@@ -9,10 +9,7 @@ module.exports = function ($scope, news,socket,News,bestlist,Bestlist,Achievemen
       $scope.news.unshift(news);
     });
     $scope.$apply();
-    new Bestlist().$get().then(function(bestlist){
-      $scope.bestlist = bestlist.bestlist;
-    });
-    getAchievements();
+    
   });
   socket.on("news.delete",function(id){
     _.remove($scope.news,function(newsItem){
@@ -31,14 +28,10 @@ module.exports = function ($scope, news,socket,News,bestlist,Bestlist,Achievemen
       });
 
   };
-  function getAchievements(){
-    new Achievements().$get().then(function(achievements){
-      $scope.achievements = achievements;
-    });
-  }
+
   $scope.isPending = false;
-  $scope.bestlist=bestlist.bestlist;
-  getAchievements();
+
+
 };
 
-module.exports.$inject = ["$scope", "news","socket","News","bestlist","Bestlist","Achievements"];
+module.exports.$inject = ["$scope", "news","socket","News","Achievements"];

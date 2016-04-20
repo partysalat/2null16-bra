@@ -3,7 +3,7 @@ md-toolbar(layout='row')
         span Bestenliste
 
 md-list(flex='')
-    md-list-item.md-3-line(ng-repeat='item in $ctrl.list track by item.user.id', style="transition: 1s all")
+    md-list-item.md-3-line(ng-repeat='item in $ctrl.bestlist track by item.user.id', style="transition: 1s all")
         .md-avatar(data-ng-bind="$index+1+'.'")
         .md-list-item-text(layout='column')
             h2(style="margin:0") {{ item.user.name }} &nbsp;
