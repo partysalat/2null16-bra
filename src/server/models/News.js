@@ -2,6 +2,7 @@
 
 var
   sequelize = require("./../db/sequelize"),
+  utils = require("./utils"),
   DataType = require("sequelize"),
   _ = require("lodash"),
   TABLE_NAME = 'news';
@@ -15,7 +16,6 @@ var NEWS_TYPES_MAP = {
   ACHIEVEMENT: "ACHIEVEMENT"
 };
 var NEWS_TYPES = [NEWS_TYPES_MAP.DRINK, NEWS_TYPES_MAP.IMAGE];
-
 var News = sequelize.get().define(TABLE_NAME, {
   id: {
     type: DataType.INTEGER,
@@ -30,42 +30,44 @@ var News = sequelize.get().define(TABLE_NAME, {
     }
   }
 
-},{
-  classMethods:{
-    getAchievements:function(){
+}, {
+  classMethods: {
+    getAchievements: function () {
       return this.findAll({
-        where:{type:News.NEWS_TYPES.ACHIEVEMENT},
-        include:[User,Achievement],
-        attributes:[]
-      }).then(function(list){
-        return _(list)
+        where: {type: News.NEWS_TYPES.ACHIEVEMENT},
+        include: [User, Achievement],
+        attributes: [],
+        raw: true
+      }).then(function (list) {
+        return _(utils.convertRawToJson(list))
           .groupBy('user.id')
-          .mapValues(function(val){
+          .mapValues(function (val) {
             return {
-              user:_.first(val).user,
-              achievements:_.map(val,"achievement")
+              user: _.first(val).user,
+              achievements: _.map(val, "achievement")
             };
           })
           .value();
       });
     },
-    getStats:function(){
+    getStats: function () {
       return this.findAll({
         where: {type: News.NEWS_TYPES.DRINK},
         include: [
           User,
           {model: Drink, attributes: []}
         ],
-          attributes: [
-        [sequelize.get().fn('count', sequelize.get().col('drinkId')), "drinkCount"],
-        [sequelize.get().fn('count', sequelize.get().literal('CASE WHEN drink.type="BEER" THEN 1 END')), "beerCount"],
-        [sequelize.get().fn('count', sequelize.get().literal('CASE WHEN drink.type="COCKTAIL" THEN 1 END')), "cocktailCount"],
-        [sequelize.get().fn('count', sequelize.get().literal('CASE WHEN drink.type="SHOT" THEN 1 END')), "shotCount"],
-        [sequelize.get().fn('count', sequelize.get().literal('CASE WHEN drink.type="COFFEE" THEN 1 END')), "coffeeCount"],
-      ],
+        attributes: [
+          [sequelize.get().fn('count', sequelize.get().col('drinkId')), "drinkCount"],
+          [sequelize.get().fn('count', sequelize.get().literal('CASE WHEN drink.type="BEER" THEN 1 END')), "beerCount"],
+          [sequelize.get().fn('count', sequelize.get().literal('CASE WHEN drink.type="COCKTAIL" THEN 1 END')), "cocktailCount"],
+          [sequelize.get().fn('count', sequelize.get().literal('CASE WHEN drink.type="SHOT" THEN 1 END')), "shotCount"],
+          [sequelize.get().fn('count', sequelize.get().literal('CASE WHEN drink.type="COFFEE" THEN 1 END')), "coffeeCount"],
+        ],
         group: ["userId"],
-        order: [[sequelize.get().col('drinkCount'), 'DESC']]
-      });
+        order: [[sequelize.get().col('drinkCount'), 'DESC']],
+        raw: true
+      }).then(utils.convertRawToJson);
     }
   }
 });

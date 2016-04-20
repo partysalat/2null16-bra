@@ -2,7 +2,7 @@
 var User = require("./../models/User"),
   News = require("./../models/News"),
   _ = require("lodash");
-
+var CACHE_TIMEOUT = 2000;
 module.exports.getUsers = function (request, reply) {
   User.findAll().then(function (users) {
     reply({users: users});
@@ -17,13 +17,13 @@ module.exports.saveUser = function (request, reply) {
     reply(error);
   });
 };
-var getNewsStats = _.throttle(function(){
+var getCachedNewsStats = _.throttle(function(){
   return News.getStats();
-},2000);
+},CACHE_TIMEOUT);
 
 module.exports.getBestlist = function (request, reply) {
 
-  getNewsStats().then(function (list) {
+  getCachedNewsStats().then(function (list) {
     reply({bestlist: list});
   }).catch(function (err) {
     console.error(err);
@@ -53,10 +53,14 @@ module.exports.getBestlistAsCSV = function (request, reply) {
 };
 
 module.exports.getAchievements = function(request,reply){
-  News.getAchievements().then(function(list){
+  getCachedAchievements().then(function(list){
     reply(list);
   }).catch(function (err) {
     console.error(err);
     reply(err);
   });
 };
+
+var getCachedAchievements = _.throttle(function(){
+  return News.getAchievements();
+},CACHE_TIMEOUT);
