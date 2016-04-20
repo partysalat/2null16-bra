@@ -15,7 +15,7 @@ module.exports = {
       });
     }
 
-    socket.on("news", function (data) {
+    socket.on("news", function () {
       getBestlist();
       getAchievements();
     });
