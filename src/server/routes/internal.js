@@ -60,9 +60,9 @@ var routes = [{
   },
   {
     method: 'GET',
-    path: '/internal/achievement',
+    path: '/internal/sync/achievements',
     config: {
-      handler: require('../handlers/versionHandler.js').addAchievement
+      handler: require('../handlers/versionHandler.js').syncAchievements
     }
   }
 ];

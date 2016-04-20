@@ -5,7 +5,7 @@ var packageInfo = require('pkginfo'),
   News = require("./../models/News"),
   Images = require("./../models/Image"),
   Achievement = require("./../models/Achievement"),
-  //UserAchievement = require("./../models/UserAchievement"),
+//UserAchievement = require("./../models/UserAchievement"),
   promise = require("bluebird"),
   _ = require("lodash");
 require("./../models/UserAchievement");
@@ -81,13 +81,23 @@ var errorHandler = _.curry(function (reply, error) {
   reply(error);
 });
 
-module.exports.addAchievement = function (request, reply) {
-  promise.all([User.findOne({where: {id: 1}}), Achievement.findOne({where: {id: 1}})])
-    .spread(function (person, achievement) {
-      return person.addAchievement(achievement).then(function () {
-        return person.getAchievements().then(function (achievements) {
-          reply(achievements);
-        });
-      });
-    }).catch(errorHandler(reply));
+module.exports.syncAchievements = function (request, reply) {
+  Achievement.findAll().then(function (savedAchievements) {
+    var achievements = _(achievementDefs).map(function (achievement) {
+      return {
+        name: achievement.name,
+        description: achievement.description,
+        imagePath: achievement.image
+      };
+    }).filter(function (achievement) {
+      return !_.find(savedAchievements,{name:achievement.name});
+    }).value();
+    Achievement.bulkCreate(achievements).then(reply).catch(function(err){
+      console.error(err);
+      reply(err);
+    });
+
+
+  });
+
 };
