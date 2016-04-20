@@ -19,7 +19,7 @@ module.exports = {
   carl: {
     name: "Carl",
     description: "10 Bier bestellt",
-    image: "/internal/assets/achievements/lenny.png",
+    image: "/internal/assets/achievements/carl.png",
     processor: function (news, userStats) {
       return news.drink.type === "BEER" && userStats.beerCount === 10;
     }
@@ -39,6 +39,7 @@ module.exports = {
     processor: function (news, userStats) {
       return news.drink.type === "BEER" && userStats.beerCount === 25;
     }
+    
   },
   oeltanker: {
     name: "Öltanker",

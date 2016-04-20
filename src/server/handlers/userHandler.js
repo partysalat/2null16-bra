@@ -51,3 +51,12 @@ module.exports.getBestlistAsCSV = function (request, reply) {
   });
 
 };
+
+module.exports.getAchievements = function(request,reply){
+  News.getAchievements().then(function(list){
+    reply(list);
+  }).catch(function (err) {
+    console.error(err);
+    reply(err);
+  });
+};

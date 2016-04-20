@@ -123,6 +123,20 @@ var routes = [
   },
   {
     method: 'GET',
+    path: '/api/user/achievements',
+    config: {
+      handler: require('../handlers/userHandler').getAchievements,
+      validate:{
+        params:{
+          imagePath:Joi.string(),
+          keeper:Joi.string()
+        }
+      }
+
+    }
+  },
+  {
+    method: 'GET',
     path: '/api/user/bestlist/csv',
     config: {
       handler: require('../handlers/userHandler').getBestlistAsCSV,

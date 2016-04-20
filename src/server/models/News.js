@@ -3,6 +3,7 @@
 var
   sequelize = require("./../db/sequelize"),
   DataType = require("sequelize"),
+  _ = require("lodash"),
   TABLE_NAME = 'news';
 var User = require("./User"),
   Drink = require("./Drink"),
@@ -31,6 +32,23 @@ var News = sequelize.get().define(TABLE_NAME, {
 
 },{
   classMethods:{
+    getAchievements:function(){
+      return this.findAll({
+        where:{type:News.NEWS_TYPES.ACHIEVEMENT},
+        include:[User,Achievement],
+        attributes:[]
+      }).then(function(list){
+        return _(list)
+          .groupBy('user.id')
+          .mapValues(function(val){
+            return {
+              user:_.first(val).user,
+              achievements:_.map(val,"achievement")
+            };
+          })
+          .value();
+      });
+    },
     getStats:function(){
       return this.findAll({
         where: {type: News.NEWS_TYPES.DRINK},
