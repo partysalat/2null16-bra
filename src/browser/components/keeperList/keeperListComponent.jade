@@ -1,5 +1,5 @@
-.n16-avatar(style="position:relative", data-ng-repeat="keeper in $ctrl.barkeepers track by keeper.name",data-ng-class="{offline:!isActive[keeper.name]}")
+.n16-avatar(style="position:relative", data-ng-repeat="keeper in $ctrl.barkeepers track by keeper.name",data-ng-class="{offline:!$ctrl.isActive[keeper.name]}")
     md-button.md-fab.md-primary(aria-label='Use Android')
         img.md-avatar(data-ng-src="{{keeper.image}}",style="height:64px; margin-left:-25%;")
     .online-indicator
-        div(style="font-size:12px",data-ng-bind="distance[keeper.name]")
+        div(style="font-size:12px",data-ng-bind="$ctrl.distance[keeper.name]")
