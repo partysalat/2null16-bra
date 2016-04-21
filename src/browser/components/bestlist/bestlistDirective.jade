@@ -7,7 +7,10 @@ md-list(flex='')
         .md-avatar(data-ng-bind="$index+1+'.'")
         .md-list-item-text(layout='column')
             h2(style="margin:0") {{ item.user.name }} &nbsp;
-                img.n16-achievements.animated.bounceIn(alt="{{achievement.name}}" title="{{achievement.name+': '+achievement.description}}",data-ng-repeat="achievement in $ctrl.getAchievementForUser(item.user.id).achievements track by achievement.id", data-ng-src="{{achievement.imagePath}}")
+                span.animated.bounceIn(data-ng-repeat="achievement in $ctrl.getAchievementForUser(item.user.id).achievements track by achievement.id")
+                    md-tooltip.md-primary(style="color:black",md-direction="top")
+                        |{{achievement.name+': '+achievement.description}}
+                    img.n16-achievements(alt="{{achievement.name}}" , data-ng-src="{{achievement.imagePath}}")
             h4 {{ item.drinkCount }} Getränke
             p
                 span.bestlist-detail(data-ng-if="item.cocktailCount") {{ item.cocktailCount }} Cocktail{{item.cocktailCount >1? "s":""}}
