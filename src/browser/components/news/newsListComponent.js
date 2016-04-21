@@ -33,6 +33,8 @@ module.exports = {
     getNews(0).then(function (news) {
       $ctrl.news = news.news;
     });
+    
     $ctrl.isPending = false;
+    $ctrl.news = [];
   }]
 };

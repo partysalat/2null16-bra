@@ -23,7 +23,7 @@ var processAchievement = _.curry(function (stats, achievements, usersAchievement
     var userStats = getUserStat(stats, news);
     var userAchievements = usersAchievements[news.userId] || {};
     var gainedAchievements = _.filter(achievementDefs, function (def) {
-      return def.processor(news, userStats, userAchievements.achievements);
+      return def.processor(news, userStats, userAchievements.achievements,stats);
     });
     return _.map(gainedAchievements, function (gainedAchievement) {
       return {
