@@ -8,11 +8,12 @@ html(lang="en" xmlns="http://www.w3.org/1999/xhtml")
         base(href="#{documentBaseUrl}")
         block title
         meta(http-equiv="Content-type" content="text/html;charset=UTF-8")
-        link(href='http://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css')
-        link(href='/internal/assets/css/font-awesome.min.css' rel='stylesheet' type='text/css')
-        link(href="#{cssUrl}" rel="stylesheet")
+
 
     body(id='at-body')
+        link(href='/internal/assets/css/font-awesome.min.css' rel='stylesheet' type='text/css')
+        link(href='/internal/assets/css/dosis.min.css' rel='stylesheet' type='text/css')
+        link(href="#{cssUrl}" rel="stylesheet")
         block content
         script(src="#{vendorUrl}")
         script(src="#{bundleUrl}")

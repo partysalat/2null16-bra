@@ -25,7 +25,7 @@ gulp.task('_watch:css', function () {
     );
 });
 gulp.task("copy-fonts",function(){
-  return gulp.src(["./src/browser/styl/fontawesome/**/*"])
+  return gulp.src(["./src/browser/styl/fontawesome/**/*","./src/browser/styl/dosis/**/*"])
     .pipe(gulp.dest(gulpConfig.paths.assets))
 });
 gulp.task("copy-images",function(){
