@@ -105,6 +105,7 @@ module.exports = {
       return news.drink.type === "BEER" && utils.sumStats(usersStats, "beerCount") === 300;
     }
   },
+
   oeltanker: {
     name: "Öltanker",
     description: "20 Kaffee bestellt",
