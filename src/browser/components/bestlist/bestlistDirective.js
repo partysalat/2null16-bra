@@ -2,16 +2,18 @@
 module.exports = {
   templateUrl: 'bestlistDirective.html',
   controller: ["socket", "Bestlist", "Achievements", function (socket, Bestlist, Achievements) {
-    var self = this;
+    var $ctrl = this;
     function getAchievements() {
       new Achievements().$get().then(function (achievements) {
-        self.achievements = achievements;
+        $ctrl.achievements = achievements;
+        $ctrl.loaded = true;
       });
     }
 
     function getBestlist() {
       new Bestlist().$get().then(function (bestlist) {
-        self.bestlist = bestlist.bestlist;
+        $ctrl.bestlist = bestlist.bestlist;
+        $ctrl.loaded = true;
       });
     }
 
@@ -25,5 +27,6 @@ module.exports = {
     };
     getBestlist();
     getAchievements();
+
   }]
 };

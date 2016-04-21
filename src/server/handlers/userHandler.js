@@ -39,7 +39,7 @@ module.exports.getBestlistAsCSV = function (request, reply) {
 
     var result = _(list)
       .map(function (item) {
-        return [item.user.name, item.dataValues.drinkCount, item.dataValues.cocktailCount, item.dataValues.beerCount, item.dataValues.shotCount, item.dataValues.coffeeCount];
+        return [item.user.name, item.drinkCount, item.cocktailCount, item.beerCount, item.shotCount, item.coffeeCount];
       })
       .map(function(item){
         return item.join(",");

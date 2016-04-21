@@ -3,6 +3,8 @@ md-toolbar(layout='row')
         span Bestenliste
 
 md-list(flex='')
+    div(style="text-align:center")
+        md-progress-circular.md-warn.md-hue-3(style="display:inline-block" data-ng-if="!$ctrl.loaded" md-diameter="70",md-mode='indeterminate')
     md-list-item.md-3-line(ng-repeat='item in $ctrl.bestlist track by item.user.id', style="transition: 1s all")
         .md-avatar(data-ng-bind="$index+1+'.'")
         .md-list-item-text(layout='column')
