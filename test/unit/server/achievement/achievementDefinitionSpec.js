@@ -38,11 +38,7 @@ describe('statusHandler', function () {
           getNewsForId("1", "DRINK", _(TYPES).pull(type).first()),
           getUserStats("1", type,amount))).toBeFalsy();
       });
-      it('return false for already gained '+achievement, function () {
-        expect(def.processor(
-          getNewsForId("1", "DRINK", type),
-          getUserStats("1", type,amount+1))).toBeFalsy();
-      });
+      
     });
   }
 

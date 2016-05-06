@@ -23,7 +23,7 @@ var processAchievement = _.curry(function (stats, achievements, usersAchievement
     var userStats = getUserStat(stats, news);
     var userAchievements = usersAchievements[news.userId] || {};
     var gainedAchievements = _.filter(achievementDefs, function (def) {
-      return def.processor(news, userStats, userAchievements.achievements,stats);
+      return !alreadyGained(userAchievements.achievements,def.name) && def.processor(news, userStats, userAchievements.achievements,stats);
     });
     return _.flatMap(gainedAchievements, function (gainedAchievement) {
       var achievement= _.find(achievements, {name: gainedAchievement.name});
@@ -44,5 +44,11 @@ var processAchievement = _.curry(function (stats, achievements, usersAchievement
 function getUserStat(stats, news) {
   return _.find(stats, function (stat) {
     return stat.user.id === news.userId;
+  });
+}
+
+function alreadyGained(achievementList, name) {
+  return _.find(achievementList, function (achievement) {
+    return name === achievement.name;
   });
 }

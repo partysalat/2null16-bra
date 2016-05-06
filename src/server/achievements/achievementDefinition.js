@@ -20,7 +20,7 @@ module.exports = {
     description: "1 Bier bestellt",
     image: "/internal/assets/achievements/moe.png",
     processor: function (news, userStats) {
-      return news.drink.type === "BEER" && userStats.beerCount === 1;
+      return news.drink.type === "BEER" && userStats.beerCount >= 1;
     }
   },
   lenny: {
@@ -28,7 +28,7 @@ module.exports = {
     description: "5 Bier bestellt",
     image: "/internal/assets/achievements/lenny.png",
     processor: function (news, userStats) {
-      return news.drink.type === "BEER" && userStats.beerCount === 5;
+      return news.drink.type === "BEER" && userStats.beerCount >= 5;
     }
   },
   carl: {
@@ -36,7 +36,7 @@ module.exports = {
     description: "10 Bier bestellt",
     image: "/internal/assets/achievements/carl.png",
     processor: function (news, userStats) {
-      return news.drink.type === "BEER" && userStats.beerCount === 10;
+      return news.drink.type === "BEER" && userStats.beerCount >= 10;
     }
   },
   homer: {
@@ -44,7 +44,7 @@ module.exports = {
     description: "15 Bier bestellt",
     image: "/internal/assets/achievements/homer.png",
     processor: function (news, userStats) {
-      return news.drink.type === "BEER" && userStats.beerCount === 15;
+      return news.drink.type === "BEER" && userStats.beerCount >= 15;
     }
   },
   barney: {
@@ -52,7 +52,7 @@ module.exports = {
     description: "25 Bier bestellt",
     image: "/internal/assets/achievements/barney.png",
     processor: function (news, userStats) {
-      return news.drink.type === "BEER" && userStats.beerCount === 25;
+      return news.drink.type === "BEER" && userStats.beerCount >= 25;
     }
 
   },
@@ -60,11 +60,30 @@ module.exports = {
     name: "Der frühe Vogel trinkt Bier",
     description: "Bier vor 12 Uhr morgens",
     image: "/internal/assets/achievements/frueherVogel.png",
-    processor: function (news, userStats, achievements) {
+    processor: function (news) {
       return news.drink.type === "BEER" &&
-        utils.dateBetween(8, 12, news.createdAt) && !utils.alreadyGained(achievements, this.name);
+        utils.dateBetween(8, 12, news.createdAt);
     }
   },
+  derAbendKannKommen: {
+    name: "Der Abend kann kommen",
+    description: "Alkoholisches Getränk am frühen Abend (18 Uhr bis 20 Uhr) bestellt",
+    image: "/internal/assets/achievements/derAbendKannKommen.jpg",
+    processor: function (news) {
+      return (news.drink.type === "BEER" || news.drink.type === "SHOT" || news.drink.type === "COCKTAIL") &&
+        utils.dateBetween(18, 20, news.createdAt);
+    }
+  },
+  einerDerLetztenKunden: {
+    name: "Einer der letzten Kunden",
+    description: "Alkoholisches Getränk zwischen 4 Uhr bis 8 Uhr bestellt",
+    image: "/internal/assets/achievements/einerDerLetztenKunden.jpg",
+    processor: function (news) {
+      return (news.drink.type === "BEER" || news.drink.type === "SHOT" || news.drink.type === "COCKTAIL") &&
+        utils.dateBetween(4, 8, news.createdAt);
+    }
+  },
+
   glueckspils: {
     name: "Glückspils",
     description: "25. Bier bestellt",
@@ -109,19 +128,41 @@ module.exports = {
   oeltanker: {
     name: "Öltanker",
     description: "20 Kaffee bestellt",
-    image: "/internal/assets/achievements/oeltanker.png",
+    image: "/internal/assets/achievements/oeltanker.jpg",
     processor: function (news, userStats) {
-      return news.drink.type === "COFFEE" && userStats.coffeeCount === 20;
+      return news.drink.type === "COFFEE" && userStats.coffeeCount >= 20;
     }
   },
   dieNaechsteRundeGehtAufMich: {
     name: "Die nächste Runde geht auf mich",
     description: "Mindestens 10 Shots auf einmal bestellt",
     image: "/internal/assets/achievements/dienaechsterundegehtaufmich.jpg",
-    processor: function (news, userStats, achievements) {
-      return !utils.alreadyGained(achievements, this.name) &&
-        news.drink.type === "SHOT" &&
-        news.cardinality > 10;
+    processor: function (news) {
+      return news.drink.type === "SHOT" && news.cardinality >= 10;
+    }
+  },
+  neRundeFuerAll: {
+    name: "'ne Runde für alle!",
+    description: "Mindestens 20 Shots auf einmal bestellt",
+    image: "/internal/assets/achievements/nerundefueralle.jpg",
+    processor: function (news) {
+      return news.drink.type === "SHOT" && news.cardinality >= 20;
+    }
+  },
+  derAbendIstGerettet: {
+    name: "Der Abend ist gerettet",
+    description: "Mindestens 20 Shots auf einmal bestellt",
+    image: "/internal/assets/achievements/nerundefueralle.jpg",
+    processor: function (news) {
+      return news.drink.type === "SHOT" && news.cardinality >= 20;
+    }
+  },
+  raufUndRunter: {
+    name: "Rauf und runter",
+    description: "Jeweils ein Bier, Shot und Cocktail bestellt",
+    image: "/internal/assets/achievements/raufUndRunter.jpg",
+    processor: function (news, userStats) {
+      return userStats.beerCount>0 && userStats.cocktailCount>0 && userStats.shotCount>0;
     }
   }
 };
