@@ -25,10 +25,15 @@ var processAchievement = _.curry(function (stats, achievements, usersAchievement
     var gainedAchievements = _.filter(achievementDefs, function (def) {
       return def.processor(news, userStats, userAchievements.achievements,stats);
     });
-    return _.map(gainedAchievements, function (gainedAchievement) {
+    return _.flatMap(gainedAchievements, function (gainedAchievement) {
+      var achievement= _.find(achievements, {name: gainedAchievement.name});
+      if(!achievement){
+        console.error("Achievement "+ gainedAchievement.name + " not registered in DB!");
+        return [];
+      }
       return {
         userId: news.userId,
-        achievementId: _.find(achievements, {name: gainedAchievement.name}).id,
+        achievementId:achievement.id ,
         type: News.NEWS_TYPES.ACHIEVEMENT
       };
     });

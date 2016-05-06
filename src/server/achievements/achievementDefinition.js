@@ -113,5 +113,15 @@ module.exports = {
     processor: function (news, userStats) {
       return news.drink.type === "COFFEE" && userStats.coffeeCount === 20;
     }
+  },
+  dieNaechsteRundeGehtAufMich: {
+    name: "Die nächste Runde geht auf mich",
+    description: "Mindestens 10 Shots auf einmal bestellt",
+    image: "/internal/assets/achievements/dienaechsterundegehtaufmich.jpg",
+    processor: function (news, userStats, achievements) {
+      return !utils.alreadyGained(achievements, this.name) &&
+        news.drink.type === "SHOT" &&
+        news.cardinality > 10;
+    }
   }
 };

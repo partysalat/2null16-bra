@@ -2,7 +2,8 @@
 angular.module("chose-drink", [
     "templates",
     require("./../drinks"),
-    require("./../users")
+    require("./../users"),
+    require("./../../shared/longpress")
   ])
 
   .service("drinkDataService", require("./drinkDataService"))

@@ -26,8 +26,17 @@ md-dialog(aria-label='Drink Auswahl')
             md-row-height="16:9"
             md-gutter="8px" md-gutter-gt-sm="4px"
             )
-                md-grid-tile.md-margin(data-ng-click="toggleUser(user)" data-ng-class="{active:isActive(user)}",md-rowspan="1" md-colspan="1",data-ng-repeat="user in users")
-                    h3 {{user.name}}
+                md-grid-tile.md-margin(data-ng-click="toggleUser(user)", data-ng-class="{active:isActive(user)}",md-rowspan="1" md-colspan="1",data-ng-repeat="user in users track by user.id")
+                    md-menu(data-on-long-press="openSlider($mdOpenMenu,$event);toggleUser(user,true);",style="width:100%;height:100%;text-align:center")
+                        h3(aria-label='Open phone interactions menu', )
+                            span(md-menu-origin) {{::user.name}}
+                            span(data-ng-if="user.cardinality")  ({{user.cardinality}})
+                        md-menu-content.slider-menu(width='4')
+                            md-content(flex)
+                                md-slider(ng-click='' flex md-discrete,min='1', max='30', ng-model='user.cardinality', aria-label='red')
+
+
+
         md-dialog-actions(layout='row')
             md-button.md-primary.md-raised(data-ng-if="page==='users'", ng-disabled="!activeUsers.length", ng-click="answer('not useful')")
                 | Ok

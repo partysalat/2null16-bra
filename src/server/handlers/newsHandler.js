@@ -21,10 +21,11 @@ function findNews(len,includes) {
 }
 module.exports.save = function (request, reply) {
   var initialData = request.payload;
-  var transformedData = _.map(initialData.users, function (userId) {
+  var transformedData = _.map(initialData.users, function (user) {
     return {
       drinkId: initialData.drink,
-      userId: userId,
+      userId: user.id,
+      cardinality:user.cardinality,
       type: News.NEWS_TYPES.DRINK
     };
   });
@@ -43,7 +44,9 @@ module.exports.save = function (request, reply) {
       .then(function (createdNews) {
         socket.addNews(createdNews);
         reply().code(204);
-      }).catch(console.error);
+      }).catch(function(error){
+        console.error(error.stack);
+      });
 
 
   }).catch(function (err) {

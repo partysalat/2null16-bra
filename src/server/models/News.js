@@ -22,6 +22,12 @@ var News = sequelize.get().define(TABLE_NAME, {
     primaryKey: true,
     autoIncrement: true
   },
+  cardinality:{
+    type:DataType.INTEGER,
+    validate:{
+      min:1
+    }
+  },
   type: {
     type: DataType.ENUM,
     values: NEWS_TYPES,
@@ -58,11 +64,11 @@ var News = sequelize.get().define(TABLE_NAME, {
           {model: Drink, attributes: []}
         ],
         attributes: [
-          [sequelize.get().fn('count', sequelize.get().col('drinkId')), "drinkCount"],
-          [sequelize.get().fn('count', sequelize.get().literal('CASE WHEN drink.type="BEER" THEN 1 END')), "beerCount"],
-          [sequelize.get().fn('count', sequelize.get().literal('CASE WHEN drink.type="COCKTAIL" THEN 1 END')), "cocktailCount"],
-          [sequelize.get().fn('count', sequelize.get().literal('CASE WHEN drink.type="SHOT" THEN 1 END')), "shotCount"],
-          [sequelize.get().fn('count', sequelize.get().literal('CASE WHEN drink.type="COFFEE" THEN 1 END')), "coffeeCount"],
+          [sequelize.get().fn('sum', sequelize.get().col('cardinality')), "drinkCount"],
+          [sequelize.get().fn('sum', sequelize.get().literal('CASE WHEN drink.type="BEER" THEN cardinality END')), "beerCount"],
+          [sequelize.get().fn('sum', sequelize.get().literal('CASE WHEN drink.type="COCKTAIL" THEN cardinality END')), "cocktailCount"],
+          [sequelize.get().fn('sum', sequelize.get().literal('CASE WHEN drink.type="SHOT" THEN cardinality END')), "shotCount"],
+          [sequelize.get().fn('sum', sequelize.get().literal('CASE WHEN drink.type="COFFEE" THEN cardinality END')), "coffeeCount"],
         ],
         group: ["userId"],
         order: [[sequelize.get().col('drinkCount'), 'DESC']],

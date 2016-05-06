@@ -1,6 +1,6 @@
 'use strict';
 var _ = require("lodash");
-module.exports = function ($scope, $mdDialog,data,users) {
+module.exports = function ($scope, $mdDialog,data,users,$timeout) {
   $scope.data = data;
   $scope.users = users;
   $scope.page = "drink";
@@ -24,10 +24,25 @@ module.exports = function ($scope, $mdDialog,data,users) {
   $scope.isActive = function(user){
     return _.includes($scope.activeUsers,user);
   };
-  $scope.toggleUser = function(user){
-    return $scope.isActive(user)?_.remove($scope.activeUsers,user):$scope.activeUsers.push(user);
+  $scope.toggleUser = function(user,state){
+    var isActive = $scope.isActive(user);
+    if(typeof state==="boolean"){
+      return state?(!isActive && $scope.activeUsers.push(user)):_.remove($scope.activeUsers,user);
+    }
+    return isActive?_.remove($scope.activeUsers,user):$scope.activeUsers.push(user);
+  };
+  $scope.openSlider = function($mdOpenMenu,$event){
+    $mdOpenMenu($event);
+    //hack because of an angular material bug with menus in modal windows
+    $timeout(function(){
+      var element = angular.element(document.querySelectorAll(".md-open-menu-container.md-whiteframe-z2"));
+      element.css({
+        left:$event.clientX + "px",
+        top:$event.clientY + "px"
+      });
+    });
   };
   
 };
 
-module.exports.$inject = ["$scope","$mdDialog","data","users"];
+module.exports.$inject = ["$scope","$mdDialog","data","users","$timeout"];

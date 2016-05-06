@@ -24,7 +24,12 @@ module.exports = function ($q, DrinkProcess, User, Cocktail, Shot, Beer, Coffee,
     saveDrinks: function (data) {
       return new DrinkProcess({
         drink: data.drink.id,
-        users: _.map(data.users, "id")
+        users: _.map(data.users, function(user){
+          return {
+            id:user.id,
+            cardinality:user.cardinality || 1
+          };
+        })
       }).$save();
     }
   };
