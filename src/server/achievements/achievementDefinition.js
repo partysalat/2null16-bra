@@ -15,6 +15,9 @@
 var utils = require("./utils");
 
 module.exports = {
+  /**
+   * Beer
+   */
   moe: {
     name: "Moe",
     description: "1 Bier bestellt",
@@ -54,8 +57,47 @@ module.exports = {
     processor: function (news, userStats) {
       return news.drink.type === "BEER" && userStats.beerCount >= 25;
     }
-
   },
+  /**
+   * Cocktails
+   */
+
+  jeffLebowski: {
+    name: "Jeff Lebowski",
+    description: "1 Cocktails bestellt",
+    image: "/internal/assets/achievements/derdude.jpg",
+    processor: function (news, userStats) {
+      return news.drink.type === "COCKTAIL" && userStats.cocktailCount >= 1;
+    }
+  },
+  hemingway: {
+    name: "Hemingway",
+    description: "5 Cocktails bestellt",
+    image: "/internal/assets/achievements/hemingway.jpg",
+    processor: function (news, userStats) {
+      return news.drink.type === "COCKTAIL" && userStats.cocktailCount >= 5;
+    }
+  },
+  churchill: {
+    name: "Churchill",
+    description: "10 Cocktails bestellt",
+    image: "/internal/assets/achievements/churchill.jpg",
+    processor: function (news, userStats) {
+      return news.drink.type === "COCKTAIL" && userStats.cocktailCount >= 10;
+    }
+  },
+  georgeRRMartin: {
+    name: "George R.R.Martin",
+    description: "15 Cocktails bestellt",
+    image: "/internal/assets/achievements/georgeRRMartin.jpg",
+    processor: function (news, userStats) {
+      return news.drink.type === "COCKTAIL" && userStats.cocktailCount >= 15;
+    }
+  },
+
+  /**
+   * Timing
+   */
   frueheVogel: {
     name: "Der frühe Vogel trinkt Bier",
     description: "Bier vor 12 Uhr morgens",
@@ -83,7 +125,9 @@ module.exports = {
         utils.dateBetween(4, 8, news.createdAt);
     }
   },
-
+  /**
+   * Einmalig
+   */
   glueckspils: {
     name: "Glückspils",
     description: "25. Bier bestellt",
@@ -124,7 +168,9 @@ module.exports = {
       return news.drink.type === "BEER" && utils.sumStats(usersStats, "beerCount") === 300;
     }
   },
-
+  /**
+   * Kaffee
+   */
   oeltanker: {
     name: "Öltanker",
     description: "20 Kaffee bestellt",
@@ -133,6 +179,10 @@ module.exports = {
       return news.drink.type === "COFFEE" && userStats.coffeeCount >= 20;
     }
   },
+  /**
+   * Shot runden
+   */
+
   dieNaechsteRundeGehtAufMich: {
     name: "Die nächste Runde geht auf mich",
     description: "Mindestens 10 Shots auf einmal bestellt",
@@ -149,20 +199,15 @@ module.exports = {
       return news.drink.type === "SHOT" && news.cardinality >= 20;
     }
   },
-  derAbendIstGerettet: {
-    name: "Der Abend ist gerettet",
-    description: "Mindestens 20 Shots auf einmal bestellt",
-    image: "/internal/assets/achievements/nerundefueralle.jpg",
-    processor: function (news) {
-      return news.drink.type === "SHOT" && news.cardinality >= 20;
-    }
-  },
+  /**
+   * Mix
+   */
   raufUndRunter: {
     name: "Rauf und runter",
     description: "Jeweils ein Bier, Shot und Cocktail bestellt",
     image: "/internal/assets/achievements/raufUndRunter.jpg",
     processor: function (news, userStats) {
-      return userStats.beerCount>0 && userStats.cocktailCount>0 && userStats.shotCount>0;
+      return userStats.beerCount > 0 && userStats.cocktailCount > 0 && userStats.shotCount > 0;
     }
   }
 };
