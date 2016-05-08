@@ -1,6 +1,7 @@
 'use strict';
 var User = require("./../models/User"),
   News = require("./../models/News"),
+  Drink = require("./../models/Drink"),
   utils = require("./../models/utils"),
   _ = require("lodash");
 var CACHE_TIMEOUT = 2000;
@@ -34,13 +35,18 @@ module.exports.getBestlist = function (request, reply) {
 };
 module.exports.getBestlistAsCSV = function (request, reply) {
 
-  News.getStats().then(function (list) {
-    var header = ["Trinker", "Gesamtanzahl", "Cocktails", "Bier", "Shots", "Kaffee"];
-
+  News.findAll({
+    where:{
+      type: News.NEWS_TYPES.DRINK
+    },
+    include: [User, Drink]
+  }).then(function (list) {
+    var header = ["Name", "Getränk", "Anzahl", "Uhrzeit"];
     var result = _(list)
       .map(function (item) {
-        return [item.user.name, item.drinkCount, item.cocktailCount, item.beerCount, item.shotCount, item.coffeeCount];
+        return [item.user.dataValues.name, item.drink.dataValues.name,item.cardinality || "FOOO", item.createdAt];
       })
+      .filter(_.identity)
       .map(function(item){
         return item.join(",");
       })
