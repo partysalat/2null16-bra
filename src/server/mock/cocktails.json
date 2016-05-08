@@ -1,30 +1,6 @@
 {
   "drinks": [
     {
-      "name": "Long Island Iced Tea",
-      "type": "COCKTAIL"
-    },
-    {
-      "name": "Bahama Mama",
-      "type": "COCKTAIL"
-    },
-    {
-      "name": "Erdbeer Daiquiri",
-      "type": "COCKTAIL"
-    },
-    {
-      "name": "Sex on the Beach",
-      "type": "COCKTAIL"
-    },
-    {
-      "name": "Tequila Sunrise",
-      "type": "COCKTAIL"
-    },
-    {
-      "name": "Havanna Club",
-      "type": "COCKTAIL"
-    },
-    {
       "name": "Mojito",
       "type": "COCKTAIL"
     },
@@ -33,7 +9,76 @@
       "type": "COCKTAIL"
     },
     {
+      "name": "Zombie",
+      "type": "COCKTAIL"
+    },
+    {
+      "name": "Erdbeer Daiquiri",
+      "type": "COCKTAIL"
+    },
+    {
+      "name": "Long Island Iced Tea",
+      "type": "COCKTAIL"
+    },
+    {
+      "name": "Mai Tai",
+      "type": "COCKTAIL"
+    },
+    {
+      "name": "Planters Punch",
+      "type": "COCKTAIL"
+    },
+    {
+      "name": "Tequila Sunrise",
+      "type": "COCKTAIL"
+    },
+    {
+      "name": "Wodka Sling",
+      "type": "COCKTAIL"
+    },
+    {
+      "name": "Springtime Cooler",
+      "type": "COCKTAIL"
+    },
+    {
+      "name": "Pineapple Fizz",
+      "type": "COCKTAIL"
+    },
+    {
+      "name": "White Lady",
+      "type": "COCKTAIL"
+    },
+    {
+      "name": "Tom Collins",
+      "type": "COCKTAIL"
+    },
+    {
+      "name": "LeGurk",
+      "type": "COCKTAIL"
+    },
+    {
+      "name": "Cuba Libre",
+      "type": "COCKTAIL"
+    },
+    {
       "name": "Gin Tonic",
+      "type": "COCKTAIL"
+    },{
+      "name": "Hugo",
+      "type": "COCKTAIL"
+    },{
+      "name": "Screwdriver",
+      "type": "COCKTAIL"
+    },
+    {
+      "name": "Wodka Julep",
+      "type": "COCKTAIL"
+    },
+
+
+
+    {
+      "name": "Sonstiges",
       "type": "COCKTAIL"
     },
     {
@@ -41,15 +86,25 @@
       "type": "SHOT"
     },
     {
-      "name": "Vodka",
+      "name": "Wodka",
       "type": "SHOT"
     },
     {
-      "name": "Radeberger",
-      "type": "BEER"
+      "name": "Tequila",
+      "type": "SHOT"
     },
     {
-      "name": "Hasseröder",
+      "name": "Polnische Rakede",
+      "type": "SHOT"
+    },
+    {
+      "name": "Mexikaner",
+      "type": "SHOT"
+    },
+
+
+    {
+      "name": "Radeberger",
       "type": "BEER"
     },
     {

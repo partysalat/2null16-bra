@@ -64,7 +64,7 @@ module.exports = {
 
   jeffLebowski: {
     name: "Jeff Lebowski",
-    description: "1 Cocktails bestellt",
+    description: "1 Cocktail bestellt",
     image: "/internal/assets/achievements/derdude.jpg",
     processor: function (news, userStats) {
       return news.drink.type === "COCKTAIL" && userStats.cocktailCount >= 1;
@@ -87,7 +87,7 @@ module.exports = {
     }
   },
   georgeRRMartin: {
-    name: "George R.R.Martin",
+    name: "George R.R. Martin",
     description: "15 Cocktails bestellt",
     image: "/internal/assets/achievements/georgeRRMartin.jpg",
     processor: function (news, userStats) {
