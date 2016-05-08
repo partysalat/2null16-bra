@@ -34,11 +34,15 @@ module.exports = function ($mdDialog, $q,drinkDataService,$mdToast) {
   function openCoffee(ev){
     return $q.all([drinkDataService.getCoffee(),drinkDataService.getUsers()]).then(_.partial(openModelAndSave,ev));
   }
+  function openSoftdrinks(ev){
+    return $q.all([drinkDataService.getSoftdrinks(),drinkDataService.getUsers()]).then(_.partial(openModelAndSave,ev));
+  }
   return {
     openCocktails: openCocktails,
     openShot:openShot,
     openCoffee:openCoffee,
-    openBeer:openBeer
+    openBeer:openBeer,
+    openSoftdrinks:openSoftdrinks
   };
 };
 

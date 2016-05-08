@@ -55,6 +55,26 @@
     {
       "name": "Filterkaffee",
       "type": "COFFEE"
+    },
+    {
+      "name": "Cola",
+      "type": "SOFTDRINK"
+    },
+    {
+      "name": "Fanta",
+      "type": "SOFTDRINK"
+    },
+    {
+      "name": "Sprite",
+      "type": "SOFTDRINK"
+    },
+    {
+      "name": "Mate",
+      "type": "SOFTDRINK"
+    },
+    {
+      "name": "Wasser",
+      "type": "SOFTDRINK"
     }
   ]
 }

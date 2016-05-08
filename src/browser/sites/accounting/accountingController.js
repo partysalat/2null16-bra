@@ -4,6 +4,7 @@ module.exports = function ($scope, drinkDialogService,drinkDataService,newResour
   $scope.openBeer = drinkDialogService.openBeer;
   $scope.openShot = drinkDialogService.openShot;
   $scope.openCoffee = drinkDialogService.openCoffee;
+  $scope.openSoftdrinks = drinkDialogService.openSoftdrinks;
   $scope.clearCache = drinkDataService.clearCache;
   $scope.openNewUser = newResourceDialogService.openNewUser;
   $scope.openNewDrink = newResourceDialogService.openNewDrink;

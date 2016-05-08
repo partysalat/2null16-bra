@@ -1,6 +1,6 @@
 'use strict';
 var _ = require("lodash");
-module.exports = function ($q, DrinkProcess, User, Cocktail, Shot, Beer, Coffee, $cacheFactory) {
+module.exports = function ($q, DrinkProcess, User, Cocktail, Shot, Beer, Coffee,Softdrink, $cacheFactory) {
   var httpCache = $cacheFactory.get('$http');
   return {
     clearCache: function () {
@@ -17,6 +17,9 @@ module.exports = function ($q, DrinkProcess, User, Cocktail, Shot, Beer, Coffee,
     },
     getCoffee: function () {
       return new Coffee().$get();
+    },
+    getSoftdrinks: function () {
+      return new Softdrink().$get();
     },
     getUsers: function () {
       return new User().$get();
@@ -36,4 +39,4 @@ module.exports = function ($q, DrinkProcess, User, Cocktail, Shot, Beer, Coffee,
 };
 
 
-module.exports.$inject = ["$q", "DrinkProcess", "User", "Cocktail", "Shot", "Beer", "Coffee", "$cacheFactory"];
+module.exports.$inject = ["$q", "DrinkProcess", "User", "Cocktail", "Shot", "Beer", "Coffee","Softdrink", "$cacheFactory"];

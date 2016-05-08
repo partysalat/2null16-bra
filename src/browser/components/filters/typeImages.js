@@ -4,7 +4,8 @@ module.exports = function(){
     COCKTAIL:"/internal/assets/cocktail.jpg",
     COFFEE:"/internal/assets/coffee.jpg",
     SHOT:"/internal/assets/shot.jpg",
-    BEER:"/internal/assets/beer.jpg"
+    BEER:"/internal/assets/beer.jpg",
+    SOFTDRINK:"/internal/assets/softdrink.jpg",
   };
   return function(type){
     return map[type];

@@ -69,6 +69,7 @@ var News = sequelize.get().define(TABLE_NAME, {
           [sequelize.get().fn('sum', sequelize.get().literal('CASE WHEN drink.type="COCKTAIL" THEN cardinality END')), "cocktailCount"],
           [sequelize.get().fn('sum', sequelize.get().literal('CASE WHEN drink.type="SHOT" THEN cardinality END')), "shotCount"],
           [sequelize.get().fn('sum', sequelize.get().literal('CASE WHEN drink.type="COFFEE" THEN cardinality END')), "coffeeCount"],
+          [sequelize.get().fn('sum', sequelize.get().literal('CASE WHEN drink.type="SOFTDRINK" THEN cardinality END')), "softdrinkCount"],
         ],
         group: ["userId"],
         order: [[sequelize.get().col('drinkCount'), 'DESC']],

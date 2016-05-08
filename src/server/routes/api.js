@@ -1,28 +1,29 @@
 'use strict';
-var Joi = require("joi");
+var Joi = require("joi"),
+  _ = require("lodash");
 var routes = [
   {
     method: 'GET',
     path: '/api/drinks/{type}',
     config: {
       handler: require('../handlers/drinkHandler.js').getDrink,
-      validate:{
-        params:{
-          type:Joi.any().valid("cocktail","beer","coffee","shot")
+      validate: {
+        params: {
+          type: Joi.string().valid(require("./../models/Drink").DRINK_TYPES_ARR.map(_.toLower))
         }
       }
     }
-  },{
+  }, {
     method: 'POST',
     path: '/api/drinks/{type}',
     config: {
       handler: require('../handlers/drinkHandler.js').saveDrink,
-      validate:{
-        params:{
-          type:Joi.any().valid("cocktail","beer","coffee","shot")
+      validate: {
+        params: {
+          type: Joi.string().valid(require("./../models/Drink").DRINK_TYPES_ARR.map(_.toLower))
         },
-        payload:{
-          name:Joi.string()
+        payload: {
+          name: Joi.string()
         }
       }
     }
@@ -45,9 +46,9 @@ var routes = [
     path: '/api/news/{page}',
     config: {
       handler: require('../handlers/newsHandler').getNews,
-      validate:{
-        params:{
-          page:Joi.number().integer()
+      validate: {
+        params: {
+          page: Joi.number().integer()
         }
       }
     }
@@ -57,23 +58,23 @@ var routes = [
     path: '/api/news/item/{newsId}',
     config: {
       handler: require('../handlers/newsHandler').remove,
-      validate:{
-        params:{
-          newsId:Joi.number().integer()
+      validate: {
+        params: {
+          newsId: Joi.number().integer()
         }
       }
     }
   },
-  
+
   {
     method: 'POST',
     path: '/api/drinks',
     config: {
       handler: require('../handlers/newsHandler').save,
-      validate:{
-        payload:{
-          users:Joi.array(),
-          drink:Joi.number().integer()
+      validate: {
+        payload: {
+          users: Joi.array(),
+          drink: Joi.number().integer()
         }
       }
     }
@@ -84,23 +85,23 @@ var routes = [
     path: '/api/keeper/{keeper}',
     config: {
       handler: require('../handlers/barkeeperHandler.js').notify,
-      validate:{
-        params:{
-          keeper:Joi.string()
+      validate: {
+        params: {
+          keeper: Joi.string()
         }
       }
 
     }
   },
- {
+  {
     method: 'POST',
     path: '/api/photo',
     config: {
       handler: require('../handlers/barkeeperHandler.js').takephoto,
-      validate:{
-        params:{
-          imagePath:Joi.string(),
-          keeper:Joi.string()
+      validate: {
+        params: {
+          imagePath: Joi.string(),
+          keeper: Joi.string()
         }
       }
 
@@ -111,10 +112,10 @@ var routes = [
     path: '/api/user/bestlist',
     config: {
       handler: require('../handlers/userHandler').getBestlist,
-      validate:{
-        params:{
-          imagePath:Joi.string(),
-          keeper:Joi.string()
+      validate: {
+        params: {
+          imagePath: Joi.string(),
+          keeper: Joi.string()
         }
       }
 
@@ -125,10 +126,10 @@ var routes = [
     path: '/api/user/achievements',
     config: {
       handler: require('../handlers/userHandler').getAchievements,
-      validate:{
-        params:{
-          imagePath:Joi.string(),
-          keeper:Joi.string()
+      validate: {
+        params: {
+          imagePath: Joi.string(),
+          keeper: Joi.string()
         }
       }
 
@@ -139,10 +140,10 @@ var routes = [
     path: '/api/user/bestlist/csv',
     config: {
       handler: require('../handlers/userHandler').getBestlistAsCSV,
-      validate:{
-        params:{
-          imagePath:Joi.string(),
-          keeper:Joi.string()
+      validate: {
+        params: {
+          imagePath: Joi.string(),
+          keeper: Joi.string()
         }
       }
 
