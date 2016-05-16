@@ -238,7 +238,7 @@ module.exports = {
     name: "Luftalarm!",
     description: "Mindestens 5 Berliner Luft bestellt",
     image: "/internal/assets/achievements/luftalarm.jpg",
-    processor: function (news, userStats) {
+    processor: function (news) {
       return news.drink.name==="Berliner Luft" && news.cardinality >= 5;
     }
   }
