@@ -5,7 +5,9 @@ module.exports = {
   controller: ["socket", "News", "$scope", function (socket, News, $scope) {
     var $ctrl = this;
     socket.on("news", function (data) {
-      data.reverse().forEach(function (news) {
+      data.reverse()
+        .map(mapDate)
+        .forEach(function (news) {
         $ctrl.news.unshift(news);
       });
       $scope.$apply();
@@ -30,14 +32,14 @@ module.exports = {
       return new News()
         .$get({offset: offset})
         .then(function(list){
-          list.news = list.news.map(function(item){
-            item.createdAt = new Date(item.createdAt);
-            return item;
-          });
+          list.news = list.news.map(mapDate);
           return list;
         });
     }
-
+    function mapDate(item){
+      item.createdAt = new Date(item.createdAt);
+      return item;
+    }
     getNews(0).then(function (news) {
       $ctrl.news = news.news;
     });
