@@ -89,7 +89,7 @@ module.exports = {
   georgeRRMartin: {
     name: "George R.R. Martin",
     description: "15 Cocktails bestellt",
-    image: "/internal/assets/achievements/georgeRRMartin.jpg",
+    image: "/internal/assets/achievements/georgerrmartin.jpg",
     processor: function (news, userStats) {
       return news.drink.type === "COCKTAIL" && userStats.cocktailCount >= 15;
     }
