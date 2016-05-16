@@ -78,7 +78,7 @@
 
 
     {
-      "name": "Sonstiges",
+      "name": "Sonstiger Cocktail",
       "type": "COCKTAIL"
     },
     {
@@ -100,6 +100,10 @@
     {
       "name": "Mexikaner",
       "type": "SHOT"
+    },
+    {
+      "name": "Sonstiger Shot",
+      "type": "COCKTAIL"
     },
 
 

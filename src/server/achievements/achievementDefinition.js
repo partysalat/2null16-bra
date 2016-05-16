@@ -209,5 +209,37 @@ module.exports = {
     processor: function (news, userStats) {
       return userStats.beerCount > 0 && userStats.cocktailCount > 0 && userStats.shotCount > 0;
     }
+  },
+  abenteurer: {
+    name: "Abenteurer",
+    description: "Jeweils fünf Biere, Shots und Cocktails bestellt",
+    image: "/internal/assets/achievements/abenteurer.jpg",
+    processor: function (news, userStats) {
+      return userStats.beerCount > 4 && userStats.cocktailCount > 4 && userStats.shotCount > 4;
+    }
+  },
+  derAllesTrinker: {
+    name: "Der Alles-Trinker",
+    description: "Jeweils 10 Biere, Shots und Cocktails bestellt",
+    image: "/internal/assets/achievements/derallestrinker.jpg",
+    processor: function (news, userStats) {
+      return userStats.beerCount > 9 && userStats.cocktailCount > 9 && userStats.shotCount > 9;
+    }
+  },
+  herrengedeck: {
+    name: "Herrengedeck",
+    description: "Nen Bier und nen Kurzen bestellt",
+    image: "/internal/assets/achievements/herrengedeck.jpg",
+    processor: function (news, userStats) {
+      return userStats.beerCount > 0  && userStats.shotCount > 0;
+    }
+  },
+  luftalarm: {
+    name: "Luftalarm!",
+    description: "Mindestens 5 Berliner Luft bestellt",
+    image: "/internal/assets/achievements/luftalarm.jpg",
+    processor: function (news, userStats) {
+      return news.drink.name==="Berliner Luft" && news.cardinality >= 5;
+    }
   }
 };

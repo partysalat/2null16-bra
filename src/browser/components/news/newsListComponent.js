@@ -27,7 +27,15 @@ module.exports = {
         });
     };
     function getNews(offset) {
-      return new News().$get({offset: offset});
+      return new News()
+        .$get({offset: offset})
+        .then(function(list){
+          list.news = list.news.map(function(item){
+            item.createdAt = new Date(item.createdAt);
+            return item;
+          });
+          return list;
+        });
     }
 
     getNews(0).then(function (news) {

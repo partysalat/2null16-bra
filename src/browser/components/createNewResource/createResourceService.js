@@ -1,10 +1,11 @@
 'use strict';
-module.exports = function (User,Cocktail,Shot,Beer,Coffee) {
+module.exports = function (User,Cocktail,Shot,Beer,Coffee,Softdrink) {
   var drinkTypeMapping = {
     COCKTAIL:Cocktail,
     SHOT:Shot,
     BEER: Beer,
-    COFFEE: Coffee
+    COFFEE: Coffee,
+    SOFTDRINK: Softdrink,
   };
   return {
     createDrink:function(data){
@@ -19,4 +20,4 @@ module.exports = function (User,Cocktail,Shot,Beer,Coffee) {
 };
 
 
-module.exports.$inject = ["User", "Cocktail", "Shot", "Beer", "Coffee"];
+module.exports.$inject = ["User", "Cocktail", "Shot", "Beer", "Coffee","Softdrink"];
