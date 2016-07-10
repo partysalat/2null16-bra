@@ -41,10 +41,15 @@ module.exports.getBestlistAsCSV = function (request, reply) {
     },
     include: [User, Drink]
   }).then(function (list) {
-    var header = ["Name", "Getränk", "Anzahl", "Uhrzeit"];
+    var header = ["Name", "Getränk", "Typ","Anzahl", "Uhrzeit"];
     var result = _(list)
       .map(function (item) {
-        return [item.user.dataValues.name, item.drink.dataValues.name,item.cardinality || "FOOO", item.createdAt];
+        return [
+          item.user.dataValues.name,
+          item.drink.dataValues.name,
+          item.drink.dataValues.type,
+          item.cardinality || "FOOO",
+          item.createdAt];
       })
       .filter(_.identity)
       .map(function(item){
