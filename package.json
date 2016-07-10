@@ -28,7 +28,6 @@
     "socket.io-client"
   ],
   "browserLibraries": [
-    "./src/browser/vendor/anyPlugin.js"
   ],
   "dependencies": {
     "bluebird": "^3.3.4",

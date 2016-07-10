@@ -43,32 +43,17 @@ module.exports = function ($mdDialog, $q,drinkDataService,$mdToast) {
         throw error;
       });
   }
-  function openCocktails(ev) {
-    return wrapInToast($q.all([drinkDataService.getCocktails(),drinkDataService.getUsers()]))
+  
+  function open(serviceFn,ev){
+   return wrapInToast($q.all([serviceFn(),drinkDataService.getUsers()]))
       .then(_.partial(openModelAndSave,ev));
-
-  }
-  function openShot(ev){
-    return wrapInToast($q.all([drinkDataService.getShots(),drinkDataService.getUsers()]))
-      .then(_.partial(openModelAndSave,ev));
-  }
-  function openBeer(ev){
-    return wrapInToast($q.all([drinkDataService.getBeer(),drinkDataService.getUsers()]))
-      .then(_.partial(openModelAndSave,ev));
-  }
-  function openCoffee(ev){
-    return wrapInToast($q.all([drinkDataService.getCoffee(),drinkDataService.getUsers()]))
-      .then(_.partial(openModelAndSave,ev));
-  }
-  function openSoftdrinks(ev){
-    return wrapInToast($q.all([drinkDataService.getSoftdrinks(),drinkDataService.getUsers()])).then(_.partial(openModelAndSave,ev));
   }
   return {
-    openCocktails: openCocktails,
-    openShot:openShot,
-    openCoffee:openCoffee,
-    openBeer:openBeer,
-    openSoftdrinks:openSoftdrinks
+    openCocktails: _.partial(open,drinkDataService.getCocktails),
+    openShot:_.partial(open,drinkDataService.getShots),
+    openCoffee:_.partial(open,drinkDataService.getCoffee),
+    openBeer:_.partial(open,drinkDataService.getBeer),
+    openSoftdrinks:_.partial(open,drinkDataService.getSoftdrinks)
   };
 };
 

@@ -13,7 +13,7 @@ md-list(flex='')
                     md-tooltip.md-primary(style="color:black",md-direction="top")
                         |{{achievement.name+': '+achievement.description}}
                     img.n16-achievements(alt="{{achievement.name}}" , data-ng-src="{{achievement.imagePath}}")
-            h4 {{ item.drinkCount }} Getränke
+            h4 {{ item.drinkCount }} Getränk{{item.drinkCount >1? "e":""}}
             p
                 span.bestlist-detail(data-ng-if="item.cocktailCount") {{ item.cocktailCount }} Cocktail{{item.cocktailCount >1? "s":""}}
                 span.bestlist-detail(data-ng-if="item.beerCount") {{ item.beerCount }} Bier{{item.beerCount >1? "e":""}}
