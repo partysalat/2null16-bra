@@ -58,6 +58,7 @@ var routes = [
     path: '/api/news/item/{newsId}',
     config: {
       handler: require('../handlers/newsHandler').remove,
+      auth: 'simple',
       validate: {
         params: {
           newsId: Joi.number().integer()
