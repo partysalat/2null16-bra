@@ -18,6 +18,7 @@ var routes = [
     path: '/api/drinks/{type}',
     config: {
       handler: require('../handlers/drinkHandler.js').saveDrink,
+      auth: 'simple',
       validate: {
         params: {
           type: Joi.string().valid(require("./../models/Drink").DRINK_TYPES_ARR.map(_.toLower))
