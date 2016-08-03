@@ -180,6 +180,25 @@ module.exports = {
     }
   },
   /**
+   * Softdrinks
+   */
+  fantaSea: {
+    name: "Is this just Fanta Sea?",
+    description: "Mindestens 5 Fanta bestellt",
+    image: "/internal/assets/achievements/fantaSea.jpg",
+    processor: function (news) {
+      return news.drink.name==="Fanta" && news.cardinality >= 5;
+    }
+  },
+  cocaColaFantaSprite: {
+    name: "Coca Cola Fanta Sprite",
+    description: "Mindestens 10 Softdrinks bestellt",
+    image: "/internal/assets/achievements/cocacolaFantaSprite.jpg",
+    processor: function (news, userStats) {
+      return userStats.softdrinkCount >= 10;
+    }
+  },
+  /**
    * Shot runden
    */
 
