@@ -27,14 +27,15 @@
     "angular-ui-router",
     "socket.io-client"
   ],
-  "browserLibraries": [
-  ],
+  "browserLibraries": [],
   "dependencies": {
+    "bcrypt": "^0.8.7",
     "bluebird": "^3.3.4",
     "confidence": "^1.4.2",
     "extend": "^3.0.0",
     "flatten.js": "^0.1.0",
     "hapi": "^13.2.2",
+    "hapi-auth-basic": "^4.2.0",
     "hapi-auto-routes": "^1.0.3",
     "hapi-swagger": "^4.3.1",
     "hoek": "^3.0.4",

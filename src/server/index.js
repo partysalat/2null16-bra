@@ -20,16 +20,16 @@ function create(connectionSettings, callback) {
     method: 'GET',
     path: '/',
     config: {
-      handler: require('./handlers/indexHandler.js'),
+      handler: require('./handlers/indexHandler.js')
     }
   });
   
   server.register([
-    
+    require('hapi-auth-basic'),
     require('inert'),
     require('vision')
     ], function (pluginInitializationErrors) {
-
+    server.auth.strategy('simple', 'basic', { validateFunc: require("./auth/validate") });
     if (pluginInitializationErrors) {
       logger.error('2null16-bra failed to start: ', pluginInitializationErrors);
       callback(pluginInitializationErrors);

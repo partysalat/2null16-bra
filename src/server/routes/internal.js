@@ -36,33 +36,38 @@ var routes = [{
     method: 'GET',
     path: '/internal/sync/drinks',
     config: {
-      handler: require('../handlers/versionHandler.js').syncDrinks
+      handler: require('../handlers/versionHandler.js').syncDrinks,
+      auth: 'simple'
     }
   }, {
     method: 'GET',
     path: '/internal/sync/user',
     config: {
-      handler: require('../handlers/versionHandler.js').sync
+      handler: require('../handlers/versionHandler.js').sync,
+      auth: 'simple'
     }
   }, {
     method: 'GET',
     path: '/internal/sync/news',
     config: {
-      handler: require('../handlers/versionHandler.js').syncNews
+      handler: require('../handlers/versionHandler.js').syncNews,
+      auth: 'simple'
     }
   },
   {
     method: 'GET',
     path: '/internal/install',
     config: {
-      handler: require('../handlers/versionHandler.js').install
+      handler: require('../handlers/versionHandler.js').install,
+      auth: 'simple'
     }
   },
   {
     method: 'GET',
     path: '/internal/sync/achievements',
     config: {
-      handler: require('../handlers/versionHandler.js').syncAchievements
+      handler: require('../handlers/versionHandler.js').syncAchievements,
+      auth: 'simple'
     }
   }
 ];
