@@ -3,6 +3,9 @@
 
 html,body
   background: rgb(66, 66, 66);
+  background-image: url('rainbow.png')
+  background-repeat no-repeat
+  background-position: 100% 0%;
   color:white;
   font-family: 'Dosis', sans-serif;
 
@@ -32,7 +35,7 @@ html,body
   z-index: 9999
 
 md-card
-  background-color:rgb(80, 80, 80)
+  background-color:rgba(80, 80, 80,0.8)
 
 .bestlist-detail
   &:last-child:after
@@ -59,9 +62,19 @@ md-dialog
   user-select: none;           /* Non-prefixed version, currently
                                   not supported by any browser */
 
+.layout-content md-content
+  background-color: transparent
 
 .slider-menu
   height:75px
   padding:20px
   md-slider
     margin-top:20px;
+
+img.logo
+  height:37px
+  border-radius: 50px;
+  box-shadow: 0 0 8px #fff;
+  background: rgba(0,0,0,0.2);
+  margin-top: 5px;
+
