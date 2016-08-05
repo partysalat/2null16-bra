@@ -1,4 +1,5 @@
 'use strict';
+var _ = require("lodash");
 module.exports = ["$window","$timeout",function ($window,$timeout) {
   return {
     link: function (scope, element, attrs) {
@@ -8,7 +9,7 @@ module.exports = ["$window","$timeout",function ($window,$timeout) {
       var containerElement;
       $timeout(function(){
         containerElement = attrs.containerElement?document.querySelector(attrs.containerElement):$window;
-        angular.element(containerElement).bind('scroll',checkIfShouldLoad );
+        angular.element(containerElement).bind('scroll',_.throttle(checkIfShouldLoad,500) );
       });
       function checkIfShouldLoad() {
         if (scope.$eval(attrs.canLoad) && isElementVisible(e,containerElement,offset)) {
