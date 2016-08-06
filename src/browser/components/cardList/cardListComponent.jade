@@ -12,4 +12,4 @@ md-card.animated.rollIn(ng-repeat="item in $ctrl.list track by item.id")
                 |  <b>{{ ::item.user.name }}</b> hat {{::item.cardinality}}x <b>{{ ::item.drink.name }}</b> bestellt.
     img.md-card-image(data-ng-src="/internal/images/{{item.image.path}}", alt='Washed Out',data-ng-if="::(item.type==='IMAGE')")
     md-card-content(style="padding-top:0")
-        span.md-subhead {{ ::item.createdAt|date:'medium' }}
+        span.md-subhead {{ ::(item.createdAt|toDate|date:'medium') }}

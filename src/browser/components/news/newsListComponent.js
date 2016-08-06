@@ -30,11 +30,7 @@ module.exports = {
     };
     function getNews(offset) {
       return new News()
-        .$get({offset: offset})
-        .then(function(list){
-          list.news = list.news.map(mapDate);
-          return list;
-        });
+        .$get({offset: offset});
     }
     function mapDate(item){
       item.createdAt = new Date(item.createdAt);
