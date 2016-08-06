@@ -1,5 +1,4 @@
 'use strict';
-var _ = require("lodash");
 module.exports = function($sce){
   return function(input){
     if(input){

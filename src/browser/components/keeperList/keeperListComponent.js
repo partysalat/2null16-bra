@@ -5,6 +5,7 @@ module.exports = {
   replace:true,
   controller: ["socket","$scope",function (socket,$scope) {
     var MAX_DISTANCE = 15;
+    this.isOpen = false;
     this.isActive = {};
     this.distance = {};
     this.barkeepers = barkeepers;

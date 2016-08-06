@@ -1,5 +1,16 @@
-.n16-avatar(style="position:relative", data-ng-repeat="keeper in $ctrl.barkeepers track by keeper.name",data-ng-class="{offline:!$ctrl.isActive[keeper.name]}")
-    md-button.md-fab.md-primary(aria-label='Use Android')
-        img.md-avatar(data-ng-src="{{keeper.image}}",style="height:64px; margin-left:-25%;")
-    .online-indicator
-        div(style="font-size:12px",data-ng-bind="$ctrl.distance[keeper.name]")
+md-fab-speed-dial.md-scale(md-open='$ctrl.isOpen', md-direction='left',hide-gt-xs)
+    md-fab-trigger
+        md-button.n16-keeper-button(aria-label='menu')
+            md-icon.fa(md-font-icon='fa-user', aria-label='Bar Keepers')
+    md-fab-actions
+        .n16-avatar(style="position:relative", data-ng-repeat="keeper in $ctrl.barkeepers track by keeper.name",data-ng-class="{offline:!$ctrl.isActive[keeper.name]}")
+            md-button.md-fab.md-primary(aria-label='Use Android')
+                img.md-avatar(data-ng-src="{{keeper.image}}",style="height:64px; margin-left:-25%;")
+            .online-indicator
+                div(style="font-size:12px",data-ng-bind="$ctrl.distance[keeper.name]")
+
+.n16-avatar(hide-xs,style="position:relative", data-ng-repeat="keeper in $ctrl.barkeepers track by keeper.name",data-ng-class="{offline:!$ctrl.isActive[keeper.name]}")
+        md-button.md-fab.md-primary(aria-label='Use Android')
+            img.md-avatar(data-ng-src="{{keeper.image}}",style="height:64px; margin-left:-25%;")
+        .online-indicator
+            div(style="font-size:12px",data-ng-bind="$ctrl.distance[keeper.name]")
