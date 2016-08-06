@@ -7,7 +7,7 @@ md-card.animated.rollIn(ng-repeat="item in $ctrl.list track by item.id")
         md-card-header-text
             span.md-title(data-ng-if="::(item.type==='IMAGE')",style="font-size:24px") <b>B.R.A Shot</b>
             span.md-title(data-ng-if="::(item.type==='ACHIEVEMENT')",style="font-size:24px")
-                | <b>{{ ::item.user.name }}</b> hat das Achievement <b>{{ ::item.achievement.name }}</b> erreicht.
+                | <b>{{ ::item.user.name }}</b> hat das Achievement <b data-ng-bind-html="::(item.achievement.name|colortext)"></b> erreicht.
             span.md-title(data-ng-if="::(item.type==='DRINK')" style="font-size:24px")
                 |  <b>{{ ::item.user.name }}</b> hat {{::item.cardinality}}x <b>{{ ::item.drink.name }}</b> bestellt.
     img.md-card-image(data-ng-src="/internal/images/{{item.image.path}}", alt='Washed Out',data-ng-if="::(item.type==='IMAGE')")

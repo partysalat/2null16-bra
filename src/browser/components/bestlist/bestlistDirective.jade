@@ -1,6 +1,6 @@
 md-toolbar(layout='row')
-    .md-toolbar-tools
-        span Bestenliste
+    h2(data-ng-bind-html="::('_bestenliste'|colortext)")
+
 
 md-list(flex='')
     div(style="text-align:center")
