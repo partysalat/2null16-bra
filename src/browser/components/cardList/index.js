@@ -1,5 +1,5 @@
 'use strict';
-angular.module("cardlist", [])
+angular.module("cardlist", [require("./../lightbox")])
 
   .component("cardList", require("./cardListComponent"));
 
