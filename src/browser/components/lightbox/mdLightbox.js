@@ -17,7 +17,7 @@ module.exports = ['$mdDialog', function($mdDialog){
         var confirm = $mdDialog.confirm({
           templateUrl: 'screenshot.html',
           clickOutsideToClose: true,
-          controller: lightboxController
+          controller: ["$scope", "$mdDialog",lightboxController]
         });
 
         $mdDialog.show(confirm);
