@@ -31,10 +31,6 @@ module.exports = {
       return new News()
         .$get({offset: offset});
     }
-    function mapDate(item){
-      item.createdAt = new Date(item.createdAt);
-      return item;
-    }
     getNews(0).then(function (news) {
       $ctrl.news = news.news;
     });
