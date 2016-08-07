@@ -96,8 +96,5 @@ module.exports.syncAchievements = function (request, reply) {
       console.error(err);
       reply(err);
     });
-
-
   });
-
 };
