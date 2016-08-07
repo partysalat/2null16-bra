@@ -49,6 +49,7 @@
     "socket.io": "^1.4.5",
     "sprintf-js": "^1.0.3",
     "sqlite3": "^3.1.2",
+    "threads": "^0.7.0",
     "vision": "^4.0.1"
   },
   "devDependencies": {
