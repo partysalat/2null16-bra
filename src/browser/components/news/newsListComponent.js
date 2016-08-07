@@ -6,7 +6,6 @@ module.exports = {
     var $ctrl = this;
     socket.on("news", function (data) {
       data.reverse()
-        .map(mapDate)
         .forEach(function (news) {
         $ctrl.news.unshift(news);
       });
