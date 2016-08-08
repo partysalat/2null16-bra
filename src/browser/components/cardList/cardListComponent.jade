@@ -1,15 +1,19 @@
 md-card.animated.rollIn(ng-repeat="item in $ctrl.list track by item.id")
-    md-card-header
+    md-card-header(data-ng-if="::(item.type==='IMAGE')")
         md-card-avatar
-            img.md-user-avatar(data-ng-src="{{::(item.drink.type|typeimage)}}",data-ng-if="::(item.type==='DRINK')")
-            img.md-user-avatar(data-ng-src="{{::(item.achievement.imagePath)}}",data-ng-if="::(item.type==='ACHIEVEMENT')")
-            img.md-user-avatar(data-ng-src="/internal/assets/brashot.jpg",data-ng-if="::(item.type==='IMAGE')")
+            img.bra-news-image(data-ng-src="/internal/assets/brashot.jpg",data-ng-if="::(item.type==='IMAGE')")
         md-card-header-text
-            span.md-title(data-ng-if="::(item.type==='IMAGE')",style="font-size:24px") <b>B.R.A Shot</b>
+            span.md-title(style="font-size:24px") <b>B.R.A Shot</b>
+    img.md-card-image.bra-snapshot(md-lightbox md-lightbox-title="B.R.A Shot",data-ng-src="/internal/images/{{item.image.path}}", alt='Washed Out',data-ng-if="::(item.type==='IMAGE')")
+    md-card-title
+        md-card-title-media.bra-news-image-container
+            img.bra-news-image(data-ng-src="{{::(item.drink.type|typeimage)}}",data-ng-if="::(item.type==='DRINK')")
+            img.bra-news-image(data-ng-src="{{::(item.achievement.imagePath)}}",data-ng-if="::(item.type==='ACHIEVEMENT')")
+        md-card-title-text
             span.md-title(data-ng-if="::(item.type==='ACHIEVEMENT')",style="font-size:24px")
                 | <b>{{ ::item.user.name }}</b> hat das Achievement <b data-ng-bind-html="::(item.achievement.name|colortext)"></b> erreicht.
             span.md-title(data-ng-if="::(item.type==='DRINK')" style="font-size:24px")
                 |  <b>{{ ::item.user.name }}</b> hat {{::item.cardinality}}x <b>{{ ::item.drink.name }}</b> bestellt.
-    img.md-card-image.bra-snapshot(md-lightbox md-lightbox-title="B.R.A Shot",data-ng-src="/internal/images/{{item.image.path}}", alt='Washed Out',data-ng-if="::(item.type==='IMAGE')")
+
     md-card-content(style="padding-top:0")
         span.md-subhead {{ ::(item.createdAt|toDate|date:'medium') }}
