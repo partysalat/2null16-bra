@@ -7,7 +7,7 @@ var
   _ = require("lodash");
 
 var Pool = require("threads").Pool;
-var pool = new Pool();
+var pool = new Pool(2);
 
 pool.run(function (input, done) {
   require(input.processor).processAchievements(input, done);
