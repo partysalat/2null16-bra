@@ -46,7 +46,12 @@ module.exports.takephoto = function (request, reply) {
     })
     .catch(function (err) {
       console.error(err);
-      reply(err);
+      if(err.status>=500){
+        reply(err);
+        return;
+      }
+      reply(err).code(400);
+
     });
 
 
