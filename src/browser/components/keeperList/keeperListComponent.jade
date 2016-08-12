@@ -11,6 +11,6 @@ md-fab-speed-dial.md-scale(md-open='$ctrl.isOpen', md-direction='left',hide-gt-x
 
 .n16-avatar(hide-xs,style="position:relative", data-ng-repeat="keeper in $ctrl.barkeepers track by keeper.name",data-ng-class="{offline:!$ctrl.isActive[keeper.name]}")
         md-button.md-fab.md-primary(aria-label='Use Android')
-            img.md-avatar(data-ng-src="{{keeper.image}}",style="height:64px; margin-left:-25%;")
+            img.md-avatar(data-ng-src="{{keeper.image}}")
         .online-indicator
             div(style="font-size:12px",data-ng-bind="$ctrl.distance[keeper.name]")
