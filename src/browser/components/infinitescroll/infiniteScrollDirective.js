@@ -9,7 +9,7 @@ module.exports = ["$window","$timeout",function ($window,$timeout) {
       var containerElement;
       $timeout(function(){
         containerElement = attrs.containerElement?document.querySelector(attrs.containerElement):$window;
-        angular.element(containerElement).bind('scroll',_.throttle(checkIfShouldLoad,500) );
+        angular.element(containerElement).bind('scroll',_.throttle(checkIfShouldLoad,300) );
       });
       function checkIfShouldLoad() {
         if (scope.$eval(attrs.canLoad) && isElementVisible(e,containerElement,offset)) {

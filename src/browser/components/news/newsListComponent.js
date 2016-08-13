@@ -24,7 +24,13 @@ module.exports = {
           olderNews.news.forEach(function (news) {
             $ctrl.news.push(news);
           });
-          $ctrl.isPending = olderNews.news.length === 0;
+          if(olderNews.news.length === 0){
+            $ctrl.isPending = true;
+            $ctrl.showLoadingIndicator = false;
+          }else{
+            $ctrl.isPending  = false;
+          }
+
         });
     };
     function getNews(offset) {
@@ -33,9 +39,11 @@ module.exports = {
     }
     getNews(0).then(function (news) {
       $ctrl.news = news.news;
+      $ctrl.showLoadingIndicator = !_.isEmpty(news.news);
     });
     
     $ctrl.isPending = false;
     $ctrl.news = [];
+
   }]
 };

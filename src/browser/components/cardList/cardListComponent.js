@@ -2,9 +2,11 @@
 module.exports = {
   templateUrl: 'cardListComponent.html',
   controller: [function () {
-    
+
+
   }],
   bindings: {
-    list:"="
+    list:"=",
+    showLoadingIndicator:"="
   }
 };

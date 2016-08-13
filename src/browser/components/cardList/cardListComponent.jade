@@ -17,3 +17,5 @@ md-card.animated.rollIn(ng-repeat="item in $ctrl.list track by item.id")
 
     md-card-content(style="padding-top:0")
         span.md-subhead {{ ::(item.createdAt|toDate|date:'medium') }}
+div(style="text-align:center")
+    md-progress-circular.md-warn.md-hue-3(style="display:inline-block" data-ng-if="$ctrl.showLoadingIndicator" md-diameter="70",md-mode='indeterminate')
