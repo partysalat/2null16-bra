@@ -46,11 +46,11 @@ module.exports.takephoto = function (request, reply) {
     })
     .catch(function (err) {
       console.error(err);
-      if(err.statusCode>=500){
+      if(!err.statusCode || err.statusCode>=500){
         reply(err);
         return;
       }
-      reply(err).code(400);
+      reply().code(400);
 
     });
 
