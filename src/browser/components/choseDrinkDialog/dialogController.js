@@ -1,8 +1,9 @@
 'use strict';
 var _ = require("lodash");
 module.exports = function ($scope, $mdDialog,data,users,$timeout) {
-  $scope.data = data;
-  $scope.users = users;
+  console.log(data,users)
+  $scope.data = _.sortBy(data,"name");
+  $scope.users = _.sortBy(users,"name");
   $scope.page = "drink";
   $scope.activeUsers = [];
   $scope.hide = function () {
