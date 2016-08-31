@@ -25,20 +25,20 @@ function photo(img) {
   return Images.create({
     path: img.filename
   }).then(function (image) {
-      return promise.all([
-        image,
-        createDrinkNews(image)
-      ]);
-    })
+    return promise.all([
+      image,
+      createDrinkNews(image)
+    ]);
+  })
     .spread(pushNews);
 
 }
 module.exports.takephoto = function (request, reply) {
 
   return rp({
-    method:"POST",
-    url:"http://localhost:1338/api/camera/shot",
-    json:true
+    method: "POST",
+    url: "http://localhost:1338/api/camera/shot",
+    json: true
   })
     .then(photo)
     .then(function () {
@@ -46,7 +46,7 @@ module.exports.takephoto = function (request, reply) {
     })
     .catch(function (err) {
       console.error(err);
-      if(!err.statusCode || err.statusCode>=500){
+      if (!err.statusCode || err.statusCode >= 500) {
         reply(err);
         return;
       }

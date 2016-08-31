@@ -14,7 +14,11 @@ pool.run(function (input, done) {
 });
 
 module.exports.processAchievements = function (news /*Array*/) {
-  return promise.all([News.getStats(), Achievement.findAll({raw: true}).then(utils.convertRawToJson), News.getAchievements()])
+  return promise.all([
+    News.getStats(),
+    Achievement.findAll({raw: true}).then(utils.convertRawToJson),
+    News.getAchievements()]
+  )
     .spread(function (stats, achievements, userAchievements) {
       return promise.map(news, function (newsItem) {
         return pool.send({

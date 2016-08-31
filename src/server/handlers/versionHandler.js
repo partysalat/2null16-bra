@@ -5,7 +5,6 @@ var packageInfo = require('pkginfo'),
   News = require("./../models/News"),
   Images = require("./../models/Image"),
   Achievement = require("./../models/Achievement"),
-//UserAchievement = require("./../models/UserAchievement"),
   promise = require("bluebird"),
   _ = require("lodash");
 require("./../models/UserAchievement");
@@ -54,7 +53,6 @@ module.exports.install = function (request, reply) {
     syncUser(),
     syncAchievements(),
     Images.sync({force: true})
-    //UserAchievement.sync({force: true})
   ]).then(function () {
       reply("OK");
     })
