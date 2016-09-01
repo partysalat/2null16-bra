@@ -8,6 +8,12 @@ module.exports = function ($stateProvider, $urlRouterProvider) {
 
       templateUrl: "accounting.html"
     })
+    .state('live', {
+      url: "/live",
+      controller: "LiveController",
+
+      templateUrl: "live.html"
+    })
     .state('news', {
       url: "/news",
       controller: "NewsController",

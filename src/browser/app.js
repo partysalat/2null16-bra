@@ -24,6 +24,7 @@ angular.module("app", [
 
   .controller("AccountingController", require("./sites/accounting/accountingController"))
   .controller("NewsController", require("./sites/news/newsController"))
+  .controller("LiveController", require("./sites/live/liveController"))
   .config(require("./config/mdTheme"))
   .config(['$compileProvider', function ($compileProvider) {
     $compileProvider.debugInfoEnabled(false);
