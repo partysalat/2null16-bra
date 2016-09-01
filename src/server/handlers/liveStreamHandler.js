@@ -1,5 +1,5 @@
 'use strict';
-var RaspiCam = require("raspicam");
+var raspivid = require("raspivid");
 var video;
 module.exports.stream = function (request, reply) {
   try{
@@ -11,25 +11,14 @@ module.exports.stream = function (request, reply) {
   }
 };
 module.exports.start = function (request, reply) {
-  video = new RaspiCam({
-    w:320,
-    h:240,
-    mode:"video",
-    output:"-"
+  video = raspivid({
+    width:320,
+    height:240
   });
-
-  video.start();
-  video.on("started",function(){
-    reply("ok");
-  });
+  reply("ok");
 };
 module.exports.stop = function (request, reply) {
   reply("ok");
-  if(video){
-    video.stop();
-  }
-  video  = null;
-
 };
 
 
