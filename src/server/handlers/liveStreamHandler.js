@@ -14,8 +14,8 @@ module.exports.start = function (request, reply) {
 
   video.start();
   video.on("started",function(){
-    reply("ok")
-  })
+    reply("ok");
+  });
 };
 module.exports.stop = function (request, reply) {
   reply("ok");
