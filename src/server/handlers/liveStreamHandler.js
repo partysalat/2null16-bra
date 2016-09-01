@@ -2,7 +2,13 @@
 var RaspiCam = require("raspicam");
 var video;
 module.exports.stream = function (request, reply) {
-  reply(video);
+  try{
+
+  reply(video).encoding("binary");
+  }catch(e){
+    console.error(e);
+    reply(e);
+  }
 };
 module.exports.start = function (request, reply) {
   video = new RaspiCam({
