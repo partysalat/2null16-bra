@@ -1,5 +1,8 @@
 'use strict';
-angular.module("socket",[])
+//require("angular-websocket")
+angular.module("socket",[
+  "ngWebSocket"
+])
 
   //.factory("socket",require("./socket"));
   .factory("socket",require("./webSocket"));

@@ -1,6 +1,6 @@
 'use strict';
 module.exports = function ($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise("/news");
+  $urlRouterProvider.otherwise("news");
   $stateProvider
     .state('accounting', {
       url: "/accounting",

@@ -30,8 +30,10 @@ var appBundler, vendorBundler;
 gulp.task("_scripts:vendor", function () {
     vendorBundler = browserify({
       entries: config.vendorEntries
+
     });
     vendorBundler.on('log', gutil.log);
+    vendorBundler.ignore("ws")
     var rev = require("gulp-hash");
     var browserLibraryStreamSources = browserLibraries || [];
     var browserLibraryStream = gulp.src(browserLibraryStreamSources).pipe(concat('browserLibs.js'));

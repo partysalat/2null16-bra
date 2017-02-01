@@ -56,15 +56,15 @@
     "vision": "^4.0.1"
   },
   "devDependencies": {
-    "angular": "~1.5.3",
-    "angular-animate": "~1.5.3",
-    "angular-aria": "~1.5.3",
+    "angular": "^1.5.3",
+    "angular-animate": "^1.5.3",
+    "angular-aria": "^1.5.3",
     "angular-fontawesome": "^0.4.0",
     "angular-material": "^1.0.7",
     "angular-messages": "~1.5.3",
     "angular-mocks": "^1.5.3",
     "angular-resource": "^1.5.3",
-    "angular-ui-router": "^0.2.18",
+    "angular-ui-router": "^0.3.2",
     "angular-websocket": "^2.0.1",
     "browser-sync": "^2.11.2",
     "browserify": "^13.0.0",
@@ -116,6 +116,7 @@
     "uglifyify": "^3.0.1",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.7.0"
+    "watchify": "^3.7.0",
+    "ws": "^2.0.0"
   }
 }
