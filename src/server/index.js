@@ -27,7 +27,8 @@ function create(connectionSettings, callback) {
   server.register([
     require('hapi-auth-basic'),
     require('inert'),
-    require('vision')
+    require('vision'),
+    require('h2o2')
     ], function (pluginInitializationErrors) {
     server.auth.strategy('simple', 'basic', { validateFunc: require("./auth/validate") });
     if (pluginInitializationErrors) {

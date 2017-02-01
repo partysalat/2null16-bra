@@ -1,13 +1,18 @@
 'use strict';
 var Joi = require("joi"),
   _ = require("lodash");
-
 var routes = [
-/*  {
+  {
     method: 'GET',
     path: '/api/drinks/{type}',
     config: {
-      handler: require('../handlers/drinkHandler.js').getDrink,
+      handler: {
+        proxy: {
+          host: 'localhost',
+          port: '9000',
+          protocol: 'http'
+        }
+      },
       validate: {
         params: {
           type: Joi.string().valid(require("./../models/Drink").DRINK_TYPES_ARR.map(_.toLower))
@@ -18,36 +23,52 @@ var routes = [
     method: 'POST',
     path: '/api/drinks/{type}',
     config: {
-      handler: require('../handlers/drinkHandler.js').saveDrink,
-      auth: 'simple',
-      validate: {
-        params: {
-          type: Joi.string().valid(require("./../models/Drink").DRINK_TYPES_ARR.map(_.toLower))
-        },
-        payload: {
-          name: Joi.string()
+      handler: {
+        proxy: {
+          host: 'localhost',
+          port: '9000',
+          protocol: 'http'
         }
-      }
+      },
+      auth: 'simple',
     }
   }, {
     method: 'GET',
     path: '/api/user',
     config: {
-      handler: require('../handlers/userHandler.js').getUsers
+      handler: {
+        proxy: {
+          host: 'localhost',
+          port: '9000',
+          protocol: 'http'
+        }
+      }
     }
   },
   {
     method: 'POST',
     path: '/api/user',
     config: {
-      handler: require('../handlers/userHandler.js').saveUser
+      handler: {
+        proxy: {
+          host: 'localhost',
+          port: '9000',
+          protocol: 'http'
+        }
+      }
     }
   },
   {
     method: 'GET',
     path: '/api/news/{page}',
     config: {
-      handler: require('../handlers/newsHandler').getNews,
+      handler: {
+        proxy: {
+          host: 'localhost',
+          port: '9000',
+          protocol: 'http'
+        }
+      },
       validate: {
         params: {
           page: Joi.number().integer()
@@ -59,13 +80,14 @@ var routes = [
     method: 'DELETE',
     path: '/api/news/item/{newsId}',
     config: {
-      handler: require('../handlers/newsHandler').remove,
-      auth: 'simple',
-      validate: {
-        params: {
-          newsId: Joi.number().integer()
+      handler: {
+        proxy: {
+          host: 'localhost',
+          port: '9000',
+          protocol: 'http'
         }
-      }
+      },
+      auth: 'simple',
     }
   },
 
@@ -73,11 +95,11 @@ var routes = [
     method: 'POST',
     path: '/api/drinks',
     config: {
-      handler: require('../handlers/newsHandler').save,
-      validate: {
-        payload: {
-          users: Joi.array(),
-          drink: Joi.number().integer()
+      handler: {
+        proxy: {
+          host: 'localhost',
+          port: '9000',
+          protocol: 'http'
         }
       }
     }
@@ -114,7 +136,13 @@ var routes = [
     method: 'GET',
     path: '/api/user/bestlist',
     config: {
-      handler: require('../handlers/userHandler').getBestlist,
+      handler: {
+        proxy: {
+          host: 'localhost',
+          port: '9000',
+          protocol: 'http'
+        }
+      },
       validate: {
         params: {
           imagePath: Joi.string(),
@@ -128,11 +156,11 @@ var routes = [
     method: 'GET',
     path: '/api/user/achievements',
     config: {
-      handler: require('../handlers/userHandler').getAchievements,
-      validate: {
-        params: {
-          imagePath: Joi.string(),
-          keeper: Joi.string()
+      handler: {
+        proxy: {
+          host: 'localhost',
+          port: '9000',
+          protocol: 'http'
         }
       }
 
@@ -151,10 +179,9 @@ var routes = [
       }
 
     }
-  }*/
+  }
 
 ];
 
 
 module.exports = routes;
-//module.exports = []
