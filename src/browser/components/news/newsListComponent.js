@@ -31,16 +31,22 @@ module.exports = {
             $ctrl.isPending  = false;
           }
 
+        })
+        .catch(function(err){
+          console.error(err);
+          $ctrl.isPending = false;
         });
     };
     function getNews(offset) {
       return new News()
         .$get({offset: offset});
+
     }
     getNews(0).then(function (news) {
       $ctrl.news = news.news;
       $ctrl.showLoadingIndicator = !_.isEmpty(news.news);
-    });
+    })
+      .catch(console.error.bind(console));
     
     $ctrl.isPending = false;
     $ctrl.news = [];
