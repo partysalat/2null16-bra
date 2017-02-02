@@ -26,11 +26,15 @@ module.exports = ["$websocket","$location","$timeout",function($websocket,$locat
 
     });
     socket.onClose(function(){
-      if(restartTimeout)return;
+      if(restartTimeout){
+        return;
+      }
       restartTimeout = $timeout(start,2000);
     });
     socket.onError(function(){
-      if(restartTimeout)return;
+      if(restartTimeout){
+        return;
+      }
       restartTimeout = $timeout(start,2000);
     });
 
@@ -41,5 +45,5 @@ module.exports = ["$websocket","$location","$timeout",function($websocket,$locat
   heartBeat();
   return {
     on:emitter.on.bind(emitter)
-  }
+  };
 }];

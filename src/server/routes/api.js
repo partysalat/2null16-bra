@@ -1,9 +1,11 @@
 'use strict';
-var Joi = require("joi"),
+var routes = [];
+
+/*var Joi = require("joi"),
   _ = require("lodash");
 
 var routes = [
-/*  {
+  {
     method: 'GET',
     path: '/api/drinks/{type}',
     config: {
@@ -151,10 +153,10 @@ var routes = [
       }
 
     }
-  }*/
+  }
 
 ];
-
+*/
 
 module.exports = routes;
 //module.exports = []
