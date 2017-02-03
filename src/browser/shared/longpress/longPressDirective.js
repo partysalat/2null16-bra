@@ -4,22 +4,32 @@ module.exports = function ($parse, $timeout) {
   return {
     restrict: 'A',
     link: function ($scope, $elm, $attrs) {
-      var timer;
+      var
+        timer,
+        mouseMoved;
       $elm.bind('touchstart', onEnter);
       $elm.bind('touchend', onExit);
+      $elm.bind('touchmove', onTouchMove);
 
       $elm.bind('mousedown', onEnter);
       $elm.bind('mouseup', onExit);
 
       $elm.bind('click', onClick);
-
+      function onTouchMove(evt){
+        console.log("TOUCHMOVE",evt);
+        mouseMoved = true;
+      }
       function onEnter(evt) {
+        mouseMoved = false;
         var functionHandler = $parse($attrs.onLongPress);
         $timeout.cancel(timer);
         //To handle click event properly
         $scope.longPressSent = false;
         // We'll set a timeout for 600 ms for a long press
         timer = $timeout(function () {
+          if(mouseMoved){
+            return;
+          }
           $scope.longPressSent = true;
           // If the touchend event hasn't fired,
           // apply the function given in on the element's on-long-press attribute
