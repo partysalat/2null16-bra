@@ -120,16 +120,15 @@ var routes = [
   },
   {
     method: 'POST',
-    path: '/api/photo',
+    path: '/api/photo/shoot',
     config: {
-      handler: require('../handlers/barkeeperHandler.js').takephoto,
-      validate: {
-        params: {
-          imagePath: Joi.string(),
-          keeper: Joi.string()
+      handler: {
+        proxy: {
+          host: 'localhost',
+          port: '9000',
+          protocol: 'http'
         }
       }
-
     }
   },
   {

@@ -122,6 +122,13 @@ Under server remove other locations and add
         sendfile_max_chunk 1m;
         tcp_nopush on;
  }
+ location /api {
+         proxy_pass http://localhost:9000;
+         proxy_http_version 1.1;
+         proxy_set_header Upgrade $http_upgrade;
+         proxy_set_header Connection "upgrade";
+         proxy_set_header Host $host;
+  }
  location / {
         proxy_pass http://localhost:1337;
         proxy_http_version 1.1;
@@ -133,6 +140,14 @@ Under server remove other locations and add
 ```
 sudo service nginx reload
 ```
+
+
+### Restart on boot
+Just execute 
+```
+pm2 startup
+```
+and pm2 will take care of the rest.
 
 ### Quirks
 Disable Raspberry pi wireless power management mode:
