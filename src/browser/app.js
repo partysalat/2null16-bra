@@ -19,7 +19,8 @@ angular.module("app", [
     require("./components/bestlist"),
     require("./components/revertDialog"),
     require("./components/news"),
-    require("./components/keeperList")
+    require("./components/keeperList"),
+    require("./components/livestream")
   ])
 
   .controller("AccountingController", require("./sites/accounting/accountingController"))

@@ -122,6 +122,12 @@ Under server remove other locations and add
         sendfile_max_chunk 1m;
         tcp_nopush on;
  }
+ location /internal/live/ {
+         alias /home/pi/live/;
+         sendfile   on;
+         sendfile_max_chunk 1m;
+         tcp_nopush on;
+ }
  location /api {
          proxy_pass http://localhost:9000;
          proxy_http_version 1.1;
