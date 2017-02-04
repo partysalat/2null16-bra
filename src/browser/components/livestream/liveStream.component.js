@@ -4,8 +4,8 @@ module.exports = {
   controller: ["socket", function (socket) {
     var $ctrl = this;
     socket.on("image.reload", reload);
-    function reload() {
-      $ctrl.imagePath = "http://bra/internal/live/stream.jpg?_=" + new Date().getTime();
+    function reload(base64Image) {
+      $ctrl.imagePath = "data:image/jpg;base64,"+base64Image
     }
     reload();
   }]
