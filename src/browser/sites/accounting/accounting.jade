@@ -49,3 +49,11 @@
             md-button.md-raised.md-warn.md-hue-1(flex="auto",style="height:100%",href="/api/user/bestlist/csv", target="_blank")
                 md-icon.fa(md-font-icon="fa-floppy-o",style="font-size:5vw")
                 h3 <br/>Download Accounting
+        md-grid-tile(md-rowspan="1" md-colspan="1" md-colspan-sm="1")
+            md-button.md-raised.md-warn.md-hue-1(flex="auto",style="height:100%",data-ng-click="startCam()", target="_blank")
+                md-icon.fa(md-font-icon="fa-play",style="font-size:5vw")
+                h3 <br/> Start Camera
+        md-grid-tile(md-rowspan="1" md-colspan="1" md-colspan-sm="1")
+            md-button.md-raised.md-warn.md-hue-1(flex="auto",style="height:100%",data-ng-click="stopCam()", target="_blank")
+                md-icon.fa(md-font-icon="fa-stop",style="font-size:5vw")
+                h3 <br/> Stop Camera

@@ -9,6 +9,8 @@ module.exports = function ($scope, drinkDialogService,drinkDataService,newResour
   $scope.openNewUser = newResourceDialogService.openNewUser;
   $scope.openNewDrink = newResourceDialogService.openNewDrink;
   $scope.takePhoto = cameraService.takePhoto;
+  $scope.startCam = cameraService.startCam;
+  $scope.stopCam = cameraService.stopCam;
   $scope.revertNews = revertNewsService.openModalForRevert;
 
 };

@@ -169,11 +169,39 @@ var routes = [
     method: 'GET',
     path: '/api/user/bestlist/csv',
     config: {
-      handler: require('../handlers/userHandler').getBestlistAsCSV,
-      validate: {
-        params: {
-          imagePath: Joi.string(),
-          keeper: Joi.string()
+      handler: {
+        proxy: {
+          host: 'localhost',
+          port: '9000',
+          protocol: 'http'
+        }
+      }
+
+    }
+  },
+  {
+    method: 'POST',
+    path: '/api/photo/stream/start',
+    config: {
+      handler: {
+        proxy: {
+          host: 'localhost',
+          port: '9000',
+          protocol: 'http'
+        }
+      }
+
+    }
+  },
+  {
+    method: 'POST',
+    path: '/api/photo/stream/stop',
+    config: {
+      handler: {
+        proxy: {
+          host: 'localhost',
+          port: '9000',
+          protocol: 'http'
         }
       }
 
