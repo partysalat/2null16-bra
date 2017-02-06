@@ -6,6 +6,9 @@ module.exports = {
     $ctrl.show = false;
     socket.on("image.reload", reload);
     function reload(base64Image) {
+      if(!base64Image){
+        return;
+      }
       $ctrl.show = true;
       $ctrl.imagePath = "data:image/jpg;base64,"+base64Image;
     }
