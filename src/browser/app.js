@@ -15,6 +15,7 @@ angular.module("app", [
     require("./components/socketio"),
     require("./components/camera"),
     require("./components/cameraButton"),
+    require("./components/refreshButton"),
     require("./components/infinitescroll"),
     require("./components/bestlist"),
     require("./components/revertDialog"),
