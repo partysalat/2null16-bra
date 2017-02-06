@@ -17,6 +17,7 @@ module.exports = function ($stateProvider, $urlRouterProvider) {
     .state('news', {
       url: "/news",
       controller: "NewsController",
+      controllerAs:"$ctrl",
       templateUrl: "news.html"
     });
 

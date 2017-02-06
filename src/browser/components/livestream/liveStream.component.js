@@ -13,5 +13,9 @@ module.exports = {
       $ctrl.imagePath = "data:image/jpg;base64,"+base64Image;
     }
     reload();
+    $ctrl.$onDestroy = function () {
+      socket.off("image.reload",reload);
+    };
+
   }]
 };

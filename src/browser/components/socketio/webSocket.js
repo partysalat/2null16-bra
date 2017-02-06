@@ -1,6 +1,7 @@
 'use strict';
 module.exports = ["$websocket","$location","$timeout",function($websocket,$location,$timeout){
   var path = "ws://"+$location.host() + ":9000/api/socket";
+  //var path = "ws://bra:9000/api/socket";
   var
     socket,
     restartTimeout;
@@ -41,9 +42,9 @@ module.exports = ["$websocket","$location","$timeout",function($websocket,$locat
 
   }
   start();
-
   heartBeat();
   return {
-    on:emitter.on.bind(emitter)
+    on:emitter.on.bind(emitter),
+    off:emitter.removeListener.bind(emitter)
   };
 }];

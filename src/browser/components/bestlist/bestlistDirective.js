@@ -3,6 +3,7 @@ module.exports = {
   templateUrl: 'bestlistDirective.html',
   controller: ["socket", "Bestlist", "Achievements", function (socket, Bestlist, Achievements) {
     var $ctrl = this;
+
     function getAchievements() {
       new Achievements().$get().then(function (achievements) {
         $ctrl.achievements = achievements;
@@ -17,13 +18,18 @@ module.exports = {
       });
     }
 
-    socket.on("news", function () {
+    function reloadBestlist() {
       getBestlist();
       getAchievements();
-    });
+    }
+
+    socket.on("news", reloadBestlist);
 
     this.getAchievementForUser = function (userId) {
       return this.achievements ? this.achievements[userId] : {};
+    };
+    this.$onDestroy = function () {
+      socket.off("news", reloadBestlist);
     };
     getBestlist();
     getAchievements();
