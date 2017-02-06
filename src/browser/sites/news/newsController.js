@@ -7,7 +7,7 @@ module.exports = function ($window,$scope) {
   $window.addEventListener("resize",_.throttle(function(){
     $ctrl.isDesktop = mq.matches;
     $scope.$digest();
-  },200))
+  },200));
 
 };
 
