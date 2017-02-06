@@ -28,3 +28,9 @@
                 md-tab(label="Livestream")
                     md-content(style="overflow-y:hidden")
                         livestream
+                md-tab(label="Du trinkst!")
+                    md-content(style="overflow-y:hidden")
+                        iframe.dutrinkst(
+                            src="https://rhy7gvx9t1.execute-api.eu-west-1.amazonaws.com/dev/dutrinkst",
+                            frameborder=0
+                            )
