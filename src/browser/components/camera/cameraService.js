@@ -17,10 +17,10 @@ module.exports = function (Photo, $mdToast,$http) {
       return new Photo().$save().catch(errorHandler);
     },
     startCam: function(){
-      return $http.post("/api/photo/stream/start").catch(errorHandler)
+      return $http.post("/api/photo/stream/start").catch(errorHandler);
     },
     stopCam:function(){
-      return $http.post("/api/photo/stream/stop").catch(errorHandler)
+      return $http.post("/api/photo/stream/stop").catch(errorHandler);
     }
 
 
