@@ -7,12 +7,24 @@
             keeper-list
             camera-button
 
-    div(layout="column",layout-gt-xs="row")
+    div(layout="column",layout-gt-xs="row",data-ng-if="$ctrl.isDesktop")
         div(flex-gt-xs="60",style="height:100%")
             md-content(style="overflow-y:hidden")
                 news-list(list="news")
 
-        div(data-layout-margin,hide-xs, flex-gt-xs="40",style="height:100%",data-ng-if="$ctrl.isDesktop")
+        div(data-layout-margin,hide-xs, flex-gt-xs="40",style="height:100%")
             md-content
                 livestream
                 bestlist(list="bestlist",achievements="achievements")
+    div(data-ng-if="!$ctrl.isDesktop")
+        md-content(style="overflow-y:hidden")
+            md-tabs(md-dynamic-height md-border-bottom, style="overflow:noscroll")
+                md-tab(label="Newsfeed")
+                    md-content(style="overflow-y:hidden")
+                        news-list(list="news")
+                md-tab(label="Bestlist")
+                    md-content(style="overflow-y:hidden")
+                        bestlist(list="bestlist",achievements="achievements")
+                md-tab(label="Livestream")
+                    md-content(style="overflow-y:hidden")
+                        livestream
