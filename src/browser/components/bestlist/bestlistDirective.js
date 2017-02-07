@@ -1,4 +1,5 @@
 'use strict';
+var _ = require("lodash");
 module.exports = {
   templateUrl: 'bestlistDirective.html',
   controller: ["socket", "Bestlist", "Achievements", function (socket, Bestlist, Achievements) {
@@ -23,7 +24,7 @@ module.exports = {
       getAchievements();
     }
 
-    socket.on("news", reloadBestlist);
+    socket.on("news", _.debounce(reloadBestlist,1000,{trailing:true}));
 
     this.getAchievementForUser = function (userId) {
       return this.achievements ? this.achievements[userId] : {};
