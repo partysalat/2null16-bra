@@ -23,14 +23,14 @@ module.exports = {
       getBestlist();
       getAchievements();
     }
-
-    socket.on("news", _.debounce(reloadBestlist,1000,{trailing:true}));
+    var reloadBestlistDebounced = _.debounce(reloadBestlist,1000,{trailing:true});
+    socket.on("news", reloadBestlistDebounced);
 
     this.getAchievementForUser = function (userId) {
       return this.achievements ? this.achievements[userId] : {};
     };
     this.$onDestroy = function () {
-      socket.off("news", reloadBestlist);
+      socket.off("news", reloadBestlistDebounced);
     };
     getBestlist();
     getAchievements();
