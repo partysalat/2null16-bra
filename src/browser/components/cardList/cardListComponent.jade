@@ -1,4 +1,4 @@
-md-card.animated.rollIn(ng-repeat="item in $ctrl.list track by item.id")
+md-card.animated.rollIn(ng-repeat="item in $ctrl.list track by item.id | unique:'id'")
     md-card-header(data-ng-if="::(item.type==='IMAGE')")
         md-card-avatar
             img.bra-news-image(data-ng-src="/internal/assets/brashot.jpg",data-ng-if="::(item.type==='IMAGE')")
