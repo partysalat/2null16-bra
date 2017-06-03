@@ -1,7 +1,7 @@
-md-card.animated.rollIn(ng-repeat="item in $ctrl.list track by item.id | unique:'id'")
+md-card.animated.lightSpeedIn(ng-repeat="item in $ctrl.list track by item.id | unique:'id'")
     md-card-header(data-ng-if="::(item.type==='IMAGE')")
         md-card-avatar
-            img.bra-news-image(data-ng-src="/internal/assets/brashot.jpg",data-ng-if="::(item.type==='IMAGE')")
+            img.bra-news-image(src="/internal/assets/brashot.jpg",data-ng-if="::(item.type==='IMAGE')")
         md-card-header-text
             span.md-title(style="font-size:24px") <b>B.R.A Shot</b>
     img.md-card-image.bra-snapshot(md-lightbox md-lightbox-title="B.R.A Shot",data-ng-src="/internal/images/{{item.image.path}}", alt='Washed Out',data-ng-if="::(item.type==='IMAGE')")

@@ -1,14 +1,27 @@
 @import './../../../node_modules/angular-material/angular-material.min.css'
 @import './animate.css'
 
+@font-face {
+  font-family: 'Oldschool';
+  src: url('../assets/fonts/OldSchoolClass3001.ttf');
+  font-weight: normal;
+  font-style: normal
+}
+
+
+h1, h2, h3, h4, h5, md-tab-item
+  font-family: 'Oldschool', sans-serif;
+
 html,body
-  background: #000;
-  background-image: url('rainbow.png')
-  background-repeat no-repeat
-  background-position-y: 50%;
-  background-size: cover;
-  color:white;
-  font-family: 'Dosis', sans-serif;
+  //background: #89CCCA;
+  background: #fff;
+  //background-image: url('rainbow.png')
+  //background-repeat no-repeat
+  //background-position-y: 50%;
+  //background-size: cover;
+  color:#666;
+  //font-family: 'Dosis', sans-serif;
+  font-family: 'Oldschool', sans-serif;
 
 .active
   background-color: rgb(100,100,100)
@@ -38,7 +51,15 @@ html,body
 md-card
   background-color:transparent
   box-shadow: none
-
+  //border: 25px solid transparent;
+  //-webkit-border-image: url(gisela_border.png) 15 round; /* Safari 3.1-5 */
+  //-o-border-image: url(gisela_border.png) 15 round; /* Opera 11-12.1 */
+  //border-image-source: url(gisela_border.png);
+  //border-image-repeat round
+  //border-image-width 40px
+  //border-image-slice: 40
+  //border-image: url(gisela_border.png) 40 40 0 repeat
+//border-image: source slice width outset repeat
 .bestlist-detail
   &:last-child:after
     content:""
@@ -73,6 +94,10 @@ md-dialog
   md-slider
     margin-top:20px;
 
+.n16-header .text {
+  margin-left 50px
+}
+
 img.logo
   height:50px
 
@@ -81,7 +106,7 @@ img.logo
 
 
 .colortext
-  color:#F4008C
+  color:#89CCCA
 md-toolbar button.md-button.n16-keeper-button
   border-radius 50px
   border:1px solid white;
