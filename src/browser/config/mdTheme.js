@@ -3,6 +3,6 @@ module.exports =  function ($mdThemingProvider) {
   $mdThemingProvider.theme('default')
     .primaryPalette('cyan')
     .accentPalette('red')
-    // .dark();
+    .dark();
 };
 module.exports.$inject = ["$mdThemingProvider"];
