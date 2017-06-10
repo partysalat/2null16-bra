@@ -12,8 +12,9 @@ md-card.animated.lightSpeedIn.n16-border(ng-repeat="item in $ctrl.list track by 
         md-card-title-text
             span.md-title(data-ng-if="::(item.type==='ACHIEVEMENT')",style="font-size:24px")
                 | <b>{{ ::item.user.name }}</b> hat das Achievement <b data-ng-bind-html="::(item.achievement.name|colortext)"></b> erreicht.
+                | <span class="cardlist__subtext">({{::item.achievement.description}})</span>
             span.md-title(data-ng-if="::(item.type==='DRINK')" style="font-size:24px")
-                |  <b>{{ ::item.user.name }}</b> hat {{::item.cardinality}}x <b>{{ ::item.drink.name }}</b> bestellt.
+                |  <b>{{ ::item.user.name }}</b> hat {{::item.cardinality}}x <b data-ng-bind-html="::(item.drink.name|colortext)"></b> bestellt.
 
     md-card-content(style="padding-top:0")
         span.md-subhead {{ ::(item.createdAt|toDate|date:'medium') }}
