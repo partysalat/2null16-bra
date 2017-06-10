@@ -37,7 +37,7 @@ module.exports = function ($scope, $mdDialog,data,users,$timeout) {
     $timeout(function(){
       var element = angular.element(document.querySelectorAll(".md-open-menu-container.md-whiteframe-z2"));
       element.css({
-        left:$event.clientX + "px",
+        left:($event.clientX -115) + "px",
         top:$event.clientY + "px"
       });
     });
