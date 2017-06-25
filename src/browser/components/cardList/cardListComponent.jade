@@ -1,4 +1,4 @@
-md-card.animated.lightSpeedIn.n16-border(ng-repeat="item in $ctrl.list track by item.id | unique:'id'")
+md-card.animated.flicker-in-1.n16-border(ng-repeat="item in $ctrl.list track by item.id | unique:'id'")
     md-card-header(data-ng-if="::(item.type==='IMAGE')")
         md-card-avatar
             img.bra-news-image(src="/internal/assets/brashot.jpg",data-ng-if="::(item.type==='IMAGE')")
