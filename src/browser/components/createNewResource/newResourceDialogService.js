@@ -1,6 +1,6 @@
 'use strict';
 module.exports = function ($mdDialog, $q,createResourceService,$mdToast) {
-  var DRINK_TYPES = ["COCKTAIL","SHOT","BEER","COFFEE","SOFTDRINK"];
+  var DRINK_TYPES = ["COCKTAIL","SHOT","BEER","SOFTDRINK"];
   function openModalAndSaveDrink(ev){
     return $mdDialog.show({
         controller: require("./dialogNewDrinkController"),
